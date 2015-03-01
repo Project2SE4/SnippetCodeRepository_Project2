@@ -1,0 +1,772 @@
+รวม Source_Code,,
+C#,Contents,SourceCode
+1, Caluculate the power exponent value,using System;
+,,using System.Collections.Generic;
+,,using System.Linq;
+,,using System.Text;
+,,namespace Inheritance
+,,{
+,,    class Program
+,,    {
+,,        static void Main(string[] args)
+,,        {
+,,            Teacher d = new Teacher();
+,,            d.Teach();
+,,            Student s = new Student();
+,,            s.Learn();
+,,            s.Teach();
+,,            Console.ReadKey();
+,,        }
+,,        class Teacher
+,,        {
+,,            public void Teach()
+,,            {
+,,"                Console.WriteLine(""Teach"");"
+,,            }
+,,        }
+,,        class Student : Teacher
+,,        {
+,,            public void Learn()
+,,            {
+,,"                Console.WriteLine(""Learn"");"
+,,            }
+,,        }
+,,    }
+,,}
+,,
+2, Create a File,using System;
+,,using System.IO;
+,,using System.Text;
+,,class Test
+,,{
+,,    public static void Main()
+,,    {
+,,"        string textpath = @""c:\sri\test.txt"";"
+,,        using (FileStream fs = File.Create(textpath))
+,,        {
+,,"            Byte[] info = new UTF8Encoding(true).GetBytes(""File is Created"");"
+,,"            fs.Write(info, 0, info.Length);"
+,,        } 
+,,        using (StreamReader sr = File.OpenText(textpath))
+,,        {
+,,"            string s = """";"
+,,            while ((s = sr.ReadLine()) != null)
+,,            {
+,,                Console.WriteLine(s);
+,,            }
+,,        }
+,,        Console.Read();
+,,    }
+,,}
+,,
+3,Read Contents of a File,using System;
+,,using System.IO;
+,,class FileRead
+,,{
+,,    public void readdata()
+,,    {
+,,"        FileStream fs = new FileStream(""Myfile.txt"", FileMode.Open, FileAccess.Read);"
+,,        StreamReader sr = new StreamReader(fs);//Position the File Pointer at the Beginning of the File
+,,"        sr.BaseStream.Seek(0, SeekOrigin.Begin);//Read till the End of the File is Encountered"
+,,        string str = sr.ReadLine();
+,,        while (str != null)
+,,        {
+,,"            Console.WriteLine(""{0}"", str);"
+,,            str = sr.ReadLine();
+,,        }
+,,        //Close the Writer and File
+,,        sr.Close();
+,,        fs.Close();
+,,    }
+,,    public static void Main(String[] args)
+,,    {
+,,        FileRead fr = new FileRead();
+,,        fr.readdata();
+,,    }
+,,}
+,,
+4,View the Information of the File,using System;
+,,using System.IO;
+,,class Program
+,,{
+,,    static void Main()
+,,    {
+,,"        FileInfo info = new FileInfo(""C:\\sri\\srip.txt"");"
+,,        FileAttributes attributes = info.Attributes;
+,,"        Console.WriteLine(""Nature(Attribute) of the File : {0}"",attributes);"
+,,        Console.Read();
+,,    }
+,,}
+,,
+5,Search Directories and List Files,using System;
+,,using System.IO;
+,,class Program
+,,{
+,,    static void Main()
+,,    {
+,,"        string[] Dirfile = Directory.GetFiles(""C:\\sri\\"",""*.*"",SearchOption.AllDirectories);"
+,,        foreach (string file in Dirfile)
+,,        {
+,,            Console.WriteLine(file);
+,,        }
+,,        Console.Read();
+,,    }
+,,}
+,,
+6,Read Lines from a File until the End of File is Reached,using System;
+,,using System.IO;
+,,class Test
+,,{
+,,    public static void Main()
+,,    {
+,,"        string path = @""c:\sri\srip.txt"";"
+,,        try
+,,        {
+,,            if (File.Exists(path))
+,,            {
+,,                File.Delete(path);
+,,            }
+,,            using (StreamWriter sw = new StreamWriter(path))
+,,            {
+,,"                sw.WriteLine(""This"");"
+,,"                sw.WriteLine(""text is"");"
+,,"                sw.WriteLine(""to test"");"
+,,"                sw.WriteLine(""Reading"");"
+,,            }
+,, 
+,,            using (StreamReader sr = new StreamReader(path))
+,,            {
+,,                while (sr.Peek() >= 0)
+,,                {
+,,                    Console.WriteLine(sr.ReadLine());
+,,                }
+,,            }
+,,        }
+,,        catch (Exception e)
+,,        {
+,,"            Console.WriteLine(""The process failed: {0}"", e.ToString());"
+,,        }
+,,        Console.Read();
+,,    }
+,,}
+,,
+7,Find Minimum and Maximum of Numbers,using System;
+,,using System.Linq;
+,,class Program
+,,{
+,,    static void Main()
+,,    {
+,,"        int[] array1 = { 10, -10, -20, 0,15,20,30 };"
+,,"        Console.WriteLine(""Maximum Element : "" +array1.Max());"
+,,"        Console.WriteLine(""Minimum Element : "" +array1.Min());"
+,,        Console.Read();
+,,    }
+,,}
+,,
+8,Establish Client Server Relationship,//SERVER PROGRAM
+,,using System;
+,,using System.Collections.Generic;
+,,using System.Linq;
+,,using System.Text;
+,,using System.Net;
+,,using System.Net.Sockets;
+,,namespace Server336
+,,{
+,,    class Program
+,,    {
+,,        static void Main(string[] args)
+,,        {
+,,            try
+,,            {
+,,"                IPAddress ipAd = IPAddress.Parse(""10.18.227.162"");"
+,,"                TcpListener myList = new TcpListener(ipAd, 8001);"
+,,                myList.Start();
+,,"                Console.WriteLine(""The server is running at port 8001..."");"
+,,"                Console.WriteLine(""The local End point is  :"" + myList.LocalEndpoint);"
+,,"                Console.WriteLine(""Waiting for a connection....."");"
+,,                Socket s = myList.AcceptSocket();
+,,"                Console.WriteLine(""Connection accepted from "" + s.RemoteEndPoint);"
+,,                byte[] b = new byte[100];
+,,                int k = s.Receive(b);
+,,"                Console.WriteLine(""Recieved..."");"
+,,                for (int i = 0; i < k; i++)
+,,                {
+,,                    Console.Write(Convert.ToChar(b[i]));
+,,                }
+,,                ASCIIEncoding asen = new ASCIIEncoding();
+,,"                s.Send(asen.GetBytes(""The string was recieved by the server.""));"
+,,"                Console.WriteLine(""\nSent Acknowledgement"");"
+,,                s.Close();
+,,                myList.Stop();
+,,            }
+,,            catch (Exception e)
+,,            {
+,,"                Console.WriteLine(""Error..... "" + e.StackTrace);"
+,,            }
+,,            Console.ReadLine();
+,,        }
+,,    }
+,,}
+,, 
+,,//CLIENT PROGRAM
+,,using System;
+,,using System.Collections.Generic;
+,,using System.Linq;
+,,using System.Text;
+,,using System.IO;
+,,using System.Net;
+,,using System.Text;
+,,using System.Net.Sockets;
+,, 
+,,namespace Client336
+,,{
+,,    class Program
+,,    {
+,,        static void Main(string[] args)
+,,        {
+,,            try
+,,            {
+,,                TcpClient tcpclnt = new TcpClient();
+,,"                Console.WriteLine(""Connecting....."");"
+,,"                tcpclnt.Connect(""10.18.227.162"", 8001);                "
+,,"                Console.WriteLine(""Connected"");"
+,,"                Console.Write(""Enter the string to be transmitted : "");"
+,,                String str = Console.ReadLine();
+,,                Stream stm = tcpclnt.GetStream();
+,,                ASCIIEncoding asen = new ASCIIEncoding();
+,,                byte[] ba = asen.GetBytes(str);
+,,"                Console.WriteLine(""Transmitting....."");"
+,,"                stm.Write(ba, 0, ba.Length);"
+,,                byte[] bb = new byte[100];
+,,"                int k = stm.Read(bb, 0, 100);"
+,,                for (int i = 0; i < k; i++)
+,,                    Console.Write(Convert.ToChar(bb[i]));
+,,                tcpclnt.Close();
+,,                Console.Read();
+,,            }
+,,            catch (Exception e)
+,,            {
+,,"                Console.WriteLine(""Error..... "" + e.StackTrace);"
+,,            }
+,,        }
+,,    }
+,,}
+,,
+9,Display the IP Address of the Machine,using System;
+,,using System.Net;
+,,namespace Program
+,,{
+,,    class Program
+,,    {
+,,        static void Main()
+,,        {
+,,            String strHostName = string.Empty; //getting the Host Name.
+,,            strHostName = Dns.GetHostName();
+,,"            Console.WriteLine(""Local Machine's Host Name: "" + strHostName);"
+,,"            IPHostEntry ipEntry = Dns.GetHostEntry(strHostName);// Using Host Name,IP address is obtained."
+,,            IPAddress[] addr = ipEntry.AddressList;
+,, 
+,,            for (int i = 0; i < addr.Length; i++)
+,,            {
+,,"                Console.WriteLine(""IP Address {1} : "",addr[i].ToString());"
+,,            }
+,,            Console.ReadLine();
+,,        }
+,,    }
+,,}
+,,
+10,Implement UDP,//SERVER SIDE PROGRAM
+,, 
+,,using System;
+,,using System.Net;
+,,using System.Net.Sockets;
+,,using System.Text;
+,,using System.Configuration;
+,, 
+,,class EmployeeUDPServer
+,,{
+,,    public static void Main()
+,,    {
+,,        UdpClient udpc = new UdpClient(2055);
+,,"        Console.WriteLine(""Server started, servicing on port 2055"");"
+,,        IPEndPoint ep = null;
+,,        while (true)
+,,        {
+,,            byte[] rdata = udpc.Receive(ref ep);
+,,            string name = Encoding.ASCII.GetString(rdata);
+,,            string job = ConfigurationSettings.AppSettings[name];
+,,"            if (job == null) job = ""No such employee"";"
+,,            byte[] sdata = Encoding.ASCII.GetBytes(job);
+,,"            udpc.Send(sdata, sdata.Length, ep);"
+,,        }
+,,    }
+,,}//XML CODING
+,, 
+,,"<?xml version=""1.0"" encoding=""utf-8"" ?>"
+,,<configuration>
+,,  <appSettings>
+,,"    <add key = ""mickey"" value=""manager""/>"
+,,"    <add key = ""bob"" value=""tester""/>"
+,,"    <add key = ""tom"" value=""clerk""/>"
+,,"    <add key = ""jerry"" value=""manager""/>"
+,,  </appSettings>
+,,</configuration>
+,, 
+,,//CLIENT SIDE PROGRAM
+,, 
+,,using System;
+,,using System.Net;
+,,using System.Net.Sockets;
+,,using System.Text;
+,,class EmployeeUDPClient
+,,{
+,,    public static void Main(string[] args)
+,,    {
+,,"        UdpClient udpc = new UdpClient(""Win7-PC"", 2055);"
+,,        IPEndPoint ep = null;
+,,        while (true)
+,,        {
+,,"            Console.Write(""Name: "");"
+,,            string name = Console.ReadLine();
+,,"            if (name == """") break;"
+,,            byte[] sdata = Encoding.ASCII.GetBytes(name);
+,,"            udpc.Send(sdata, sdata.Length);"
+,,            byte[] rdata = udpc.Receive(ref ep);
+,,            string job = Encoding.ASCII.GetString(rdata);
+,,            Console.WriteLine(job);
+,,        }
+,,    }
+,,}
+,,
+11,Generate Fibonacci Series,using System;
+,,using System.Collections.Generic;
+,,using System.Linq;
+,,using System.Text;
+,, 
+,,namespace fibonaci
+,,{
+,,    class Program
+,,    {
+,,        static void Main(string[] args)
+,,        {
+,,"            int i, count, f1 = 0, f2 = 1, f3 = 0;"
+,,"            Console.Write(""Enter the Limit : "");"
+,,            count = int.Parse(Console.ReadLine());
+,,            Console.WriteLine(f1);
+,,            Console.WriteLine(f2);
+,,            for (i = 0; i <= count; i++)
+,,            {
+,,                f3 = f1 + f2;
+,,                Console.WriteLine(f3);
+,,                f1 = f2;
+,,                f2 = f3;
+,,            }
+,,            Console.ReadLine();
+,, 
+,,        }
+,,    }
+,,}
+,,
+12,Generate the Factorial of  Given Number ,using System;
+,,using System.Collections.Generic;
+,,using System.Linq;
+,,using System.Text;
+,, 
+,,namespace factorial
+,,{
+,,    class Program
+,,    {
+,,        static void Main(string[] args)
+,,        {
+,,"            int i, number, fact;"
+,,"            Console.WriteLine(""Enter the Number"");"
+,,            number = int.Parse(Console.ReadLine());
+,,            fact = number;
+,,            for (i = number - 1; i >= 1; i--)
+,,            {
+,,                fact = fact * i;
+,,            }
+,,"            Console.WriteLine(""\nFactorial of Given Number is: ""+fact);"
+,,            Console.ReadLine();
+,, 
+,,        }
+,,    }
+,,}
+,,
+13,Generate the Sum of N Numbers,using System;
+,,using System.Collections.Generic;
+,,using System.Linq;
+,,using System.Text;
+,, 
+,,namespace program
+,,{
+,,    class Program
+,,    {
+,,        static void Main(string[] args)
+,,        {
+,,"            int i, sum = 0,n;"
+,,"            Console.Write(""Enter the Nth Number : "");"
+,,            n = int.Parse(Console.ReadLine());
+,,            for (i = 0; i <= n; i++)
+,,            {
+,,                sum = sum + i;
+,,            }
+,,"            Console.WriteLine(""\nSum of N Numbers : "" + sum);"
+,,            Console.ReadLine();
+,, 
+,,        }
+,,    }
+,,}
+,,
+14,Calculate Simple Interest,using System;
+,,namespace Interest
+,,{
+,, class Program
+,, {
+,, static void Main(string[] args)
+,, {
+,,     int year;
+,,"     double princamt,rate, interest, total_amt;"
+,,"     Console.Write(""Enter The Loan Amount : "");"
+,,     princamt = Convert.ToDouble(Console.ReadLine());
+,,"     Console.Write(""Enter The Number of Years : "");"
+,,     year = Convert.ToInt16(Console.ReadLine());
+,,"     Console.Write(""Enter the Rate Of Interest : "");"
+,,     rate = Convert.ToDouble(Console.ReadLine());
+,,     interest = princamt * year * rate / 100;
+,,     total_amt = princamt + interest;
+,,"     Console.WriteLine(""Total Amount : {0}"", total_amt);"
+,,     Console.ReadLine();
+,, }
+,, }
+,,}
+,,
+15,Calculate Period Duration,using System;
+,,class CompareDates
+,,{
+,, 
+,,    public static void Main()
+,,    {
+,,        DateTime today = DateTime.Now;
+,,"        DateTime yesterday = today - new TimeSpan(1, 0, 0, 0);"
+,,"        DateTime tomorrow = today + new TimeSpan(1, 0, 0, 0);"
+,,"        Console.WriteLine(""Yesterday was     {0}"", yesterday);"
+,,"        Console.WriteLine(""Today     is      {0}"", today);"
+,,"        Console.WriteLine(""Tomorrow  will be {0}"", tomorrow);"
+,,"        Console.WriteLine(""\nIs yesterday less than today?   {0}."","
+,,           yesterday < today);
+,,"        Console.WriteLine(""Is today the same as tomorrow ? {0}."","
+,,           today == tomorrow);
+,, 
+,,"        TimeSpan totalTimespan = new TimeSpan(3, 5, 24, 17) +"
+,,"                                 new TimeSpan(1, 18, 35, 43);"
+,,        Console.WriteLine(
+,,"           ""\nThe length of the period is {0} days {1} hours"" +"
+,,"           "" {2} minutes {3} seconds."","
+,,"           totalTimespan.Days, totalTimespan.Hours,"
+,,"           totalTimespan.Minutes, totalTimespan.Seconds);"
+,,        Console.ReadLine();
+,,    }
+,, 
+,,}
+,,
+16,Find Square Root of a Given Number,using System;
+,,using System.Text;
+,,using System.Collections;
+,,using System.Data;
+,,namespace Cons
+,,{
+,,    public class squareroot
+,,    {
+,,        public static void Main()
+,,        {
+,,"                Console.WriteLine(""Enter a Number : "");"
+,,                int Number = Convert.ToInt16(Console.ReadLine());
+,,                double SqrtNumber = Math.Sqrt(Number);
+,,"                Console.WriteLine(""Square root of {0} is: {1}"", Number, SqrtNumber);"
+,,                Console.ReadLine();
+,,        }
+,,    }
+,,}
+,,
+17,Calculate Area and Volume of a Cone,using System;
+,,using System.IO;
+,,class program
+,,{
+,,    public static void Main()
+,,    {
+,,"        double r, h, surface_area, volume;"
+,,        double PI = 3.14;
+,,"        Console.WriteLine(""Enter the Radius and Height of a cone : "");"
+,,        r = Convert.ToDouble(Console.ReadLine());
+,,        h = Convert.ToDouble(Console.ReadLine());
+,,        surface_area = PI * r * (r + Math.Sqrt(r * r + h * h));
+,,        volume = (1.0 / 3) * PI * r * r * h;
+,,"        Console.WriteLine(""Surface Area of cone is : {0} "", surface_area);"
+,,"        Console.WriteLine(""Volume of Cone is : {0}"", volume);"
+,,        Console.Read();
+,,    }
+,,}
+,,
+18,Check the Edge Values in Power Function,using System;
+,,class Program
+,,{
+,,    static void Main()
+,,    {
+,,"        double value1 = Math.Pow(double.MinValue, double.MaxValue);"
+,,"        double value2 = Math.Pow(double.MinValue, 0);"
+,,"        double value3 = Math.Pow(double.NaN, 2);"
+,,"        double value4 = Math.Pow(double.PositiveInfinity, 2);"
+,,"        double value5 = Math.Pow(double.NegativeInfinity, 2);"
+,,"        Console.WriteLine(""Result : {0}"", value1);"
+,,"        Console.WriteLine(""Result : {0}"", value2);"
+,,"        Console.WriteLine(""Result : {0}"", value3);"
+,,"        Console.WriteLine(""Result : {0}"", value4);"
+,,"        Console.WriteLine(""Result : {0}"", value5);"
+,,        Console.ReadLine();
+,,    }
+,,}
+,,
+19,Calculate Compound Interest,using System;
+,,namespace compund
+,,{
+,,    class compound
+,,    {
+,,        static void Main(string[] args)
+,,        {
+,,"            double Total = 0, interestRate, years, annualCompound, Amount;"
+,,"            Console.Write(""Enter the Initial Amount : "");"
+,,            Amount = Convert.ToDouble(Console.ReadLine());
+,,"            Console.Write(""Enter the Rate of Interest : "");"
+,,            interestRate = Convert.ToDouble(Console.ReadLine()) / 100;
+,,"            Console.Write(""Enter the Number of Years : "");"
+,,            years = Convert.ToDouble(Console.ReadLine());
+,,"            Console.Write(""Number of Times the Interest will be Compounded : "");"
+,,            annualCompound = Convert.ToDouble(Console.ReadLine());
+,,            for (int t = 1; t < years + 1; t++)
+,,            {
+,,"                Total = Amount * Math.Pow((1 + interestRate / annualCompound), (annualCompound * t));"
+,,"                Console.Write(""Your Total for Year {0} """
+,,"                            + ""is {1:F0}. \n"", t, Total);"
+,, 
+,,            }
+,, 
+,,            Console.ReadLine();
+,,        }
+,,    }
+,,}
+,,
+20,Calculate the power exponent value,using System;
+,,class Program
+,,{
+,,    static void Main()
+,,    {
+,, 
+,,"        double m, n;"
+,,"        Console.WriteLine(""Enter the Number : "");"
+,,        m = double.Parse(Console.ReadLine());
+,,"        Console.WriteLine(""Enter the Exponent : "");"
+,,        n = double.Parse(Console.ReadLine());
+,,"        double value1 = Math.Pow(m, n);"
+,,"        Console.WriteLine(""Result : {0}"", value1);"
+,,        Console.ReadLine();
+,,    }
+,,}
+,,
+21,Calculate the Distance Travelled by Reading Speed and Time,1. using System;
+,,using System;
+,,class program
+,,{
+,,    public static void Main()
+,,    {
+,,"        int speed, distance, time;"
+,,"        Console.WriteLine(""Enter the Speed(km/hr) : "");"
+,,        speed = Convert.ToInt32(Console.ReadLine());
+,,"        Console.WriteLine(""Enter the Time(hrs) : "");"
+,,        time = Convert.ToInt32(Console.ReadLine());
+,,        distance = speed * time;
+,,"        Console.WriteLine(""Distance Travelled (kms) : "" + distance);"
+,,        Console.ReadLine();
+,,    }
+,,}
+,,
+22,Find the Sum of two Binary Numbers ,using System;
+,,using System.Collections.Generic;
+,,using System.Linq;
+,,using System.Text;
+,,namespace ConsoleApplication
+,,{
+,,    class Program
+,,    {
+,,        static void Main(string[] args)
+,,        {
+,,"            int b1, b2;"
+,,"            int i = 0, rem = 0;"
+,,            int[] sum = new int[20];
+,,"            Console.WriteLine(""Enter the first binary number: "");"
+,,            b1 = int.Parse(Console.ReadLine());
+,,"            Console.WriteLine(""Enter the second binary number: "");"
+,,            b2 = int.Parse(Console.ReadLine());
+,,            while (b1 != 0 || b2 != 0)
+,,            {
+,,                sum[i++] = (b1 % 10 + b2 % 10 + rem) % 2;
+,,                rem = (b1 % 10 + b2 % 10 + rem) / 2;
+,,                b1 = b1 / 10;
+,,                b2 = b2 / 10;
+,,            }
+,,            if (rem != 0)
+,,                sum[i++] = rem;
+,,            --i;
+,,"            Console.WriteLine(""Sum of two binary numbers: "");"
+,,            while (i >= 0)
+,,"                Console.Write(""{0}"", sum[i--]);"
+,,            Console.ReadLine();
+,,        }
+,,    }
+,,}
+,,
+23,Add Two Dates ,using System;
+,,namespace DateAndTime
+,,{
+,,    class Program
+,,    {
+,,        static int Main()
+,,        {
+,,"            DateTime SDate = new DateTime(2010, 10, 7);"
+,,"            Console.WriteLine(""Starting Date : {0}"", SDate);"
+,,            DateTime EDate = startDate.AddDays(10);
+,,"            Console.WriteLine(""Ending Date   : {0}\n"", EDate);"
+,,            Console.ReadLine();
+,,            return 0;
+,,        }
+,,    }
+,,}
+,,
+24,Perform Matrix Addition ,using System;
+,,using System.Collections.Generic;
+,,using System.Linq;
+,,using System.Text;
+,, 
+,,namespace ConsoleApplication8
+,,{
+,,    class Program
+,,    {
+,,        public static void Main(string[] args)
+,,        {
+,,"            int m, n,i,j;"
+,,"            Console.Write(""Enter Number Of Rows And Columns Of Matrices A and B : "");"
+,,            m = Convert.ToInt16(Console.ReadLine());
+,,            n = Convert.ToInt16(Console.ReadLine());
+,,"            int[,] A = new int[10, 10];"
+,,"            Console.Write(""\nEnter The First Matrix : "");"
+,,            for (i = 0; i < m; i++)
+,,            {
+,,                for (j = 0; j < n; j++)
+,,                {
+,,"                    A[i, j] = Convert.ToInt16(Console.ReadLine());"
+,,                }
+,,            }
+,, 
+,,"            int[,] B = new int[10, 10];"
+,,"            Console.Write(""\nEnter The Second Matrix:"");"
+,,            for (i = 0; i < m; i++)
+,,            {
+,,                for (j = 0; j < n; j++)
+,,                {
+,,"                    B[i, j] = Convert.ToInt16(Console.ReadLine());"
+,,                }
+,,            }
+,,            Console.Clear();
+,,"            Console.WriteLine(""\nMatrix A : "");"
+,,            for (i = 0; i < m; i++)
+,,            {
+,,                for (j = 0; j < n; j++)
+,,                {
+,,"                    Console.Write(A[i, j] + ""\t"");"
+,, 
+,,                }
+,,                Console.WriteLine();
+,,            }
+,,"            Console.WriteLine(""\nMatrix B: "");"
+,,            for (i = 0; i < m; i++)
+,,            {
+,,                for (j = 0; j < n; j++)
+,,                {
+,,"                    Console.Write(B[i, j] + ""\t"");"
+,, 
+,,                }
+,,                Console.WriteLine();
+,,            }
+,,"            int[,] C = new int[10, 10];"
+,,            for (i = 0; i < m; i++)
+,,            {
+,,                for (j = 0; j < n; j++)
+,,                {
+,,"                    C[i, j] = A[i, j] + B[i, j];"
+,,                }
+,,            }
+,,"            Console.Write(""\nSum Matrix :"");"
+,,            for (i = 0; i < m; i++)
+,,            {
+,,                for (j = 0; j < n; j++)
+,,                {
+,,"                    Console.Write(C[i, j] + ""\t"");"
+,, 
+,,                }
+,,                Console.WriteLine();
+,,            }
+,,            Console.Read();
+,,        }
+,,    }
+,,}
+,,
+25,Generate the Transpose of a Given Matrix,using System;
+,,using System.Collections.Generic;
+,,using System.Linq;
+,,using System.Text;
+,, 
+,,namespace Program
+,,{
+,,    class Program
+,,    {
+,,        public static void Main(string[] args)
+,,        {
+,,"            int m, n, i, j;"
+,,"            Console.Write(""Enter the Order of the Matrix : "");"
+,,            m = Convert.ToInt16(Console.ReadLine());
+,,            n = Convert.ToInt16(Console.ReadLine());
+,,"            int[,] A = new int[10, 10];"
+,,"            Console.Write(""\nEnter The Matrix Elements : "");"
+,,            for (i = 0; i < m; i++)
+,,            {
+,,                for (j = 0; j < n; j++)
+,,                {
+,,"                    A[i, j] = Convert.ToInt16(Console.ReadLine());"
+,,                }
+,,            }
+,,            Console.Clear();
+,,"            Console.WriteLine(""\nMatrix A : "");"
+,,            for (i = 0; i < m; i++)
+,,            {
+,,                for (j = 0; j < n; j++)
+,,                {
+,,"                    Console.Write(A[i, j] + ""\t"");"
+,, 
+,,                }
+,,                Console.WriteLine();
+,,            }
+,,"            Console.WriteLine(""Transpose Matrix : "");"
+,, 
+,,           for (i = 0; i < m; i++)
+,,            {
+,,                for (j = 0; j < n; j++)
+,,                {
+,,"                    Console.Write(A[j, i] + ""\t"");"
+,, 
+,,                }
+,,                Console.WriteLine();
+,,            }
+,,            Console.Read();
+,,        }
+,,    }
+,,}
