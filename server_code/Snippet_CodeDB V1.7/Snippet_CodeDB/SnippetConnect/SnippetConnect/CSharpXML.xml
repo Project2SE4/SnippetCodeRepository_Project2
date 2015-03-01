@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CSharpInformation>
+  <CSharp>
+    <CSharpId>101</CSharpId>
+    <Content_c>Functions Test C#</Content_c>
+    <Sourcecode_c>
+      protected void imgbtn_Click(object sender, ImageClickEventArgs e)
+      {
+      ImageButton btndetails = sender as ImageButton;
+      GridViewRow gvrow = (GridViewRow)btndetails.NamingContainer;
+      lblCode.Text = gvrow.Cells[3].Text;
+      this.ModalPopupExtender1.Show();
+      }
+    </Sourcecode_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>102</CSharpId>
+    <Content_c>Functions Test C# 2</Content_c>
+    <Sourcecode_c>
+      protected void imgbtn_Click(object sender, ImageClickEventArgs e)
+      {
+      ImageButton btndetails = sender as ImageButton;
+      GridViewRow gvrow = (GridViewRow)btndetails.NamingContainer;
+      lblCode.Text = gvrow.Cells[3].Text;
+      this.ModalPopupExtender1.Show();
+      }
+    </Sourcecode_c>
+  </CSharp>
+  
+</CSharpInformation>
