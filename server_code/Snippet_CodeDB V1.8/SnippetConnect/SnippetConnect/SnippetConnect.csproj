@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8E881B48-D089-4F3B-AE4D-50218A55FE71}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SnippetConnect</RootNamespace>
+    <AssemblyName>SnippetConnect</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.7.1213\lib\45\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.97.4951.28483\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.1.8.0.0\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage">
+      <HintPath>..\packages\WindowsAzure.Storage.2.1.0.4\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Spatial, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AddCSharp.aspx" />
+    <Content Include="AddJava.aspx" />
+    <Content Include="AddPython.aspx" />
+    <Content Include="AddVB.aspx" />
+    <Content Include="CSharp.aspx" />
+    <Content Include="css\forms.css" />
+    <Content Include="css\grid.css" />
+    <Content Include="css\ie.css" />
+    <Content Include="css\reset.css" />
+    <Content Include="css\style.css" />
+    <Content Include="images\Edit.jpg" />
+    <Content Include="HomeForm.aspx" />
+    <Content Include="images\blank.gif" />
+    <Content Include="images\blue-hover.jpg" />
+    <Content Include="images\blue-normal.jpg" />
+    <Content Include="images\button.gif" />
+    <Content Include="images\content_image1.jpg" />
+    <Content Include="images\cp_bg1.jpg" />
+    <Content Include="images\cp_blt.gif" />
+    <Content Include="images\cp_blt2.gif" />
+    <Content Include="images\cp_pic1.jpg" />
+    <Content Include="images\cp_pic2.jpg" />
+    <Content Include="images\css-img.gif" />
+    <Content Include="images\dot-line.gif" />
+    <Content Include="images\footer-logo.png" />
+    <Content Include="images\fp_tile1.jpg" />
+    <Content Include="images\green-hover.jpg" />
+    <Content Include="images\green-normal.jpg" />
+    <Content Include="images\header-bg.png" />
+    <Content Include="images\home_1.jpg" />
+    <Content Include="images\home_2.jpg" />
+    <Content Include="images\hp_bg1.jpg" />
+    <Content Include="images\hp_bg2.jpg" />
+    <Content Include="images\hp_go.gif" />
+    <Content Include="images\html-img.gif" />
+    <Content Include="images\in_pic1.jpg" />
+    <Content Include="images\list-1-marker.gif" />
+    <Content Include="images\logo.gif" />
+    <Content Include="images\logo.jpg" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\lp_blt.gif" />
+    <Content Include="images\lp_bot1.jpg" />
+    <Content Include="images\lp_tile.jpg" />
+    <Content Include="images\lp_tile1.jpg" />
+    <Content Include="images\lp_top1.jpg" />
+    <Content Include="images\main-bg.png" />
+    <Content Include="images\main_bg.jpg" />
+    <Content Include="images\menu_bg.gif" />
+    <Content Include="images\more.gif" />
+    <Content Include="images\more2.gif" />
+    <Content Include="images\mp-pag-1.png" />
+    <Content Include="images\mp-pag-2.png" />
+    <Content Include="images\mp-pag-3.png" />
+    <Content Include="images\name.gif" />
+    <Content Include="images\orange-hover.jpg" />
+    <Content Include="images\orange-normal.jpg" />
+    <Content Include="images\page1-img1.jpg" />
+    <Content Include="images\page1-img2.jpg" />
+    <Content Include="images\page1-img3.jpg" />
+    <Content Include="images\page2-img1.jpg" />
+    <Content Include="images\page2-img2.jpg" />
+    <Content Include="images\page2-img3.jpg" />
+    <Content Include="images\page2-img4.jpg" />
+    <Content Include="images\page2-img5.jpg" />
+    <Content Include="images\page2-img6.jpg" />
+    <Content Include="images\page3-img1.jpg" />
+    <Content Include="images\page4-img1.jpg" />
+    <Content Include="images\page4-img2.jpg" />
+    <Content Include="images\page4-img3.jpg" />
+    <Content Include="images\page4-img4.jpg" />
+    <Content Include="images\page4-img5.jpg" />
+    <Content Include="images\page4-img6.jpg" />
+    <Content Include="images\pags-active.png" />
+    <Content Include="images\quote-after.png" />
+    <Content Include="images\quote-before.png" />
+    <Content Include="images\quote-marker.png" />
+    <Content Include="images\slide-1.png" />
+    <Content Include="images\slide-2.png" />
+    <Content Include="images\slide-3.png" />
+    <Content Include="images\social-link-1.jpg" />
+    <Content Include="images\social-link-2.jpg" />
+    <Content Include="images\social-link-3.jpg" />
+    <Content Include="images\symbol.jpg" />
+    <Content Include="images\symbol2.gif" />
+    <Content Include="images\testimonial-bg.gif" />
+    <Content Include="images\top-content-bg.png" />
+    <Content Include="images\transparent.png" />
+    <Content Include="images\view.png" />
+    <Content Include="Java.aspx" />
+    <Content Include="js\html5shiv.js" />
+    <Content Include="js\image_slide.js" />
+    <Content Include="js\init.js" />
+    <Content Include="js\jquery.galleriffic.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.opacityrollover.js" />
+    <Content Include="js\jquery.tabify.js" />
+    <Content Include="js\skel-panels.min.js" />
+    <Content Include="js\skel.min.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Manage.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="HomeSite.Master" />
+    <Content Include="images\Thumbs.db" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\getView\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\getView\WebService.disco" />
+    <Content Include="PasswordRecovery.aspx" />
+    <Content Include="Python.aspx" />
+    <Content Include="VB.aspx" />
+    <Content Include="WebService.asmx" />
+    <None Include="Web References\getView\WebService.wsdl" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddCSharp.aspx.cs">
+      <DependentUpon>AddCSharp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCSharp.aspx.designer.cs">
+      <DependentUpon>AddCSharp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddJava.aspx.cs">
+      <DependentUpon>AddJava.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddJava.aspx.designer.cs">
+      <DependentUpon>AddJava.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddPython.aspx.cs">
+      <DependentUpon>AddPython.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddPython.aspx.designer.cs">
+      <DependentUpon>AddPython.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddVB.aspx.cs">
+      <DependentUpon>AddVB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddVB.aspx.designer.cs">
+      <DependentUpon>AddVB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CSharp.aspx.cs">
+      <DependentUpon>CSharp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CSharp.aspx.designer.cs">
+      <DependentUpon>CSharp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeForm.aspx.cs">
+      <DependentUpon>HomeForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeForm.aspx.designer.cs">
+      <DependentUpon>HomeForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeSite.Master.cs">
+      <DependentUpon>HomeSite.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeSite.Master.designer.cs">
+      <DependentUpon>HomeSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Java.aspx.cs">
+      <DependentUpon>Java.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Java.aspx.designer.cs">
+      <DependentUpon>Java.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordRecovery.aspx.cs">
+      <DependentUpon>PasswordRecovery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PasswordRecovery.aspx.designer.cs">
+      <DependentUpon>PasswordRecovery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Python.aspx.cs">
+      <DependentUpon>Python.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Python.aspx.designer.cs">
+      <DependentUpon>Python.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="VB.aspx.cs">
+      <DependentUpon>VB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VB.aspx.designer.cs">
+      <DependentUpon>VB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\getView\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WebService.asmx.cs">
+      <DependentUpon>WebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost/SnippetConnect/WebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\getView\</RelPath>
+      <UpdateFromURL>http://localhost/SnippetConnect/WebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SnippetConnect_getView_WebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>45680</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/SnippetConnect</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
