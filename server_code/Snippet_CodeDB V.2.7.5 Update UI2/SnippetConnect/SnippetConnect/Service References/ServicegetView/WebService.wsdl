@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetDataCSharp">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDataCSharpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataCSharpResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataJava">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDataJavaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataJavaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataVb">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDataVbResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataVbResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataPython">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDataPythonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataPythonResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDataCSharpSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataCSharp" />
+  </wsdl:message>
+  <wsdl:message name="GetDataCSharpSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataCSharpResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataJavaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataJava" />
+  </wsdl:message>
+  <wsdl:message name="GetDataJavaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataJavaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataVbSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataVb" />
+  </wsdl:message>
+  <wsdl:message name="GetDataVbSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataVbResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataPythonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataPython" />
+  </wsdl:message>
+  <wsdl:message name="GetDataPythonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataPythonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataCSharpHttpGetIn" />
+  <wsdl:message name="GetDataCSharpHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetDataJavaHttpGetIn" />
+  <wsdl:message name="GetDataJavaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetDataVbHttpGetIn" />
+  <wsdl:message name="GetDataVbHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetDataPythonHttpGetIn" />
+  <wsdl:message name="GetDataPythonHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetDataCSharpHttpPostIn" />
+  <wsdl:message name="GetDataCSharpHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetDataJavaHttpPostIn" />
+  <wsdl:message name="GetDataJavaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetDataVbHttpPostIn" />
+  <wsdl:message name="GetDataVbHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetDataPythonHttpPostIn" />
+  <wsdl:message name="GetDataPythonHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="GetDataCSharp">
+      <wsdl:input message="tns:GetDataCSharpSoapIn" />
+      <wsdl:output message="tns:GetDataCSharpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataJava">
+      <wsdl:input message="tns:GetDataJavaSoapIn" />
+      <wsdl:output message="tns:GetDataJavaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataVb">
+      <wsdl:input message="tns:GetDataVbSoapIn" />
+      <wsdl:output message="tns:GetDataVbSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataPython">
+      <wsdl:input message="tns:GetDataPythonSoapIn" />
+      <wsdl:output message="tns:GetDataPythonSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServiceHttpGet">
+    <wsdl:operation name="GetDataCSharp">
+      <wsdl:input message="tns:GetDataCSharpHttpGetIn" />
+      <wsdl:output message="tns:GetDataCSharpHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataJava">
+      <wsdl:input message="tns:GetDataJavaHttpGetIn" />
+      <wsdl:output message="tns:GetDataJavaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataVb">
+      <wsdl:input message="tns:GetDataVbHttpGetIn" />
+      <wsdl:output message="tns:GetDataVbHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataPython">
+      <wsdl:input message="tns:GetDataPythonHttpGetIn" />
+      <wsdl:output message="tns:GetDataPythonHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebServiceHttpPost">
+    <wsdl:operation name="GetDataCSharp">
+      <wsdl:input message="tns:GetDataCSharpHttpPostIn" />
+      <wsdl:output message="tns:GetDataCSharpHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataJava">
+      <wsdl:input message="tns:GetDataJavaHttpPostIn" />
+      <wsdl:output message="tns:GetDataJavaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataVb">
+      <wsdl:input message="tns:GetDataVbHttpPostIn" />
+      <wsdl:output message="tns:GetDataVbHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataPython">
+      <wsdl:input message="tns:GetDataPythonHttpPostIn" />
+      <wsdl:output message="tns:GetDataPythonHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDataCSharp">
+      <soap:operation soapAction="http://tempuri.org/GetDataCSharp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataJava">
+      <soap:operation soapAction="http://tempuri.org/GetDataJava" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataVb">
+      <soap:operation soapAction="http://tempuri.org/GetDataVb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataPython">
+      <soap:operation soapAction="http://tempuri.org/GetDataPython" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDataCSharp">
+      <soap12:operation soapAction="http://tempuri.org/GetDataCSharp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataJava">
+      <soap12:operation soapAction="http://tempuri.org/GetDataJava" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataVb">
+      <soap12:operation soapAction="http://tempuri.org/GetDataVb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataPython">
+      <soap12:operation soapAction="http://tempuri.org/GetDataPython" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceHttpGet" type="tns:WebServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetDataCSharp">
+      <http:operation location="/GetDataCSharp" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataJava">
+      <http:operation location="/GetDataJava" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataVb">
+      <http:operation location="/GetDataVb" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataPython">
+      <http:operation location="/GetDataPython" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceHttpPost" type="tns:WebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetDataCSharp">
+      <http:operation location="/GetDataCSharp" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataJava">
+      <http:operation location="/GetDataJava" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataVb">
+      <http:operation location="/GetDataVb" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataPython">
+      <http:operation location="/GetDataPython" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://scradmin.somee.com/SnippetConnect/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://scradmin.somee.com/SnippetConnect/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceHttpGet" binding="tns:WebServiceHttpGet">
+      <http:address location="http://scradmin.somee.com/SnippetConnect/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceHttpPost" binding="tns:WebServiceHttpPost">
+      <http:address location="http://scradmin.somee.com/SnippetConnect/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
