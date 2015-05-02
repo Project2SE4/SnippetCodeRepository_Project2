@@ -1,0 +1,1986 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <CSharp>
+    <CSharpId>50</CSharpId>
+    <Content_c>Create an XML file</Content_c>
+    <Sourcecode_c>Create an XML file
+
+     using System;
+     using System.Data;
+     using System.Windows.Forms;
+     using System.Xml; 
+
+       namespace WindowsApplication1
+      {
+     public partial class Form1 : Form
+      {
+     public Form1()
+       {
+        InitializeComponent();
+      }
+
+      private void button1_Click(object sender, EventArgs e)
+       {
+           XmlTextWriter writer = new XmlTextWriter("product.xml", 
+
+      System.Text.Encoding.UTF8);
+        writer.WriteStartDocument(true);
+        writer.Formatting = Formatting.Indented;
+        writer.Indentation = 2;
+        writer.WriteStartElement("Table");
+            createNode("1", "Product 1", "1000", writer);
+            createNode("2", "Product 2", "2000", writer);
+            createNode("3", "Product 3", "3000", writer);
+            createNode("4", "Product 4", "4000", writer);
+        writer.WriteEndElement();
+        writer.WriteEndDocument();
+        writer.Close();
+           MessageBox.Show("XML File created ! ");
+      }
+
+       private void createNode(string pID, string pName, string pPrice,   
+      XmlTextWriter writer)
+      {
+        writer.WriteStartElement("Product");
+        writer.WriteStartElement("Product_id");
+        writer.WriteString(pID);
+        writer.WriteEndElement();
+        writer.WriteStartElement("Product_name");
+        writer.WriteString(pName);
+        writer.WriteEndElement();
+        writer.WriteStartElement("Product_price");
+        writer.WriteString(pPrice);
+        writer.WriteEndElement();
+        writer.WriteEndElement();
+       }
+      }
+     }</Sourcecode_c>
+    <DateAdd_c>2015-04-14T18:19:54.593+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>49</CSharpId>
+    <Content_c>Generate Fibonacci Series</Content_c>
+    <Sourcecode_c>Generate Fibonacci Series
+
+   using System;
+   using System.Collections.Generic;
+   using System.Linq; 
+   using System.Text;   
+ 
+   namespace fibonaci
+   {
+    class Program$
+    {
+        static void Main(string[] args)$
+        {
+            int i, count, f1 = 0, f2 = 1, f3 = 0;
+            Console.Write("Enter the Limit : ");
+            count = int.Parse(Console.ReadLine());
+            Console.WriteLine(f1);
+            Console.WriteLine(f2);
+            for (i = 0; i &lt;= count; i++)
+            {
+                f3 = f1 + f2;
+                Console.WriteLine(f3);
+                f1 = f2;
+                f2 = f3;
+            }
+            Console.ReadLine();
+ 
+        }
+    }
+ }</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:40:43.773+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>48</CSharpId>
+    <Content_c>Generate the Factorial of  Given Number</Content_c>
+    <Sourcecode_c>Generate the Factorial of  Given Number
+
+     using System;
+     using System.Collections.Generic;
+     using System.Linq;
+     using System.Text;
+
+  namespace factorial
+  {
+       class Program
+      {
+        static void Main(string[] args)
+        {
+            int i, number, fact;
+            Console.WriteLine("Enter the Number");
+            number = int.Parse(Console.ReadLine());
+            fact = number;
+            for (i = number - 1; i &gt;= 1; i--)
+            {
+                fact = fact * i;
+            }
+            Console.WriteLine("\nFactorial of Given Number is: "+fact);
+            Console.ReadLine();
+ 
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:39:52.46+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>47</CSharpId>
+    <Content_c>Generate the Sum of N Numbers</Content_c>
+    <Sourcecode_c>Generate the Sum of N Numbers
+
+     using System;
+     using System.Collections.Generic;
+     using System.Linq;
+      using System.Text;
+
+  namespace program
+   {
+      class Program
+    {
+        static void Main(string[] args)
+        {
+            int i, sum = 0,n;
+            Console.Write("Enter the Nth Number : ");
+            n = int.Parse(Console.ReadLine());
+            for (i = 0; i &lt;= n; i++)
+            {
+                sum = sum + i;
+            }
+            Console.WriteLine("\nSum of N Numbers : " + sum);
+            Console.ReadLine();
+ 
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:39:28.977+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>46</CSharpId>
+    <Content_c>Calculate Simple Interest</Content_c>
+    <Sourcecode_c>Calculate Simple Interest
+
+    using System;
+    namespace Interest
+
+  {
+    class Program
+  {
+
+   static void Main(string[] args)
+ {
+     int year;
+     double princamt,rate, interest, total_amt;
+     Console.Write("Enter The Loan Amount : ");
+     princamt = Convert.ToDouble(Console.ReadLine());
+     Console.Write("Enter The Number of Years : ");
+     year = Convert.ToInt16(Console.ReadLine());
+     Console.Write("Enter the Rate Of Interest : ");
+     rate = Convert.ToDouble(Console.ReadLine());
+     interest = princamt * year * rate / 100;
+     total_amt = princamt + interest;
+     Console.WriteLine("Total Amount : {0}", total_amt);
+     Console.ReadLine();
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:38:53.65+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>45</CSharpId>
+    <Content_c>Calculate Period Duration</Content_c>
+    <Sourcecode_c>Calculate Period Duration
+
+     using System;
+     class CompareDates
+  {
+ 
+    public static void Main()
+    {
+        DateTime today = DateTime.Now;
+        DateTime yesterday = today - new TimeSpan(1, 0, 0, 0);
+        DateTime tomorrow = today + new TimeSpan(1, 0, 0, 0);
+        Console.WriteLine("Yesterday was     {0}", yesterday);
+        Console.WriteLine("Today     is      {0}", today);
+        Console.WriteLine("Tomorrow  will be {0}", tomorrow);
+        Console.WriteLine("\nIs yesterday less than today?   {0}.",
+           yesterday &lt; today);
+        Console.WriteLine("Is today the same as tomorrow ? {0}.",
+           today == tomorrow);
+ 
+        TimeSpan totalTimespan = new TimeSpan(3, 5, 24, 17) +
+                                 new TimeSpan(1, 18, 35, 43);
+        Console.WriteLine(
+           "\nThe length of the period is {0} days {1} hours" +
+           " {2} minutes {3} seconds.",
+           totalTimespan.Days, totalTimespan.Hours,
+           totalTimespan.Minutes, totalTimespan.Seconds);
+        Console.ReadLine();$
+    }
+ 
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:38:30.773+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>44</CSharpId>
+    <Content_c>Find Square Root of a Given Number</Content_c>
+    <Sourcecode_c>Find Square Root of a Given Number
+
+     using System;
+     using System.Text;
+     using System.Collections;
+     using System.Data;
+     namespace Cons
+ {
+    public class squareroot
+    {
+        public static void Main()
+        {
+                Console.WriteLine("Enter a Number : ");
+                int Number = Convert.ToInt16(Console.ReadLine());
+                double SqrtNumber = Math.Sqrt(Number);
+                Console.WriteLine("Square root of {0} is: {1}", Number, SqrtNumber);
+                Console.ReadLine();
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:38:08.757+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>43</CSharpId>
+    <Content_c>Calculate Area and Volume of a Cone</Content_c>
+    <Sourcecode_c>Calculate Area and Volume of a Cone
+
+     using System;
+     using System.IO;
+     class program
+  {
+      public static void Main()
+    {
+        double r, h, surface_area, volume;
+        double PI = 3.14;
+        Console.WriteLine("Enter the Radius and Height of a cone : ");
+        r = Convert.ToDouble(Console.ReadLine());
+        h = Convert.ToDouble(Console.ReadLine());
+        surface_area = PI * r * (r + Math.Sqrt(r * r + h * h));
+        volume = (1.0 / 3) * PI * r * r * h;
+        Console.WriteLine("Surface Area of cone is : {0} ", surface_area);
+        Console.WriteLine("Volume of Cone is : {0}", volume);
+        Console.Read();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:37:33.523+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>42</CSharpId>
+    <Content_c>Check the Edge Values in Power Function</Content_c>
+    <Sourcecode_c>Check the Edge Values in Power Function
+
+    using System;
+    class Program
+ {
+    static void Main()
+    {
+        double value1 = Math.Pow(double.MinValue, double.MaxValue);
+        double value2 = Math.Pow(double.MinValue, 0);
+        double value3 = Math.Pow(double.NaN, 2);
+        double value4 = Math.Pow(double.PositiveInfinity, 2);
+        double value5 = Math.Pow(double.NegativeInfinity, 2);
+        Console.WriteLine("Result : {0}", value1);
+        Console.WriteLine("Result : {0}", value2);
+        Console.WriteLine("Result : {0}", value3);
+        Console.WriteLine("Result : {0}", value4);
+        Console.WriteLine("Result : {0}", value5);
+        Console.ReadLine();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:37:13.557+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>41</CSharpId>
+    <Content_c>Calculate Compound Interest</Content_c>
+    <Sourcecode_c>Calculate Compound Interest
+
+using System;
+namespace compund
+{
+    class compound
+    {
+        static void Main(string[] args)
+        {
+            double Total = 0, interestRate, years, annualCompound, Amount;
+            Console.Write("Enter the Initial Amount : ");
+            Amount = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter the Rate of Interest : ");
+            interestRate = Convert.ToDouble(Console.ReadLine()) / 100;
+            Console.Write("Enter the Number of Years : ");
+            years = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Number of Times the Interest will be Compounded : ");
+            annualCompound = Convert.ToDouble(Console.ReadLine());
+            for (int t = 1; t &lt; years + 1; t++)
+            {
+                Total = Amount * Math.Pow((1 + interestRate / annualCompound), (annualCompound * t));
+                Console.Write("Your Total for Year {0} " 
+                            + "is {1:F0}. \n", t, Total);
+ 
+            }
+ 
+            Console.ReadLine();
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:36:50.54+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>40</CSharpId>
+    <Content_c>Calculate the power exponent value</Content_c>
+    <Sourcecode_c>Calculate the power exponent value
+
+    using System;
+    class Program
+ {
+    static void Main()
+    {
+ 
+        double m, n;
+        Console.WriteLine("Enter the Number : ");
+        m = double.Parse(Console.ReadLine());
+        Console.WriteLine("Enter the Exponent : ");
+        n = double.Parse(Console.ReadLine());
+        double value1 = Math.Pow(m, n);
+        Console.WriteLine("Result : {0}", value1);
+        Console.ReadLine();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:36:25.4+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>39</CSharpId>
+    <Content_c>Calculate the Distance Travelled by Reading Speed and Time</Content_c>
+    <Sourcecode_c>Calculate the Distance Travelled by Reading Speed and Time
+
+     using System;
+     class program
+  {
+
+    public static void Main()
+    {
+        int speed, distance, time;
+        Console.WriteLine("Enter the Speed(km/hr) : ");
+        speed = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter the Time(hrs) : ");
+        time = Convert.ToInt32(Console.ReadLine());
+        distance = speed * time;
+        Console.WriteLine("Distance Travelled (kms) : " + distance);
+        Console.ReadLine();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:35:55.307+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>38</CSharpId>
+    <Content_c>Find the Sum of two Binary Numbers</Content_c>
+    <Sourcecode_c>Find the Sum of two Binary Numbers
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace ConsoleApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int b1, b2;
+            int i = 0, rem = 0;
+            int[] sum = new int[20];
+            Console.WriteLine("Enter the first binary number: ");
+            b1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the second binary number: ");
+            b2 = int.Parse(Console.ReadLine());
+            while (b1 != 0 || b2 != 0)
+            {
+                sum[i++] = (b1 % 10 + b2 % 10 + rem) % 2;
+                rem = (b1 % 10 + b2 % 10 + rem) / 2;
+                b1 = b1 / 10;
+                b2 = b2 / 10;
+            }
+            if (rem != 0)
+                sum[i++] = rem;
+            --i;
+            Console.WriteLine("Sum of two binary numbers: ");
+            while (i &gt;= 0)
+                Console.Write("{0}", sum[i--]);
+            Console.ReadLine();
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:35:28.87+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>37</CSharpId>
+    <Content_c>Add Two Dates</Content_c>
+    <Sourcecode_c>Add Two Dates
+
+using System;
+namespace DateAndTime
+{
+    class Program
+    {
+        static int Main()
+        {
+            DateTime SDate = new DateTime(2010, 10, 7);
+            Console.WriteLine("Starting Date : {0}", SDate);
+            DateTime EDate = startDate.AddDays(10);
+            Console.WriteLine("Ending Date   : {0}\n", EDate);
+            Console.ReadLine();
+            return 0;
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:35:01.227+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>36</CSharpId>
+    <Content_c>Perform Matrix Addition</Content_c>
+    <Sourcecode_c>Perform Matrix Addition
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+ 
+namespace ConsoleApplication8
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            int m, n,i,j;
+            Console.Write("Enter Number Of Rows And Columns Of Matrices A and B : ");
+            m = Convert.ToInt16(Console.ReadLine());
+            n = Convert.ToInt16(Console.ReadLine());
+            int[,] A = new int[10, 10];
+            Console.Write("\nEnter The First Matrix : ");
+            for (i = 0; i &lt; m; i++)
+            {
+                for (j = 0; j &lt; n; j++)
+                {
+                    A[i, j] = Convert.ToInt16(Console.ReadLine());
+                }
+            }
+ 
+            int[,] B = new int[10, 10];
+            Console.Write("\nEnter The Second Matrix:");
+            for (i = 0; i &lt; m; i++)
+            {
+                for (j = 0; j &lt; n; j++)
+                {
+                    B[i, j] = Convert.ToInt16(Console.ReadLine());
+                }
+            }
+            Console.Clear();
+            Console.WriteLine("\nMatrix A : ");
+            for (i = 0; i &lt; m; i++)
+            {
+                for (j = 0; j &lt; n; j++)
+                {
+                    Console.Write(A[i, j] + "\t");
+ 
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("\nMatrix B: ");
+            for (i = 0; i &lt; m; i++)
+            {
+                for (j = 0; j &lt; n; j++)
+                {
+                    Console.Write(B[i, j] + "\t");
+ 
+                }
+                Console.WriteLine();
+            }
+            int[,] C = new int[10, 10];
+            for (i = 0; i &lt; m; i++)
+            {
+                for (j = 0; j &lt; n; j++)
+                {
+                    C[i, j] = A[i, j] + B[i, j];
+                }
+            }
+            Console.Write("\nSum Matrix :");
+            for (i = 0; i &lt; m; i++)
+            {
+                for (j = 0; j &lt; n; j++)
+                {
+                    Console.Write(C[i, j] + "\t");
+ 
+                }
+                Console.WriteLine();
+            }
+            Console.Read();
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:34:35.04+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>35</CSharpId>
+    <Content_c>Generate the Transpose of a Given Matrix</Content_c>
+    <Sourcecode_c>Generate the Transpose of a Given Matrix
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Program
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            int m, n, i, j;
+            Console.Write("Enter the Order of the Matrix : ");
+            m = Convert.ToInt16(Console.ReadLine());
+            n = Convert.ToInt16(Console.ReadLine());
+            int[,] A = new int[10, 10];
+            Console.Write("\nEnter The Matrix Elements : ");
+            for (i = 0; i &lt; m; i++)
+            {
+                for (j = 0; j &lt; n; j++)
+                {
+                    A[i, j] = Convert.ToInt16(Console.ReadLine());
+                }
+            }
+            Console.Clear();
+            Console.WriteLine("\nMatrix A : ");
+            for (i = 0; i &lt; m; i++)
+            {
+                for (j = 0; j &lt; n; j++)
+                {
+                    Console.Write(A[i, j] + "\t");
+ 
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("Transpose Matrix : ");
+ 
+           for (i = 0; i &lt; m; i++)
+            {
+                for (j = 0; j &lt; n; j++)
+                {
+                   Console.Write(A[j, i] + "\t");
+ 
+                }
+                Console.WriteLine();
+            }
+            Console.Read();
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:31:29.477+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>34</CSharpId>
+    <Content_c>Display the ATM Transaction</Content_c>
+    <Sourcecode_c>Display the ATM Transaction$
+$
+using System;$
+class program$
+{$
+    public static void Main()$
+    {$
+ $
+        int amount = 1000, deposit, withdraw;$
+        int choice, pin = 0, x = 0;$
+        Console.WriteLine("Enter Your Pin Number ");$
+        pin = int.Parse(Console.ReadLine());$
+        while (true)$
+        {$
+            Console.WriteLine("********Welcome to ATM Service**************\n");$
+            Console.WriteLine("1. Check Balance\n");$
+            Console.WriteLine("2. Withdraw Cash\n");$
+            Console.WriteLine("3. Deposit Cash\n");$
+            Console.WriteLine("4. Quit\n");$
+            Console.WriteLine("*********************************************\n\n");$
+            Console.WriteLine("Enter your choice: ");$
+            choice = int.Parse(Console.ReadLine());$
+            switch (choice)$
+            {$
+            case 1:$
+                Console.WriteLine("\n YOUR BALANCE IN Rs : {0} ", amount);$
+                break;$
+            case 2:$
+                Console.WriteLine("\n ENTER THE AMOUNT TO WITHDRAW: ");$
+                withdraw = int.Parse(Console.ReadLine());$
+                if (withdraw % 100 != 0)$
+                {$
+                    Console.WriteLine("\n PLEASE ENTER THE AMOUNT IN MULTIPLES OF 100");$
+                }$
+                else if (withdraw &gt; (amount - 500))$
+                {$
+                    Console.WriteLine("\n INSUFFICENT BALANCE");$
+                }$
+                else$
+                {$
+                    amount = amount - withdraw;$
+                    Console.WriteLine("\n\n PLEASE COLLECT CASH");$
+                    Console.WriteLine("\n YOUR CURRENT BALANCE IS {0}", amount);$
+                }$
+                break;$
+            case 3:$
+                Console.WriteLine("\n ENTER THE AMOUNT TO DEPOSIT");$
+                deposit = int.Parse(Console.ReadLine());$
+                amount = amount + deposit;$
+                Console.WriteLine("YOUR BALANCE IS {0}", amount);$
+                break;$
+            case 4:$
+                Console.WriteLine("\n THANK U USING ATM");$
+            break;$
+            }$
+        }$
+        Console.WriteLine("\n\n THANKS FOR USING OUT ATM SERVICE");$
+    }$
+ }$</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:30:51.15+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>33</CSharpId>
+    <Content_c>Generate Random Numbers</Content_c>
+    <Sourcecode_c>Generate Random Numbers$
+$
+using System;$
+class Program$
+{$
+    static void Main()$
+    {$
+        Console.WriteLine("Some Random Numbers that are generated are : ");$
+        for (int i = 1; i &lt; 10; i++)$
+        {$
+            Randfunc();$
+        }$
+    }$
+    static Random r = new Random();$
+    static void Randfunc()$
+    {$
+        int n = r.Next();$
+        Console.WriteLine(n);$
+        Console.ReadLine();$
+    }$
+}$</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:30:15.087+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>32</CSharpId>
+    <Content_c>Calculate Acceleration</Content_c>
+    <Sourcecode_c>Calculate Acceleration
+
+using System;
+class program
+{
+    static void Main(string[] args)
+    {
+        int v, t, acc;
+        Console.WriteLine("Enter the Velocity : ");
+        v = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter the Time : ");
+        t = int.Parse(Console.ReadLine());
+        acc = v / t;
+        Console.WriteLine("Acceleration : {0}", acc);
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:29:52.29+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>31</CSharpId>
+    <Content_c>Implement PhoneBook</Content_c>
+    <Sourcecode_c>Implement PhoneBook
+
+using System;
+using System.Collections;
+using System.IO;
+
+    class PhoneBook
+  {
+
+    static void Main(string[] arg)
+    {
+        Hashtable tab = new Hashtable();
+        string fileName;
+        if
+        { 
+            (arg.Length &gt; 0) fileName = arg[0];
+        } 
+        else
+        { 
+            fileName = "phoneBook.txt";
+        }
+        StreamReader r = File.OpenText(fileName);
+        string line = r.ReadLine();  
+        while (line != null)
+        {
+            int pos = line.IndexOf('=');
+            string name = line.Substring(0, pos).Trim();
+            long phone = Convert.ToInt64(line.Substring(pos + 1));
+            tab[name] = phone;
+            line = r.ReadLine();
+        }
+        r.Close();
+        for (; ; )
+        {
+            Console.Write("Name : ");
+            string name = Console.ReadLine().Trim();
+            if (name == "")
+                break;
+            object phone = tab[name];
+            if (phone == null)
+                Console.WriteLine("-- Not Found in Phone Book");
+            else
+                Console.WriteLine(phone);
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:28:55.947+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>30</CSharpId>
+    <Content_c>Display Squarefeet of a House</Content_c>
+    <Sourcecode_c>Display Squarefeet of a House
+
+using System;
+class pgm
+{
+    public static void Main()
+    {
+        int length, width, area;
+        Console.Write ("Enter length of room in feet: ");
+        length = Convert.ToInt32 (Console.ReadLine());
+        Console.Write ( "Enter width of room in feet:");
+        width = Convert.ToInt32(Console.ReadLine());
+        area = length * width;
+        Console.WriteLine ("Floor is " + area +  " square feet.");
+        Console.ReadLine();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:25:12.307+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>29</CSharpId>
+    <Content_c>Reverse a String with Predefined Function</Content_c>
+    <Sourcecode_c>Reverse a String with Predefined Function
+
+using System;
+class linSearch
+{
+    public static void Main()
+    {
+        Console.WriteLine("Enter Number of Elements you Want to Hold in the Array ? ");
+        string s = Console.ReadLine();
+        int x = Int32.Parse(s);
+        int[] a = new int[x];
+        Console.WriteLine("\n Enter Array Elements : ");
+        for (int i = 0; i &lt; x; i++)
+        {
+            string s1 = Console.ReadLine();
+            a[i] = Int32.Parse(s1);
+        }
+ 
+        Array.Reverse(a);
+        Console.WriteLine("Reversed Array : ");
+        for (int i = 0; i &lt; x; i++)
+        {
+            Console.WriteLine("Element {0} is {1}", i + 1, a[i]);
+        }
+        Console.Read();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:24:50.01+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>28</CSharpId>
+    <Content_c>Sort a String using Predefined Function</Content_c>
+    <Sourcecode_c>Sort a String using Predefined Function
+
+using System;
+class linSearch
+{
+    public static void Main()
+    {
+        Console.WriteLine("Enter Number of Elements you Want to Hold in the Array ? ");
+        string s = Console.ReadLine();
+        int x = Int32.Parse(s);
+        int[] a = new int[x];
+        Console.WriteLine("Enter Array Elements :");
+        for (int i = 0; i &lt; x; i++)
+        {
+            string s1 = Console.ReadLine();
+            a[i] = Int32.Parse(s1);
+        }
+        Array.Sort(a);
+        Console.WriteLine("Sorted Array : ");
+        for (int i = 0; i &lt; x; i++)
+        {
+            Console.WriteLine("{0}",a[i]);
+        }
+        Console.Read();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:24:26.413+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>27</CSharpId>
+    <Content_c>Find Sum of Digits of a Number using Recursion</Content_c>
+    <Sourcecode_c>Find Sum of Digits of a Number using Recursion
+
+using System;
+
+    class program
+  {
+
+    public static void Main()
+ {
+    int num, result;
+    pro pg = new pro();
+    Console.WriteLine("Enter the Number : ");
+    num=int.Parse(Console.ReadLine());
+    result =pg.sum(num);
+    Console.WriteLine("Sum of Digits in {0} is {1}", num, result);
+    Console.ReadLine();
+    }
+}
+
+class pro
+{
+    public int sum(int num)
+    {
+        if (num != 0)
+        {
+            return (num % 10 + sum(num / 10));
+        }
+        else
+        {
+            return 0;
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:24:02.913+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>26</CSharpId>
+    <Content_c>Create Anonymous Method</Content_c>
+    <Sourcecode_c>Create Anonymous Method
+
+using System;
+delegate void Print(string s);
+class TestClass
+{
+    static void Main()
+    {
+        Print obj = delegate(string j)
+        {
+            System.Console.WriteLine(j);
+        };
+        obj("Delegate Using the Anonymous Method");
+        obj = new Print(TestClass.named);
+        obj("Delegate Using the Named Method");
+        Console.Read();
+    } 
+    static void named(string k)
+    {
+        System.Console.WriteLine(k);
+    }
+ 
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:23:38.133+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>25</CSharpId>
+    <Content_c>Implement Static Method</Content_c>
+    <Sourcecode_c>Implement Static Method
+
+using System;
+class Program
+{
+    static void stamethod()
+    {
+        Console.WriteLine("Static Method");
+    }
+    void MethodB()
+    {
+        Console.WriteLine("Instance Method");
+    }
+    static char stamethod2()
+    {
+        Console.WriteLine("Static Method");
+        return 'C';
+    }
+    static void Main()
+    {
+        Program.stamethod();
+        Console.WriteLine(Program.stamethod2());
+        Program programInstance = new Program();
+        programInstance.MethodB();
+        Console.Read();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:23:15.93+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>24</CSharpId>
+    <Content_c>Implement Namespaces</Content_c>
+    <Sourcecode_c>Implement Namespaces
+
+using System;
+namespace Sanfoundry.Csharp.Codes
+{
+    class TestClass
+    {
+        public TestClass()
+        {
+            Console.WriteLine("Class to Demonstrate Namespace");
+        }
+    }
+}
+class MyClient
+{
+    public static void Main()
+    {
+        Sanfoundry.Csharp.Codes.TestClass mc = new Sanfoundry.Csharp.Codes.TestClass();
+        Console.ReadLine();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:22:49.367+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>23</CSharpId>
+    <Content_c>Perform Binary to Decimal Conversion</Content_c>
+    <Sourcecode_c>Perform Binary to Decimal Conversion
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Program
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int num, binary_val, decimal_val = 0, base_val = 1, rem;
+            Console.Write("Enter a Binary Number(1s and 0s) : ");
+            num = int.Parse(Console.ReadLine()); /* maximum five digits */
+            binary_val = num;
+            while (num &gt; 0)
+            {
+                rem = num % 10;
+                decimal_val = decimal_val + rem * base_val;
+                num = num / 10 ;
+                base_val = base_val * 2;
+            }
+            Console.Write("The Binary Number is : "+binary_val);
+            Console.Write("\nIts Decimal Equivalent is : "+decimal_val);
+            Console.ReadLine();
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:22:16.603+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>22</CSharpId>
+    <Content_c>Perform Celsius to Fahrenheit Conversion</Content_c>
+    <Sourcecode_c>Perform Celsius to Fahrenheit Conversion
+
+   using System;
+   using System.Collections.Generic;
+   using System.Linq;
+   using System.Text;
+ 
+   namespace program
+   {
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int celsius, faren; 
+            Console.WriteLine("Enter the Temperature in Celsius(*C) : ");
+            celsius = int.Parse(Console.ReadLine());
+            faren = (celsius * 9) / 5 + 32;
+            Console.WriteLine("0Temperature in Fahrenheit is(*F) : " + faren);
+            Console.ReadLine();
+ 
+         }
+     }
+  }</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:21:45.46+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>21</CSharpId>
+    <Content_c>Create a Gray Code</Content_c>
+    <Sourcecode_c>Create a Gray Code
+
+using System;
+public class Gray
+{
+    public static ulong grayEncode(ulong n)
+    {
+        return n ^ (n &gt;&gt; 1);
+    }
+ 
+    public static ulong grayDecode(ulong n)
+    {
+        ulong i = 1 &lt;&lt; 8 * 64 - 2; //long is 64-bit
+        ulong p, b = p = n &amp; i;
+ 
+        while ((i &gt;&gt;= 1) &gt; 0)
+            b |= p = n &amp; i ^ p &gt;&gt; 1;
+        return b;
+    }
+ 
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Number\tGray");
+        for (ulong i = 0; i &lt; 10; i++)
+        {
+            Console.WriteLine(string.Format("{0}\t{1}", i, Convert.ToString((long)grayEncode(i), 2)));
+ 
+        }
+        Console.Read();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:20:59.087+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>20</CSharpId>
+    <Content_c>Covert HexaDecimal Number to Decimal</Content_c>
+    <Sourcecode_c>Covert HexaDecimal Number to Decimal
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string Input;
+            Console.WriteLine("Enter a Hexadecimal Number :");
+            Input = Console.ReadLine();
+            int Output = int.Parse(Input, System.Globalization.NumberStyles.HexNumber);
+            Console.WriteLine("The Decimal value is " + Output);
+            Console.Read();
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:20:32.633+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>19</CSharpId>
+    <Content_c>Convert Digits to Words</Content_c>
+    <Sourcecode_c>Convert Digits to Words
+
+using System;
+public class ConvertDigitsToWords
+{
+  public static void Main()
+  { 
+    int num; 
+    int nextdigit; 
+    int numdigits; 
+    int[] n = new int[20]; 
+ 
+    string[] digits = { "zero", "one", "two", 
+                        "three", "four", "five", 
+                        "six", "seven", "eight", 
+                        "nine" }; 
+ 
+ 
+    Console.WriteLine("Enter the number");
+    num = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Number: " + num); 
+    Console.Write("Number in words: ");
+    nextdigit = 0; 
+    numdigits = 0; 
+    do
+    {
+      nextdigit = num % 10; 
+      n[numdigits] = nextdigit; 
+      numdigits++; 
+      num = num / 10; 
+    } while(num &gt; 0); 
+    numdigits--;
+    for( ; numdigits &gt;= 0; numdigits--)
+        Console.Write(digits[n[numdigits]] + " ");
+    Console.WriteLine();
+    Console.ReadLine();
+  }</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:20:01.96+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>18</CSharpId>
+    <Content_c>Convert Fahrenheit to Celsius</Content_c>
+    <Sourcecode_c>Convert Fahrenheit to Celsius
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Celsius
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double celsius;
+            Console.Write("Enter Fahrenheit temperature : ");
+            double fahrenheit = Convert.ToDouble(Console.ReadLine());
+            celsius = (fahrenheit - 32) * 5 / 9;
+            Console.WriteLine("The converted Celsius temperature is" + celsius);
+            Console.ReadLine();
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:15:36.993+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>17</CSharpId>
+    <Content_c>Convert Decimal to Binary</Content_c>
+    <Sourcecode_c>Convert Decimal to Binary
+
+using System;
+class myclass
+{
+    static void Main()
+    {
+        int num;
+        Console.Write("Enter a Number : ");
+        num = int.Parse(Console.ReadLine());
+        int quot;
+        string rem = "";
+        while (num &gt;= 1)
+        {
+            quot = num / 2;
+            rem += (num % 2).ToString();
+            num = quot;
+        }
+        string bin = "";
+        for (int i = rem.Length - 1; i &gt;= 0; i--)
+        {
+            bin = bin + rem[i];
+        }
+        Console.WriteLine("The Binary format for given number is {0}", bin);
+        Console.Read();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:15:01.32+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>16</CSharpId>
+    <Content_c>Convert Decimal to Octal</Content_c>
+    <Sourcecode_c>Convert Decimal to Octal
+
+using System;
+class program
+{
+    public static void Main()
+    {
+        int decimalNumber, quotient, i = 1, j;
+        int[] octalNumber = new int[100];
+        Console.WriteLine("Enter a Decimal Number :");
+        decimalNumber = int.Parse(Console.ReadLine());
+        quotient = decimalNumber;
+        while (quotient != 0)
+        {
+            octalNumber[i++] = quotient % 8;
+            quotient = quotient / 8;
+        }
+        Console.Write("Equivalent Octal Number is ");
+        for (j = i - 1; j &gt; 0; j--)
+            Console.Write(octalNumber[j]);
+        Console.Read();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:14:32.993+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>15</CSharpId>
+    <Content_c>Convert Big Endian to Little Endian</Content_c>
+    <Sourcecode_c>Convert Big Endian to Little Endian
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication4
+{
+    class Program
+    {
+        static int ReverseBytes(int val)
+        {
+            byte[] intAsBytes = BitConverter.GetBytes(val);
+            Array.Reverse(intAsBytes);
+            return BitConverter.ToInt32(intAsBytes, 0);
+        }
+        static string IntToBinaryString(int v)
+        {
+            string s = Convert.ToString(v, 2);
+            string t = s.PadLeft(32, '0');
+            string res = "";
+            for (int i = 0; i &lt; t.Length; ++i)
+            {
+                if (i &gt; 0 &amp;&amp; i % 8 == 0)
+                    res += " "; 
+                res += t[i];
+            }
+            return res;
+        }
+        static void Main(string[] args)
+        {
+            int little = 2777;
+            int big = ReverseBytes(little);
+            string sLittle = IntToBinaryString(little);
+            string sBig = IntToBinaryString(big);
+            int oLittle = ReverseBytes(big);
+            string oString = IntToBinaryString(oLittle);
+            Console.WriteLine("Original (Intel) little endian value = "
+              + little);
+            Console.WriteLine("Original value as binary string = "
+              + sLittle);
+            Console.WriteLine("");
+            Console.WriteLine("Reversed big endian value = "
+              + big);
+            Console.WriteLine("Reversed value as string = "
+              + sBig);
+            Console.WriteLine("");
+            Console.ReadLine();
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:14:07.29+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>14</CSharpId>
+    <Content_c>Create an Instance of StackTrace and to Get all Frames</Content_c>
+    <Sourcecode_c>Create an Instance of StackTrace and to Get all Frames
+
+using System.Diagnostics;
+using System;
+class program
+{
+    public static void Main()
+    {
+        StackTrace stackTrace = new StackTrace();      
+        StackFrame[] stackFrames = stackTrace.GetFrames();
+        // write call stack method names
+        Console.WriteLine("Method Names : ");
+        foreach (StackFrame stackFrame in stackFrames)
+        {
+            Console.WriteLine(stackFrame.GetMethod().Name);
+        }
+        Console.Read();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:13:35.243+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>13</CSharpId>
+    <Content_c>Create a Singly Linked Circular List</Content_c>
+    <Sourcecode_c>Create a Singly Linked Circular List
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace CSTest
+{
+    class Circlist
+    {
+        private int currentdata;
+        private Circlist nextdata;
+        public Circlist()
+        {
+            currentdata = 0;
+            nextdata = this;
+        }
+        public Circlist(int value)
+        {
+            currentdata = value;
+            nextdata = this;
+        }
+        public Circlist Insdata(int value)
+        {
+            Circlist node = new Circlist(value);
+            if (this.nextdata == this)
+            {
+                node.nextdata = this;
+                this.nextdata = node;
+            }
+            else
+            {
+                Circlist temp = this.nextdata;
+                node.nextdata = temp;
+                this.nextdata = node;
+            }
+            return node;
+        }
+        public int Deldata()
+        {
+            if (this.nextdata == this)
+            {
+                System.Console.WriteLine("\nOnly one node!!!!");
+                return 0;
+            }
+            Circlist node = this.nextdata;
+            this.nextdata = this.nextdata.nextdata;
+            node = null;
+            return 1;
+        }
+        public void Traverse()
+        {
+            Traverse(this);
+        }
+        public void Traverse(Circlist node)
+        {
+            if (node == null)
+                node = this;
+            System.Console.WriteLine("Forward Direction!!!!");
+            Circlist snode = node;
+            do
+            {
+                System.Console.WriteLine(node.currentdata);
+                node = node.nextdata;
+            }
+            while (node != snode);
+        }
+        public int Gnodes()
+        {
+            return Gnodes(this);
+        }
+        public int Gnodes(Circlist node)
+        {
+            if (node == null)
+                node = this;
+            int count = 0;
+            Circlist snode = node;
+            do
+            {
+                count++;
+                node = node.nextdata;
+            }
+            while (node != snode);
+            System.Console.WriteLine("\nCurrent Node Value : " + node.currentdata.ToString());
+            System.Console.WriteLine("\nTotal nodes :" + count.ToString());
+            return count;
+        }
+        static void Main(string[] args)
+        {
+            Circlist node1 = new Circlist(1);
+            node1.Deldata(); 
+            Circlist node2 = node1.Insdata(2);
+            node1.Deldata();
+            node2 = node1.Insdata(2); 
+            Circlist node3 = node2.Insdata(3);
+            Circlist node4 = node3.Insdata(4);
+            Circlist node5 = node4.Insdata(5);
+            node1.Gnodes();
+            node3.Gnodes();
+            node5.Gnodes();
+            node1.Traverse();
+            node3.Deldata(); 
+            node2.Traverse();
+            node1.Gnodes();
+            node3.Gnodes();
+            node5.Gnodes();
+            Console.Read();
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:13:04.68+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>12</CSharpId>
+    <Content_c>Stack with Push and Pop operations</Content_c>
+    <Sourcecode_c>Stack with Push and Pop operations
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            stack st = new stack();
+          while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("\nStack MENU(size -- 10)");
+                Console.WriteLine("1. Add an element");
+                Console.WriteLine("2. See the Top element.");
+                Console.WriteLine("3. Remove top element.");
+                Console.WriteLine("4. Display stack elements.");
+                Console.WriteLine("5. Exit");
+                Console.Write("Select your choice: ");
+                int choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("Enter an Element : ");
+                        st.Push(Console.ReadLine());
+                        break;
+ 
+                    case 2: Console.WriteLine("Top element is: {0}", st.Peek());
+                        break;
+ 
+                    case 3: Console.WriteLine("Element removed: {0}", st.Pop());
+                        break;
+
+                    case 4: st.Display();
+                        break;
+
+                    case 5: System.Environment.Exit(1);
+                        break;
+                }
+                Console.ReadKey();
+            }
+        }
+    }
+ 
+    interface StackADT
+    {
+        Boolean isEmpty();
+        void Push(Object element);
+        Object Pop();
+        Object Peek();
+        void Display();
+    }
+    class stack : StackADT
+    {
+        private int StackSize;
+        public int StackSizeSet
+        {
+            get { return StackSize; }
+            set { StackSize = value; }
+        }
+        public int top;
+        Object[] item;
+        public stack()
+        {
+            StackSizeSet = 10;
+            item = new Object[StackSizeSet];
+            top = -1;
+        }
+        public stack(int capacity)
+        {
+            StackSizeSet = capacity;
+            item = new Object[StackSizeSet];
+            top = -1;
+        }
+        public bool isEmpty()
+        {
+            if (top == -1) return true;
+ 
+           return false;
+        }
+        public void Push(object element)
+        {
+            if (top == (StackSize - 1))
+            {
+                Console.WriteLine("Stack is full!");
+            }
+ 
+            else
+            {
+ 
+                item[++top] = element;
+                Console.WriteLine("Item pushed successfully!");
+            }
+        }
+        public object Pop()
+        {
+            if (isEmpty())
+            {
+                Console.WriteLine("Stack is empty!");
+                return "No elements";
+            }
+            else
+            {
+ 
+                return item[top--];
+            }
+        }
+        public object Peek()
+        {
+            if (isEmpty())
+            {
+ 
+                Console.WriteLine("Stack is empty!");
+                return "No elements";
+            }
+            else
+            {
+                return item[top];
+            }
+        }
+ 
+ 
+        public void Display()
+        {
+            for (int i = top; i &gt; -1; i--)
+            {
+ 
+                Console.WriteLine("Item {0}: {1}", (i + 1), item[i]);
+            }
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:11:35.993+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>11</CSharpId>
+    <Content_c>Traversal in Singly Linked List</Content_c>
+    <Sourcecode_c>Traversal in Singly Linked List
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace Program
+{
+    class singlelist
+    {
+        private int data;
+        private singlelist next;
+        public singlelist()
+        {
+            data = 0;
+            next = null;
+        }
+        public singlelist(int value)
+        {
+            data = value;
+            next = null;
+        }
+        public singlelist InsertNext(int value)
+        {
+ 
+            singlelist node = new singlelist(value);
+            if (this.next == null)
+            {
+                node.next = null; 
+                this.next = node;
+            }
+           else
+            {$
+                singlelist temp = this.next;$
+                node.next = temp;$
+                this.next = node;$
+            }$
+            return node;
+        }
+        public int DeleteNext()
+        {
+            if (next == null)
+                return 0;
+            singlelist node = this.next;
+            this.next = this.next.next; 
+            node = null;
+            return 1;
+        }
+        public void Traverse(singlelist node)
+        {
+            if (node == null)
+                node = this;
+            System.Console.WriteLine("Traversing :");
+            while (node != null)
+            {
+                System.Console.WriteLine(node.data);
+                node = node.next;
+            }
+        }
+    }
+    class Program}
+    {
+        static void Main(string[] args)
+        {
+            singlelist node1 = new singlelist(11);
+            singlelist node2 = node1.InsertNext(12);
+            singlelist node3 = node2.InsertNext(13);
+            singlelist node4 = node3.InsertNext(14);
+            singlelist node5 = node4.InsertNext(15);
+            node1.Traverse(null);
+            Console.WriteLine("Deleting !!");
+            node3.DeleteNext();
+            node2.Traverse(null);
+            System.Console.ReadLine();
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:10:48.76+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>10</CSharpId>
+    <Content_c>List Disk Drives</Content_c>
+    <Sourcecode_c>List Disk Drives}
+
+using System;
+using System.IO;
+class Test
+{
+    public static void Main()
+    {
+        DriveInfo[] driverslist = DriveInfo.GetDrives();
+        foreach (DriveInfo d in driverslist)
+        {
+            Console.WriteLine("Drive {0}", d.Name);
+            Console.WriteLine("  File type: {0}", d.DriveType);
+            if (d.IsReady == true)
+            {
+                Console.WriteLine(" Total size of drive:{0, 15} bytes ",d.TotalSize);
+                Console.Read();
+            }
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T22:09:25.307+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>9</CSharpId>
+    <Content_c>Display the IP Address of the Machine</Content_c>
+    <Sourcecode_c>Display the IP Address of the Machine
+
+using System;
+using System.Net;
+namespace Program
+{
+    class Program
+    {
+        static void Main()
+        {
+            String strHostName = string.Empty; //getting the Host Name.
+            strHostName = Dns.GetHostName();
+            Console.WriteLine("Local Machine's Host Name: " + strHostName);
+            IPHostEntry ipEntry = Dns.GetHostEntry(strHostName);// Using Host Name,IP address is obtained.
+            IPAddress[] addr = ipEntry.AddressList;
+ 
+            for (int i = 0; i &lt; addr.Length; i++)
+            {
+                Console.WriteLine("IP Address {1} : ",addr[i].ToString());
+            }
+            Console.ReadLine();
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T21:05:17.04+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>8</CSharpId>
+    <Content_c>Establish Client Server Relationship</Content_c>
+    <Sourcecode_c>Establish Client Server Relationship
+
+//SERVER PROGRAM
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Net;
+using System.Net.Sockets;
+namespace Server336
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                IPAddress ipAd = IPAddress.Parse("10.18.227.162");
+                TcpListener myList = new TcpListener(ipAd, 8001);
+                myList.Start();
+                Console.WriteLine("The server is running at port 8001...");
+                Console.WriteLine("The local End point is  :" + myList.LocalEndpoint);
+                Console.WriteLine("Waiting for a connection.....");
+                Socket s = myList.AcceptSocket();
+                Console.WriteLine("Connection accepted from " + s.RemoteEndPoint);
+                byte[] b = new byte[100];
+                int k = s.Receive(b);
+                Console.WriteLine("Recieved...");
+                for (int i = 0; i &lt; k; i++)
+                {
+                    Console.Write(Convert.ToChar(b[i]));
+                }
+                ASCIIEncoding asen = new ASCIIEncoding();
+                s.Send(asen.GetBytes("The string was recieved by the server."));
+                Console.WriteLine("\nSent Acknowledgement");
+                s.Close();
+                myList.Stop();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error..... " + e.StackTrace);
+            }
+            Console.ReadLine();
+        }
+    }
+}
+ 
+//CLIENT PROGRAM
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Net;
+using System.Text;
+using System.Net.Sockets;
+
+namespace Client336
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                TcpClient tcpclnt = new TcpClient();
+                Console.WriteLine("Connecting.....");
+                tcpclnt.Connect("10.18.227.162", 8001);      
+                Console.WriteLine("Connected");
+                Console.Write("Enter the string to be transmitted : ");
+                String str = Console.ReadLine();
+                Stream stm = tcpclnt.GetStream();
+                ASCIIEncoding asen = new ASCIIEncoding();
+                byte[] ba = asen.GetBytes(str);
+                Console.WriteLine("Transmitting.....");
+                stm.Write(ba, 0, ba.Length);
+                byte[] bb = new byte[100];
+                int k = stm.Read(bb, 0, 100);
+                for (int i = 0; i &lt; k; i++)
+                    Console.Write(Convert.ToChar(bb[i]));
+                tcpclnt.Close();
+                Console.Read();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error..... " + e.StackTrace);
+            }
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T21:04:48.103+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>7</CSharpId>
+    <Content_c>Find Minimum and Maximum of Numbers</Content_c>
+    <Sourcecode_c>Find Minimum and Maximum of Numbers
+
+using System;
+using System.Linq;
+class Program
+{
+    static void Main()
+    {
+        int[] array1 = { 10, -10, -20, 0,15,20,30 };
+        Console.WriteLine("Maximum Element : " +array1.Max());
+        Console.WriteLine("Minimum Element : " +array1.Min());
+        Console.Read();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T21:04:16.227+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>6</CSharpId>
+    <Content_c>Read Lines from a File until the End of File is Reached</Content_c>
+    <Sourcecode_c>Read Lines from a File until the End of File is Reached
+
+using System;
+using System.IO;
+class Test
+{
+    public static void Main()
+    {
+        string path = @"c:\sri\srip.txt";
+        try
+        {
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                sw.WriteLine("This");
+                sw.WriteLine("text is");
+                sw.WriteLine("to test");
+                sw.WriteLine("Reading");
+            }
+ 
+            using (StreamReader sr = new StreamReader(path))
+            {
+                while (sr.Peek() &gt;= 0)
+                {
+                    Console.WriteLine(sr.ReadLine());
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("The process failed: {0}", e.ToString());
+        }
+        Console.Read();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T21:03:51.947+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>5</CSharpId>
+    <Content_c>Search Directories and List Files</Content_c>
+    <Sourcecode_c>Search Directories and List Files
+
+using System;
+using System.IO;
+class Program
+{
+    static void Main()
+    {
+        string[] Dirfile = Directory.GetFiles("C:\\sri\\","*.*",SearchOption.AllDirectories);
+        foreach (string file in Dirfile)
+        {
+            Console.WriteLine(file);
+        }
+        Console.Read();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T21:03:16.51+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>4</CSharpId>
+    <Content_c>View the Information of the File</Content_c>
+    <Sourcecode_c>View the Information of the File
+
+using System;
+using System.IO;
+class Program
+{
+    static void Main()
+    {
+        FileInfo info = new FileInfo("C:\\sri\\srip.txt");
+        FileAttributes attributes = info.Attributes;
+        Console.WriteLine("Nature(Attribute) of the File : {0}",attributes);
+        Console.Read();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T21:02:38.837+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>3</CSharpId>
+    <Content_c>Read Contents of a File</Content_c>
+    <Sourcecode_c>Read Contents of a File
+
+using System;
+using System.IO;
+class FileRead
+{
+    public void readdata()
+    {
+        FileStream fs = new FileStream("Myfile.txt", FileMode.Open, FileAccess.Read);
+        StreamReader sr = new StreamReader(fs);//Position the File Pointer at the Beginning of the File
+        sr.BaseStream.Seek(0, SeekOrigin.Begin);//Read till the End of the File is Encountered
+        string str = sr.ReadLine();
+        while (str != null)
+        {
+            Console.WriteLine("{0}", str);
+            str = sr.ReadLine();
+        }
+        //Close the Writer and File
+        sr.Close();
+        fs.Close();
+    }
+    public static void Main(String[] args)
+    {
+        FileRead fr = new FileRead();
+        fr.readdata();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T21:01:16.43+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>2</CSharpId>
+    <Content_c>Create a File</Content_c>
+    <Sourcecode_c>Create a File
+
+using System;
+using System.IO;
+using System.Text;
+class Test
+{
+    public static void Main()
+    {
+        string textpath = @"c:\sri\test.txt";
+        using (FileStream fs = File.Create(textpath))
+        {
+            Byte[] info = new UTF8Encoding(true).GetBytes("File is Created");
+            fs.Write(info, 0, info.Length);
+        } 
+        using (StreamReader sr = File.OpenText(textpath))
+        {
+            string s = "";
+            while ((s = sr.ReadLine()) != null)
+            {
+                Console.WriteLine(s);
+            }
+        }
+        Console.Read();
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T21:00:29.62+07:00</DateAdd_c>
+  </CSharp>
+  <CSharp>
+    <CSharpId>1</CSharpId>
+    <Content_c>Caluculate the power exponent value</Content_c>
+    <Sourcecode_c>Caluculate the power exponent value
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace Inheritance
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Teacher d = new Teacher();
+            d.Teach();
+            Student s = new Student();
+            s.Learn();
+            s.Teach();
+            Console.ReadKey();
+        }
+        class Teacher
+        {
+            public void Teach()
+            {
+                Console.WriteLine("Teach");
+            }
+        }
+        class Student : Teacher
+        {
+            public void Learn()
+            {
+                Console.WriteLine("Learn");
+            }
+        }
+    }
+}</Sourcecode_c>
+    <DateAdd_c>2015-04-06T20:59:08.383+07:00</DateAdd_c>
+  </CSharp>
+</NewDataSet>
