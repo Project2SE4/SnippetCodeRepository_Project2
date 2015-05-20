@@ -1,0 +1,1334 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <VB>
+    <VBId>51</VBId>
+    <Content_vb>Cut a File Quickly
+</Content_vb>
+    <Sourcecode_vb>Cut a File Quickly
+ 
+          Dim mByte() As Byte
+ 
+     Open "C:\Command.com" For Binary As #1
+     Open "C:\Backup.com" For Binary As #2
+ 
+     ReDim mByte(0 To LOF(1))
+ 
+     Get #1, , mByte()
+     Put #2, , mByte()
+ 
+         Close #1
+     Close #2
+ 
+         MsgBox "Done", vbInformation
+
+</Sourcecode_vb>
+    <DateAdd_vb>2015-04-15T11:47:33+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>50</VBId>
+    <Content_vb>Convert HTML Color to RGB</Content_vb>
+    <Sourcecode_vb>Convert HTML Color to RGB
+
+     Function HTMLtoRGB(HtmlCode As String) As String
+         If Left(HtmlCode, 1) = "#" Then
+               HtmlCode = Right(HtmlCode, 6)
+      End If
+ 
+       RED = Left(HtmlCode, 2)
+       GREEN = Mid(HtmlCode, 3, 2)
+       BLUE = Right(HtmlCode, 2)
+       RgbHex = "&amp;H00" + BLUE + GREEN + RED
+               HTMLtoRGB = "&amp;" &amp; Val(RgbHex)
+      End Function
+ 
+     Private Sub Command1_Click()
+               MsgBox HTMLtoRGB("0000FF")
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-14T22:33:52.17+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>49</VBId>
+    <Content_vb>Creating PDF files</Content_vb>
+    <Sourcecode_vb>Creating PDF files
+
+     Private Sub Command1_Click()
+         ' Create a simple PDF file using the mjwPDF class
+     Dim objPDF As New mjwPDF
+    
+         ' Set the PDF title and filename
+      objPDF.PDFTitle = "Test PDF Document"
+      objPDF.PDFFileName = App.Path &amp; "\test.pdf"
+    
+         ' We must tell the class where the PDF fonts are located
+      objPDF.PDFLoadAfm = App.Path &amp; "\Fonts"
+    
+         ' View the PDF file after we create it
+      objPDF.PDFView = True
+    
+         ' Begin our PDF document
+      objPDF.PDFBeginDoc
+         ' Set the font name, size, and style
+      objPDF.PDFSetFont FONT_ARIAL, 15, FONT_BOLD
+        
+         ' Set the text color
+       objPDF.PDFSetTextColor = vbBlue
+        
+          ' Set the text we want to print
+       objPDF.PDFTextOut _
+            "Hello, World! From mjwPDF (www.vb6.us)"
+    
+         ' End our PDF document (this will save it to the filename)
+       objPDF.PDFEndDoc
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-14T22:31:34.67+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>48</VBId>
+    <Content_vb>Copy a File Quickly</Content_vb>
+    <Sourcecode_vb>Copy a File Quickly
+
+     Dim mByte() As Byte
+ 
+     Open "C:\Command.com" For Binary As #1
+     Open "C:\Backup.com" For Binary As #2
+ 
+     ReDim mByte(0 To LOF(1))
+ 
+     Get #1, , mByte()
+     Put #2, , mByte()
+ 
+         Close #1
+     Close #2
+ 
+         MsgBox "Done", vbInformation</Sourcecode_vb>
+    <DateAdd_vb>2015-04-14T21:52:46.45+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>47</VBId>
+    <Content_vb>Read a text file to a textbox</Content_vb>
+    <Sourcecode_vb>Read a text file to a textbox
+
+     TextBox1.Text = My.Computer.FileSystem.ReadAllText("C:\your   
+     path\file.txt")</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T22:54:29.653+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>46</VBId>
+    <Content_vb>Generate Random Numbers</Content_vb>
+    <Sourcecode_vb>Generate Random Numbers
+     Private Sub Button1_Click(ByVal sender As System.Object, 
+     ByVal e As System.EventArgs) Handles Button1.Click
+
+     Dim number As Integer
+  
+     Randomize()
+     ' The program will generate a number from 0 to 50
+     number = Int(Rnd() * 50) + 1
+ 
+     TextBox1.Text = number
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T22:52:56.903+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>45</VBId>
+    <Content_vb>Validate numbers then average out scores</Content_vb>
+    <Sourcecode_vb>Validate numbers then average out scores
+     Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As  
+     System.EventArgs) _Handles Button1.Click
+     With TextBox1
+     If Not IsNumeric(.Text) And .Text &lt;&gt; vbNullString Then
+     MsgBox("Sorry, only numbers allowed").Text = ""
+     Else
+     With TextBox2
+     If Not IsNumeric(.Text) And .Text &lt;&gt; vbNullString Then
+     MsgBox("Sorry, only numbers allowed").Text = ""
+     Else
+     MsgBox("The Average is " &amp; (Val(TextBox1.Text) + Val(TextBox2.Text))  
+     / 2)
+     End If
+     End With
+     End If
+     End With
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T22:51:45.483+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>44</VBId>
+    <Content_vb>Calculate Age</Content_vb>
+    <Sourcecode_vb>Calculate Age
+     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As 
+     System.EventArgs) _Handles Button1.Click
+     Dim a As String
+     Dim b As String
+     Dim c As String
+     a = TextBox3.Text
+     b = TextBox1.Text
+     c = TextBox2.Text
+     Dim DOB As New DateTime(a, b, c)
+     Dim Years As Integer = DateDiff(DateInterval.Year, DOB, Now) - 1
+     Dim Months As Integer = DateDiff(DateInterval.Month, DOB, Now) Mod   
+     12
+     Dim days As Integer = DateDiff(DateInterval.Day, DOB, Now) Mod 30 - 
+     10
+     TextBox4.Text = Years &amp; " Years, " &amp; Months &amp; " Months "
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T22:49:35.687+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>43</VBId>
+    <Content_vb>Inverted an image</Content_vb>
+    <Sourcecode_vb>Inverted an image
+     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As   
+     System.EventArgs) Handles Button1.Click
+     Dim pic As New Bitmap(PictureBox1.Image)
+     For y As Integer = 0 To pic.Height - 1
+     For x As Integer = 0 To pic.Width - 1
+     Dim inv As Color = pic.GetPixel(x, y)
+     inv = Color.FromArgb(255, 255 - inv.R, 255 - inv.G, 255 - inv.B)
+     pic.SetPixel(x, y, inv)
+     PictureBox2.Image = pic
+     Next x
+     Next y
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T22:45:38.513+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>42</VBId>
+    <Content_vb>Validate Phone Number</Content_vb>
+    <Sourcecode_vb>Validate Phone Number
+     Private Sub Button1_Click_1(sender As System.Object, _
+     e As System.EventArgs) Handles Button1.Click
+     Dim phoneNumber As New Regex("\(\d{3}\)\d{3}-\d{4}")
+     If phoneNumber.IsMatch(TextBox1.Text) Then
+     TextBox2.Text = "Valid phone number"
+     Else
+     TextBox2.Text = "Not Valid phone number"
+     End If
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T22:44:19.593+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>41</VBId>
+    <Content_vb>Function to Validate Double Value</Content_vb>
+    <Sourcecode_vb>Function to Validate Double Value 
+     Function validateDoublesAndCurrency(stringValue As String) As Boolean
+     Dim rslt As Boolean = False
+     Dim value As Double
+     Dim valueToTest As String = stringValue
+     Try
+     'check if value to be tested contains a currency symbol such as a dollar  
+     sign ($)
+     valueToTest = Double.Parse(stringValue, 
+     Globalization.NumberStyles.Currency)
+     Catch ex As Exception
+ 
+     End Try
+     'check if double
+     If Double.TryParse(valueToTest, value) Then
+     'value is double
+     rslt = True
+     Else
+     'value is not double
+     rslt = False
+     End If
+     Return rslt
+     End Function</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T19:01:19.61+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>40</VBId>
+    <Content_vb>Temperature Convertor</Content_vb>
+    <Sourcecode_vb>Temperature Convertor
+    
+     Private Sub Button1_Click(ByVal sender As System.Object, 
+     ByVal e As System.EventArgs) Handles Button1.Click 
+     RadioButton1.Checked = True Then 
+     Label1.Text = MaskedTextBox1.Text &amp; " Fahrenheit = " &amp;   
+     (MaskedTextBox1.Text - 32) / 1.8 &amp; " Celsius"  
+     ElseIf RadioButton2.Checked = True Then 
+     Label1.Text = MaskedTextBox1.Text &amp; " Celsius = " &amp; 
+     (MaskedTextBox1.Text * 1.8) + 32 &amp; " Fahrenheit" 
+     End If  
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:57:51.937+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>39</VBId>
+    <Content_vb>Inserting Data</Content_vb>
+    <Sourcecode_vb>Inserting Data
+     Dim ConnectionString As String = _
+     Data Source=SqlServerNameOrIP;Initial Catalog=DBName;Integrated 
+     Security=True
+     Dim connection As New SqlConnection(ConnectionString)
+     Try
+     connection.Open()
+ 
+     ' declare and create a sql command object
+     Dim command As SqlCommand = connection.CreateCommand
+ 
+     ' set the sql statement to execute at the data source
+     command.CommandText = _
+  "  INSERT INTO Users(Username, Password, FirstName, LastName) " &amp; _
+     "VALUES(@Username, @Password, @FirstName, @LastName)"
+ 
+     ' add the parameters
+     command.Parameters.AddWithValue("@Username", Username.Text)
+     command.Parameters.AddWithValue("@Password", Password.Text)
+     command.Parameters.AddWithValue("@FirstName", FirstName.Text)
+     command.Parameters.AddWithValue("@LastName", LastName.Text)
+ 
+     ' execute the sql statement against the connection
+     command.ExecuteNonQuery()
+ 
+     ' release the resources
+     command.Dispose()
+     Catch ex As Exception
+     Console.Write(ex.Message)
+     Finally
+     ' close the connection
+     connection.Close()
+     End Try</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:56:32.75+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>38</VBId>
+    <Content_vb>Updating Data</Content_vb>
+    <Sourcecode_vb>Updating Data
+     Dim ConnectionString As String = _
+     Data Source=SqlServerNameOrIP;Initial Catalog=DBName;Integrated     
+     Security=True
+     Dim connection As New SqlConnection(ConnectionString)
+     Try
+     connection.Open()
+ 
+     ' declare and create a sql command object
+     Dim command As SqlCommand = connection.CreateCommand
+ 
+     ' set the sql statement to execute at the data source
+     command.CommandText = _
+     "UPDATE Users SET Password = @Password WHERE Username =  
+     @Username"
+ 
+     ' add the parameters
+     command.Parameters.AddWithValue("@Username", Username.Text)
+     command.Parameters.AddWithValue("@Password", Password.Text)
+ 
+     ' execute the sql statement against the connection
+     command.ExecuteNonQuery()
+ 
+     ' release the resources
+     command.Dispose()
+     Catch ex As Exception
+     Console.Write(ex.Message)
+     Finally
+     ' close the connection
+     connection.Close()
+     End Try</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:53:09.077+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>37</VBId>
+    <Content_vb>Deleting Data</Content_vb>
+    <Sourcecode_vb>Deleting Data
+
+     Dim ConnectionString As String = _
+     Data Source=SqlServerNameOrIP;Initial Catalog=DBName;Integrated  
+     Security=True
+     Dim connection As New SqlConnection(ConnectionString)
+     Try
+     connection.Open()
+ 
+     ' declare and create a sql command object
+     Dim command As SqlCommand = connection.CreateCommand
+ 
+     ' set the sql statement to execute at the data source
+     command.CommandText = "DELETE FROM Users WHERE Username =  
+     @Username"
+ 
+     ' add the parameters
+     command.Parameters.AddWithValue("@Username", Username.Text)
+ 
+     ' execute the sql statement against the connection
+     command.ExecuteNonQuery()
+ 
+     ' release the resources
+     command.Dispose()
+     Catch ex As Exception
+     Console.Write(ex.Message)
+     Finally
+     ' close the connection
+     connection.Close()
+     End Try</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:51:27.2+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>36</VBId>
+    <Content_vb>Catching ADO.NET errors</Content_vb>
+    <Sourcecode_vb>Catching ADO.NET errors
+     Dim ConnectionString As String = _
+     Data Source=SqlServerNameOrIP;Initial Catalog=DBName;Integrated   
+     Security=True
+     Dim connection As New SqlConnection(ConnectionString)
+     Try
+     connection.Open()
+     '...
+ 
+     Catch ex As SqlException
+     ' do something with this type of exception
+     Catch ex As DataException
+     ' do something with this type of exception
+     Catch ex As Exception
+     ' if above exceptions are not thrown then it checkes the,
+     ' System.Exception class which is the base class for all exceptions
+ 
+     ' do something with this exception
+     Finally
+     connection.Close()
+     End Try</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:45:30.78+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>35</VBId>
+    <Content_vb>Connect to MySql Database</Content_vb>
+    <Sourcecode_vb>Connect to MySql Database
+     Public Sub connect()
+     Dim DatabaseName As String = "Database NAme"
+     Dim server As String = "ip address here"
+     Dim userName As String = "sarmasar here"
+     Dim password As String = "password here"
+     If Not conn Is Nothing Then conn.Close()
+     conn.ConnectionString = String.Format("server={0}; user id={1}; 
+     password={2}; database={3}; pooling=false", server, userName,   
+     password, DatabaseName)
+     Try
+     conn.Open()
+  
+     MsgBox("Connected")
+     Catch ex As Exception
+     MsgBox(ex.Message)
+     End Try
+     conn.Close()
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:43:06.077+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>34</VBId>
+    <Content_vb>Create a Check in Microsoft Word</Content_vb>
+    <Sourcecode_vb>Create a Check in Microsoft Word
+     Private Function convertHundreds(ByVal input As Integer) As String
+     Dim output As String
+     If input &lt;= 99 Then
+     output = (convertTens(input))
+     Else
+     output = ones(Floor(input / 100))
+     output += " Hundred "
+     If input - Floor(input / 100) * 100 = 0 Then
+     output += ""
+     Else
+     output += "" + convertTens(input - Floor(input / 100) * 100)
+     End If
+     End If
+     Return output
+     End Function
+ 
+     Private Function convertTens(ByVal input As Integer) As String
+     Dim output As String
+     If input &lt; 20 Then
+     output = ones(input)
+     input = 0
+     Else
+     output = tens(CType(Floor(input / 10), Integer))
+     input -= Floor(input / 10) * 10
+     End If
+     output = output + IIf(ones(input).Trim = "", "", "-" + ones(input))
+     Return output
+     End Function</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:41:44.217+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>33</VBId>
+    <Content_vb>Get The Last Used Excel Cell</Content_vb>
+    <Sourcecode_vb>Get The Last Used Excel Cell
+     Public Function LastUsedCell()
+     Dim LastColumn As Long
+     Dim LastRow As Long
+     With worksheet
+     LastRow = .Cells(.Rows.Count, 1).End(Excel.XlDirection.xlUp).Row
+     LastColumn = .Cells(1,  
+     .Columns.Count).End(Excel.XlDirection.xlToLeft).Column
+     End With
+     Return LastColumn
+     'Return LastRow
+     End Function</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:39:51.92+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>32</VBId>
+    <Content_vb>Display Access Table Records in DataGridView</Content_vb>
+    <Sourcecode_vb>Display Access Table Records in DataGridView
+
+     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As  
+
+     System.EventArgs) Handles Button1.Click
+     MyConn = New OleDbConnection
+     MyConn.ConnectionString = connString
+     ds = New DataSet
+     tables = ds.Tables
+     da = New OleDbDataAdapter("Select * from [items]", MyConn) 'Change  
+     items to your database name
+     da.Fill(ds, "items") 'Change items to your database name
+     Dim view As New DataView(tables(0))
+     source1.DataSource = view
+     DataGridView1.DataSource = view
+
+End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:38:56.7+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>31</VBId>
+    <Content_vb>Get Column Total Value in DataGridView</Content_vb>
+    <Sourcecode_vb>Get Column Total Value in DataGridView
+     Private Sub CountButton_Click(ByVal sender As System.Object, ByVal e   
+     As System.EventArgs) Handles CountButton.Click
+     Dim total As String = 0
+     For i As Integer = 0 To DataGridView1.RowCount - 1
+     total += DataGridView1.Rows(i).Cells(2).Value
+     'Change the number 2 to your column index number (The first column  
+     has a 0 index column)
+     'In this example the column index of Price is 2
+     Next
+     TextBox1.Text = total
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:37:04.42+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>30</VBId>
+    <Content_vb>Format Column to Percentage</Content_vb>
+    <Sourcecode_vb>Format Column to Percentage
+     Private Sub Button2_Click(ByVal sender As System.Object, 
+     ByVal e As System.EventArgs) Handles Button2.Click
+     DataGridView1.Columns(2).DefaultCellStyle.Format = "p2" 'number 2  
+     represents decimal digits
+     DataGridView1.Refresh()
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:35:07.03+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>29</VBId>
+    <Content_vb>Add Watermark to a Picture</Content_vb>
+    <Sourcecode_vb>Add Watermark to a Picture
+     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As  
+     System.EventArgs) Handles Button1.Click
+     Dim NF As New Font("Impact", 36, FontStyle.Italic)
+     Dim NB As New SolidBrush(Color.FromArgb(64, 192, 255, 255))
+     NB.Color = Color.FromArgb(128, 0, 0, 0)
+     PictureBox1.CreateGraphics.DrawString(TextBox1.Text, NF, NB, 15, 135)
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:34:05.763+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>28</VBId>
+    <Content_vb>Monitor Mouse Movement and Clicks</Content_vb>
+    <Sourcecode_vb>Monitor Mouse Movement and Clicks
+     Private Function MouseHookProc(ByVal nCode As Int32, ByVal  
+     wParam As IntPtr, ByRef lParam As MSLLHOOKSTRUCT) As Int32
+     Dim formw As String
+     Dim formh As String
+     formw = Me.Width
+     formh = Me.Height
+ 
+     Dim screenw As String
+     Dim screenh As String
+     screenw = My.Computer.Screen.Bounds.Width
+     screenh = My.Computer.Screen.Bounds.Height
+ 
+     Dim w As String
+     Dim h As String
+ 
+     w = screenw / formw
+     h = screenh / formh
+     Button1.Location = New Point(lParam.pt.X * formw / screenw,  
+     lParam.pt.Y * formh / screenh)
+     Try
+     For i = 1 To 255
+     result = 0
+     result = GetAsyncKeyState(i)
+ 
+     If result = -32767 Then
+     Button2.Location = Button1.Location
+     End If
+     Next i
+     Catch ex As Exception
+     End Try
+     End Function</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:31:46.827+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>27</VBId>
+    <Content_vb>Get list of installed fonts</Content_vb>
+    <Sourcecode_vb>Get list of installed fonts
+     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As 
+     System.EventArgs) _
+     Handles Button1.Click
+     Dim fonts As New InstalledFontCollection
+  
+     For Each one As FontFamily In fonts.Families
+     ListBox1.Items.Add(one.Name)
+     Next
+  
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:29:37.123+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>26</VBId>
+    <Content_vb>Change WebBrowser Home Page</Content_vb>
+    <Sourcecode_vb>Change WebBrowser Home Page
+     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As    
+     System.EventArgs) Handles Button1.Click
+     Dim response As Object
+     response = InputBox("Please Enter Home Page URL", "Webbrowser",  
+     My.Settings.Home)
+     My.Settings.Home = response
+     My.Settings.Save()
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:28:08.403+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>25</VBId>
+    <Content_vb>Go to Home Page Button</Content_vb>
+    <Sourcecode_vb>Go to Home Page Button
+     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As   
+     System.EventArgs) Handles Button2.Click
+     WebBrowser1.Navigate(My.Settings.Home)
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:27:22.42+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>24</VBId>
+    <Content_vb>Webbrowser Zoom In and out</Content_vb>
+    <Sourcecode_vb>Webbrowser Zoom In and out
+     Public Sub PerformZoom(ByVal Value As Integer)
+     Try
+     Dim Res As Object = Nothing
+     Dim MyWeb As Object
+     MyWeb = Me.WebBrowser1.ActiveXInstance
+     MyWeb.ExecWB(Exec.OLECMDID_OPTICAL_ZOOM, 
+     execOpt.OLECMDEXECOPT_PROMPTUSER, CObj(Value),  
+     CObj(IntPtr.Zero))
+     Catch ex As Exception
+     MsgBox(ex.Message)
+     End Try
+     End Sub
+     Zoom In Button Code
+     Private Sub ZoomIn_Click(sender As System.Object, e As   
+     System.EventArgs) Handles ZoomIn.Click
+     InitialZoom += 10
+     PerformZoom(InitialZoom)
+     End Sub
+     Zoom Out Button Code
+     Private Sub ZoomOut_Click(sender As System.Object,   
+     e As System.EventArgs) Handles ZoomOut.Click
+     InitialZoom -= 10
+     PerformZoom(InitialZoom)
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:25:39.5+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>23</VBId>
+    <Content_vb>Get List of all Links on a Web Page</Content_vb>
+    <Sourcecode_vb>Get List of all Links on a Web Page
+     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As     
+     System.EventArgs) Handles Button1.Click
+     Dim a As Integer
+     Dim b As String
+     For a = 1 To WebBrowser1.Document.Links.Count - 1
+     b = b &amp; WebBrowser1.Document.Links(a).InnerHtml &amp; vbCrLf
+     Next
+  
+     TextBox1.Text = b
+      Label1.Text = WebBrowser1.Document.Links.Count &amp; " links."
+      End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:23:08.623+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>22</VBId>
+    <Content_vb>Read the Source Code of a Web Page</Content_vb>
+    <Sourcecode_vb>Read the Source Code of a Web Page
+     Private Sub WebBrowser1_DocumentCompleted(ByVal sender As  
+     System.Object, ByVal e As   
+     System.Windows.Forms.WebBrowserDocumentCompletedEventArgs)   
+     Handles WebBrowser1.DocumentCompleted
+     'When webbrower finish opening the page, source page is diplayed in  
+     text box
+     TextBox1.Text = WebBrowser1.DocumentText
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:21:52.547+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>21</VBId>
+    <Content_vb>Check if internet connection available</Content_vb>
+    <Sourcecode_vb>Check if internet connection available
+     Public Function IsConnectionAvailable() As Boolean
+     Dim objUrl As New System.Uri("http://www.youtube.com")
+     Dim objWebReq As System.Net.WebRequest
+     objWebReq = System.Net.WebRequest.Create(objUrl)
+     Dim objresp As System.Net.WebResponse
+  
+     Try
+     objresp = objWebReq.GetResponse
+     objresp.Close()
+     objresp = Nothing
+     Return True
+  
+     Catch ex As Exception
+     objresp = Nothing
+     objWebReq = Nothing
+     Return False 
+     End Try
+     End Function
+     Then add the following code where you like to check the connection: 
+     If IsConnectionAvailable() = TrueThen
+     Do Action Here
+     Else
+     Do Action Here
+
+     End If</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:20:24.14+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>20</VBId>
+    <Content_vb>Creating ADO.NET Commands</Content_vb>
+    <Sourcecode_vb>Creating ADO.NET Commands
+     Dim ConnectionString As String = _
+     Data Source=SqlServerNameOrIP;Initial Catalog=DBName;Integrated   
+     Security=True
+     Dim connection As New SqlConnection(ConnectionString)
+     Try
+     connection.Open()
+ 
+     ' Way #1
+     Dim command As New SqlCommand
+     command.Connection = connection
+     command.CommandText = "SELECT * FROM aspnet_Users"
+ 
+     ' Way #2
+     Dim command As SqlCommand = connection.CreateCommand
+     command.CommandText = "SELECT * FROM aspnet_Users"
+  
+     ' Way #3 (put everything together)
+     Dim command As New SqlCommand("SELECT * FROM aspnet_Users",   
+     connection)</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:17:10.843+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>19</VBId>
+    <Content_vb>Using Data Reader</Content_vb>
+    <Sourcecode_vb>Using Data Reader
+     Dim ConnectionString As String = _
+     Data Source=SqlServerNameOrIP;Initial Catalog=DBName;Integrated    
+     Security=True
+     Dim connection As New SqlConnection(ConnectionString)
+     Try
+     connection.Open()
+ 
+     ' declare and create a sql command object
+     Dim command As SqlCommand = connection.CreateCommand
+ 
+     ' set the sql statement to execute at the data source
+     command.CommandText = "SELECT Username FROM aspnet_Users"
+ 
+     ' declare and build the data reader object
+     Dim reader As SqlDataReader = command.ExecuteReader
+ 
+     ' check if reader contains one or more rows
+     If reader.HasRows Then
+     While reader.Read
+     ' Way #1
+     Console.WriteLine(reader.GetString(0))
+     ' Way #2
+     Console.WriteLine(reader(0).ToString)
+     ' Way #3
+     Console.WriteLine(reader("Username").ToString)
+     End While
+     End If
+     ' release the resources
+     reader.Close()
+     command.Dispose()
+     Catch ex As Exception
+     Console.Write(ex.Message)
+     Finally
+     ' close the connection
+     connection.Close()
+     End Try</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:15:12.25+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>18</VBId>
+    <Content_vb>Using Data Adapters</Content_vb>
+    <Sourcecode_vb>Using Data Adapters
+     ' declare and initialize the SqlDataAdapter
+     Dim adapter As New SqlDataAdapter( _
+     SELECT Username FROM aspnet_Users, connection)
+ 
+     Dim dataset As New DataSet
+     adapter.Fill(dataset)</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:13:26.763+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>17</VBId>
+    <Content_vb>Working with Stored Procedures in ADO.NET</Content_vb>
+    <Sourcecode_vb>Working with Stored Procedures in ADO.NET
+     Dim ConnectionString As String = _
+     Data Source=SqlServerNameOrIP;Initial Catalog=DBName;Integrated   
+     Security=True
+     Dim connection As New SqlConnection(ConnectionString)
+     Try
+     connection.Open()
+     ' declare and create a sql command
+     Dim command As SqlCommand = connection.CreateCommand
+     ' define how the command text will be interpreted
+     command.CommandType = CommandType.StoredProcedure
+     ' set the sql statements
+     command.CommandText = "ProcedureName"
+ 
+     ' add a SqlParameter
+     command.Parameters.Add("@UserID", SqlDbType.Int, 4).Value =    
+     Convert.ToInt32(lblID.Text)
+ 
+     Dim reader As SqlDataReader = command.ExecuteReader
+     ' check if such user exists
+     If reader.HasRows Then
+     ' such user exists
+     While reader.Read
+     Me.Username.Text = reader("UserName").ToString
+     End While
+     End If
+ 
+     ' release the resources
+     reader.Close()
+     command.Dispose()
+     Catch ex As Exception
+     Console.Write(ex.Message)
+     Finally
+     connection.Close()
+     End Try</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:12:41.967+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>16</VBId>
+    <Content_vb>Executing Commands Asynchronously</Content_vb>
+    <Sourcecode_vb>Executing Commands Asynchronously
+     First :: you must append the statement Asynchronous  
+     Processing=true 
+     Dim connection As New SqlConnection( _
+     "Data Source=SqlServerNameOrIP;Initial Catalog=DBName;" + _
+     "Integrated Security=True;Asynchronous Processing=true;")
+     Meaning after getting the connection set, you build the Command  
+     object and initialize it to be able to execute the long running SQL  
+     query. 
+     ' declare and create a sql command
+     Dim command As SqlCommand = connection.CreateCommand
+     ' define how the command text will be interpreted
+     command.CommandType = CommandType.Text
+     ' set the sql statements (long running one)
+     command.CommandText = "SELECT * FROM Users"
+ 
+     ' make an asynchronous call
+     command.BeginExecuteReader( _
+     AddressOf Me.AsynchronousCallback, _
+     command, _
+     CommandBehavior.CloseConnection)
+     Finally let's take a look at the method that is being called back
+     Private Sub AsynchronousCallback(ByVal async As IAsyncResult)
+     'Get the command
+     Dim command As SqlCommand = CType(async.AsyncState,  
+     SqlCommand)
+ 
+     'Get the reader
+     Dim reader As SqlDataReader = command.EndExecuteReader(async)
+ 
+     'Get a table from the reader.
+     Dim table As New DataTable()
+     table.Load(reader)
+ 
+     ' ToDo: something with the table
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:10:41.92+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>15</VBId>
+    <Content_vb>Round Number to Nearest .99</Content_vb>
+    <Sourcecode_vb>Round Number to Nearest .99
+     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As 
+     System.EventArgs) _
+     Handles Button1.Click
+     Dim x As String = TextBox1.Text * 100
+     Dim y As String = 10
+     Dim z As String
+     z = (Math.Round(x / 10) * 10) - 1
+     MsgBox(z / 100)
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:08:35.983+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>14</VBId>
+    <Content_vb>Capture Full Screen</Content_vb>
+    <Sourcecode_vb>Capture Full Screen
+     Shared Function GetDesktopImage(Optional ByVal Width As Integer = 0,     
+     Optional ByVal Height As Integer = 0, Optional ByVal ShowCursor As   
+     Boolean = True) As Image
+     Dim W As Integer = Screen.PrimaryScreen.Bounds.Width
+     Dim H As Integer = Screen.PrimaryScreen.Bounds.Height
+     Dim DesktopBitmap As New Bitmap(W, H)
+     Dim g As Graphics = Graphics.FromImage(DesktopBitmap)
+     g.CopyFromScreen(0, 0, 0, 0, New 
+     Size(Screen.PrimaryScreen.Bounds.Width, 
+     Screen.PrimaryScreen.Bounds.Height), CopyPixelOperation.SourceCopy)
+     If ShowCursor Then Cursors.Default.Draw(g, New  
+     Rectangle(Cursor.Position, New Size(32, 32)))
+     g.Dispose()
+     If Width = 0 And Height = 0 Then
+     Image = DesktopBitmap
+     Return DesktopBitmap
+ 
+     Else
+     Dim ScaledBitmap As Image = 
+     DesktopBitmap.GetThumbnailImage(Width, Height, Nothing, IntPtr.Zero)
+     DesktopBitmap.Dispose()
+     Image = ScaledBitmap
+     Return ScaledBitmap
+     End If
+     End Function</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:07:43.153+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>13</VBId>
+    <Content_vb>Function to extract the month and day of the date of birth</Content_vb>
+    <Sourcecode_vb>Function to extract the month and day of the date of birth
+     Public Function Process(dateOfBirth As Date) As String
+     Dim Info As String
+     Dim BirthMonth As Integer = dateOfBirth.Month
+     Dim BirthDay As Integer = dateOfBirth.Day
+     Select Case BirthMonth
+     Case 1
+     If BirthDay &gt; 19 Then
+     Info = Zodiac(11)
+     ElseIf BirthDay &lt; 20 Then
+     Info = Zodiac(10)
+     End If
+     Case 2
+     If BirthDay &gt; 18 Then
+     Info = Zodiac(12)
+     ElseIf BirthDay &lt; 19 Then
+     Info = Zodiac(11)
+     End If
+     Case 3
+     If BirthDay &gt; 20 Then
+     Info = Zodiac(1)
+     ElseIf BirthDay &lt; 21 Then
+     Info = Zodiac(12)
+     End If
+     Case 4
+     If BirthDay &gt; 19 Then
+     Info = Zodiac(2)
+     ElseIf BirthDay &lt; 20 Then
+     Info = Zodiac(1)
+     End If
+     Case 5
+     If BirthDay &gt; 20 Then
+     Info = Zodiac(3)
+     ElseIf BirthDay &lt; 21 Then
+     Info = Zodiac(2)
+     End If
+     Case 6
+     If BirthDay &gt; 20 Then
+     Info = Zodiac(4)
+     ElseIf BirthDay &lt; 21 Then
+     Info = Zodiac(3)
+     End If
+     Case 7
+     If BirthDay &gt; 22 Then
+     Info = Zodiac(5)
+     ElseIf BirthDay &lt; 23 Then
+     Info = Zodiac(4)
+     End If
+     Case 8
+     If BirthDay &gt; 22 Then
+     Info = Zodiac(6)
+     ElseIf BirthDay &lt; 23 Then
+     Info = Zodiac(5)
+     End If
+     Case 9
+     If BirthDay &gt; 22 Then
+     Info = Zodiac(7)
+     ElseIf BirthDay &lt; 23 Then
+     Info = Zodiac(6)
+     End If
+     Case 10
+     If BirthDay &gt; 22 Then
+     Info = Zodiac(8)
+     ElseIf BirthDay &lt; 23 Then
+     Info = Zodiac(7)
+     End If
+     Case 11
+     If BirthDay &gt; 22 Then
+     Info = Zodiac(9)
+     ElseIf BirthDay &lt; 23 Then
+     Info = Zodiac(8)
+     End If
+     Case 12
+     If BirthDay &gt; 21 Then
+     Info = Zodiac(10)
+     ElseIf BirthDay &lt; 22 Then
+     Info = Zodiac(9)
+     End If
+     End Select
+     Return Info
+     End Function</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T18:05:40.653+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>12</VBId>
+    <Content_vb>function define the Zodiac sign and planet info</Content_vb>
+    <Sourcecode_vb>function define the Zodiac sign and planet info
+     Public Function Zodiac(id As Integer) As String
+     Dim sign As String
+     Dim planet As String
+     Dim symbol As String
+     Dim charas As String
+     Select Case id
+     Case 1
+     sign = "Aries"
+     PictureBox1.Image = My.Resources.Aries
+     planet = "Mars"
+     charas = "Active, Demanding, Determined, Effective, Ambitious"
+     Case 2
+     sign = "Taurus"
+     PictureBox1.Image = My.Resources.Taurus     
+     planet = "Venus"
+     charas = "Security, Subtle strength, Appreciation, Instruction, Patience"
+     Case 3
+     sign = "Gemini"
+     PictureBox1.Image = My.Resources.Gemini
+     planet = "Mercury"
+     charas = "Communication, Indecision, Inquisitive, Intelligent, Changeable"
+     Case 4
+     sign = "Cancer"
+     PictureBox1.Image = My.Resources.Cancer
+     planet = "The Moon"
+     charas = "Emotion, Diplomatic, Intensity, Impulsive, Selective"
+     Case 5
+     sign = "Leo"
+     PictureBox1.Image = My.Resources.Leo
+     planet = "The Sun"
+     charas = "Ruling, Warmth, Generosity, Faithful, Initiative "
+     Case 6
+     sign = "Virgo"
+     PictureBox1.Image = My.Resources.Virgo
+     planet = "Mercury"
+     charas = "Analyzing, Practical, Reflective, Observation, Thoughtful"
+     Case 7
+     sign = "Libra"
+     PictureBox1.Image = My.Resources.Libra
+     planet = "Venus"
+     charas = "Balance, Justice, Truth, Beauty, Perfection"
+     Case 8
+     sign = "Scorpio"
+     PictureBox1.Image = My.Resources.Scorpio
+     planet = "Pluto"
+     charas = "Transient, Self-Willed, Purposeful, Unyielding"
+     Case 9
+     sign = "Sagittarius"
+     PictureBox1.Image = My.Resources.Sagittarius
+     planet = "Jupiter"
+     charas = "Philosophical, Motion, Experimentation, Optimism"
+     Case 10
+     sign = "Capricorn"
+     PictureBox1.Image = My.Resources.Capricorn
+     planet = "Saturn"
+     charas = "Determination, Dominance, Perservering, Practical, Willful"
+     Case 11
+     sign = "Aquarius"
+     PictureBox1.Image = My.Resources.Aquarius
+     planet = "Uranus"
+     charas = "Knowledge, Humanitarian, Serious, Insightful, Duplicitous"
+     Case 12
+     sign = "Pisces"
+     PictureBox1.Image = My.Resources.Pisces
+     planet = "Neptune"
+     charas = "Fluctuation, Depth, Imagination, Reactive, Indecisive"
+     End Select
+     Return "Zodiac Sign: " &amp; sign &amp; Environment.NewLine &amp; Environment.NewLine &amp; "Planet: " &amp; planet &amp;   
+     Environment.NewLine &amp; Environment.NewLine &amp; "Characteristics: " &amp; charas
+     End Function</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T16:55:59.03+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>11</VBId>
+    <Content_vb>Round a number</Content_vb>
+    <Sourcecode_vb>Round a number
+     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) _
+     Handles Button1.Click
+     Dim a As Single
+     Dim b As Double
+     b = Convert.ToDouble(TextBox1.Text)
+     a = Math.Round(b)
+  
+     TextBox1.Text = a
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T16:54:54.53+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>10</VBId>
+    <Content_vb>Record from a Microphone</Content_vb>
+    <Sourcecode_vb>Record from a Microphone
+     Private Declare Function record Lib "winmm.dll" Alias "mciSendStringA" (
+     ByVal lpstrCommand As String,
+     ByVal lpstrReturnString As String, 
+     ByVal uReturnLength As Integer, 
+     ByVal hwndCallback As Integer
+     )
+     As Integer</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T16:53:59.733+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>9</VBId>
+    <Content_vb>Print Screen send keys</Content_vb>
+    <Sourcecode_vb>Print Screen send keys
+     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles   
+     Button1.Click
+     'send keys with Alt key
+     SendKeys.SendWait("%({PRTSC})")
+     My.Computer.Clipboard.GetImage().Save("C:\form.jpg")
+
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T16:52:26.327+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>8</VBId>
+    <Content_vb>Generate Random Numbers</Content_vb>
+    <Sourcecode_vb>Generate Random Numbers
+     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles    
+     Button1.Click
+     Dim number As Integer
+  
+     Randomize()
+     ' The program will generate a number from 0 to 50
+     number = Int(Rnd() * 50) + 1
+  
+     TextBox1.Text = number
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T16:51:19.903+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>7</VBId>
+    <Content_vb>Monitor a Secondary Screen from a Form</Content_vb>
+    <Sourcecode_vb>Monitor a Secondary Screen from a Form
+     Imports System.Runtime.InteropServices
+     Public Class Form1
+     Dim result As Integer
+     Private Declare Function GetAsyncKeyState Lib "user32"  (ByVal vKey As Long) As Integer
+     Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As      
+     Integer,ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
+     Private Const MOUSEEVENTF_ABSOLUTE = &amp;H8000
+     Private Const MOUSEEVENTF_LEFTDOWN = &amp;H2
+     Private Const MOUSEEVENTF_LEFTUP = &amp;H4
+     Private Const MOUSEEVENTF_MOVE = &amp;H1
+     Private Const MOUSEEVENTF_MIDDLEDOWN = &amp;H20
+     Private Const MOUSEEVENTF_MIDDLEUP = &amp;H40
+     Private Const MOUSEEVENTF_RIGHTDOWN = &amp;H8
+     Private Const MOUSEEVENTF_RIGHTUP = &amp;H10
+     Private Structure MSLLHOOKSTRUCT
+     Public pt As Point
+     Public mouseData As Int32
+     Public flags As Int32
+     Public time As Int32
+     Public extra As IntPtr
+     End Structure</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T16:44:15.53+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>6</VBId>
+    <Content_vb>Copy file from destination folder</Content_vb>
+    <Sourcecode_vb>Copy file from destination folder
+     Public Class Form1
+
+     Dim tempFileName As String
+     Private Sub BrowseSourceButton_Click(sender As System.Object,    
+     e As System.EventArgs) Handles BrowseSourceButton.Click
+     Dim fDialog As New OpenFileDialog
+     fDialog.ShowDialog()
+     SourceText.Text = fDialog.FileName
+     tempFileName = fDialog.SafeFileName
+     End Sub
+ 
+     Private Sub BrowseDestinationBtton_Click(sender As System.Object, 
+     e As System.EventArgs) Handles BrowseDestinationBtton.Click
+     fDialog As New FolderBrowserDialog
+     fDialog.ShowDialog()
+     DestinationText.Text = fDialog.SelectedPath &amp; "\" &amp; tempFileName
+     End Sub
+ 
+     Private Sub CopyButton_Click(sender As System.Object, 
+     e As System.EventArgs) Handles CopyButton.Click
+     If SourceText.Text.Length &gt; 0 And DestinationText.Text.Length &gt;   
+     0 Then
+     My.Computer.FileSystem.CopyFile(SourceText.Text, 
+     DestinationText.Text)
+     MsgBox("Successfully Copied")
+     End If
+     End Sub
+     End Class</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T16:37:58.047+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>5</VBId>
+    <Content_vb>Display Access Table Records in DataGridView</Content_vb>
+    <Sourcecode_vb>Display Access Table Records in DataGridView
+
+     First we must add the following declaration:
+     Imports System.Data.OleDb
+ 
+     Public Class Form1 
+   
+     'Change "C:\Users\Jimmy\Documents\Merchandise.accdb" to 
+     your  database location
+     Dim connString As String = "Provider=Microsoft.ACE.OLEDB.12.0;   
+     Data Source=C:\Users\Jimmy\Documents\Merchandise.accdb"
+     Dim MyConn As OleDbConnection
+     Dim da As OleDbDataAdapter
+     Dim ds As DataSet
+     Dim tables As DataTableCollection
+     Dim source1 As New BindingSource
+     Display Button code:
+     Private Sub Button1_Click(ByVal sender As System.Object, 
+     ByVal e As System.EventArgs) Handles Button1.Click
+     MyConn = New OleDbConnection
+     MyConn.ConnectionString = connString
+     ds = New DataSet
+     tables = ds.Tables
+     da = New OleDbDataAdapter("Select * from [items]",  
+     MyConn) 'Change items to your database name
+     da.Fill(ds, "items") 'Change items to your database name
+     Dim view As New DataView(tables(0))
+     source1.DataSource = view
+     DataGridView1.DataSource = view
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T16:04:55.64+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>4</VBId>
+    <Content_vb>Filter Columns Value in DataGridView</Content_vb>
+    <Sourcecode_vb>Filter Columns Value in DataGridView 
+ 
+     First add the following namespaces: 
+     Imports System.Data 
+     Imports System.Data.OleDb 
+     Imports System.Data.Odbc 
+     Imports System.Data.DataTable 
+     Declaration after Public Class Form1 
+     Public Class Form1 
+     Dim provider As String 
+     Dim dataFile As String 
+     Dim connString As String 
+     Dim myConnection As OleDbConnection = New OleDbConnection 
+     Dim ds As DataSet = New DataSet 
+     Dim da As OleDbDataAdapter 
+     Dim tables As DataTableCollection = ds.Tables 
+     Dim source1 As New BindingSource() 
+     Code is the form load event 
+     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As 
+     System.EventArgs) Handles MyBase.Load 
+     provider = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source =" 
+     dataFile = "C:\Users\Jimmy\Documents\Merchandise.accdb" ' change to  access database location on   
+     your computer 
+     connString = provider &amp; dataFile 
+     myConnection.ConnectionString = connString 
+     da = New OleDbDataAdapter("Select [Item Code], [Description],$ [Price] from items", myConnection) 
+     da.Fill(ds, "Items") 
+     ' replace "items" with the name of the table 
+     ' replace [Item Code], [Description], [Price] with the columns  headers 
+     Dim view1 As New DataView(tables(0)) 
+     source1.DataSource = view1 
+     DataGridView1.DataSource = view1 
+     DataGridView1.Refresh() 
+     End Sub 
+     Filter button click event 
+     Private Sub FilterButton_Click(ByVal sender As System.Object, ByVal e 
+     As System.EventArgs) Handles FilterButton.Click 
+     source1.Filter = "[Item Code] = '" &amp; TextBox1.Text &amp; "'" 
+     DataGridView1.Refresh() 
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T15:49:10.61+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>3</VBId>
+    <Content_vb>Sort Datagridview column</Content_vb>
+    <Sourcecode_vb>Sort Datagridview column 
+ 
+     Ascending 
+     DataGridView1.Sort(DataGridView1.Columns(1),$ System.ComponentModel.ListSortDirection.Ascending) 
+     'Change the number to the column index that you want to sort 
+     Descending 
+     DataGridView1.Sort(DataGridView1.Columns(1),  System.ComponentModel.ListSortDirection.Descending) 
+     'Change the number to the column index that you want to sort</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T15:47:17.967+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>2</VBId>
+    <Content_vb>Function to count how many times a string occurs</Content_vb>
+    <Sourcecode_vb>Function to count how many times a string occurs
+
+     Private Function FindWords(ByVal TextSearched As String, _
+     ByVal Paragraph As String) As Integer
+ 
+     Dim location As Integer = 0
+ 
+     Dim occurances As Integer = 0
+ 
+     Do
+ 
+     location = TextSearched.IndexOf(Paragraph, location)
+ 
+     If location &lt;&gt; -1 Then
+ 
+     occurances += 1
+     location += Paragraph.Length
+ 
+     End If 
+  
+     Loop Until location = -1 
+  
+     Return occurances 
+  
+     End Function 
+     Then add the following code to "Check" button click event 
+     Private Sub Button1_Click(ByVal sender As System.Object, _ 
+     ByVal e As System.EventArgs) Handles Button1.Click 
+ 
+     MsgBox("The word " &amp; TextBox2.Text &amp; ;" has occured " &amp; _$
+     FindWords(TextBox1.Text, TextBox2.Text) &amp; " times!!")$
+ 
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T15:46:30.233+07:00</DateAdd_vb>
+  </VB>
+  <VB>
+    <VBId>1</VBId>
+    <Content_vb>Read ListBox Up Down</Content_vb>
+    <Sourcecode_vb>Read ListBox Up Down
+
+     Private Sub Button1_Click(ByVal sender As System.Object,
+     ByVal e As
+     System.EventArgs) _HandlesButton1.Click
+     Dim a As Integer
+     Dim b As String
+     Do
+     a = ListBox1.Items.Count - 1
+     b = ListBox1.Items(a)
+     ListBox2.Items.Add(b)
+     ListBox1.Items.RemoveAt(a)
+     Loop Until a = 0
+     End Sub</Sourcecode_vb>
+    <DateAdd_vb>2015-04-09T15:42:26.187+07:00</DateAdd_vb>
+  </VB>
+</NewDataSet>

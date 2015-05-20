@@ -1,0 +1,2993 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <JavaCode>
+    <JavaId>52</JavaId>
+    <Content_java>Print Square 
+</Content_java>
+    <Sourcecode_java>Print Square 
+     public class PrintSquare {
+
+     public static void main(String[] args) {
+
+        int userInput;  // The number input by the user.
+        int square;     // The userInput, multiplied by itself.
+
+      System.out.print("Please type a number: ");
+        userInput = TextIO.getlnInt();
+        square = userInput * userInput;
+
+      System.out.println();
+      System.out.println("The number that you entered was " + userInput);
+      System.out.println("The square of that number is " + square);
+      System.out.println();
+
+      } // end of main()
+
+     } //end of class PrintSquare
+
+</Sourcecode_java>
+    <DateAdd_java>2015-04-15T11:47:33+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>51</JavaId>
+    <Content_java>Guessing Game</Content_java>
+    <Sourcecode_java>Guessing Game
+
+     public class GuessingGame {
+
+     public static void main(String[] args) {
+        System.out.println("Let's play a game.  I'll pick a number 
+     between");
+        System.out.println("1 and 100, and you try to guess it.");
+        boolean playAgain;
+      do {
+         playGame();  // call subroutine to play one game
+         System.out.print("Would you like to play again? ");
+             playAgain = TextIO.getlnBoolean();
+       } while (playAgain);
+         System.out.println("Thanks for playing.  Goodbye.");
+       } // end of main()            
+
+    
+       /**
+        * Lets the user play one game.
+       */
+       static void playGame() {
+          int computersNumber; // A random number picked by the computer.    
+          int usersGuess;      // A number entered by user as a guess.
+          int guessCount;      // Number of guesses the user has made.
+       computersNumber = (int)(100 * Math.random()) + 1;
+        // The value assigned to computersNumber is a randomly
+        //    chosen integer between 1 and 100, inclusive.
+           guessCount = 0;
+      System.out.println();
+      System.out.print("What is your first guess? ");
+           while (true) {
+              usersGuess = TextIO.getInt();  // Get the user's guess.
+           guessCount++;
+        if (usersGuess == computersNumber) {
+       System.out.println("You got it in " + guessCount
+            + " guesses!  My number was " + computersNumber);
+             break;  // The game is over; the user has won.
+        }
+          if (guessCount == 6) {
+       System.out.println("You didn't get the number in 6 guesses.");
+       System.out.println("You lose.  My number was " +  
+       computersNumber);
+             break;  // The game is over; the user has lost.
+      }
+       // If we get to this point, the game continues.
+      // Tell the user if the guess was too high or too low.
+           if (usersGuess &lt; computersNumber)
+         System.out.print("That's too low.  Try again: ");
+             else if (usersGuess &gt; computersNumber)
+         System.out.print("That's too high.  Try again: ");
+     }
+         System.out.println();
+      } // end of playGame()
+
+       } // end of class GuessingGame</Sourcecode_java>
+    <DateAdd_java>2015-04-14T18:07:00.31+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>50</JavaId>
+    <Content_java>Birthday Problem</Content_java>
+    <Sourcecode_java>Birthday Problem
+     
+      public class BirthdayProblem {
+
+      public static void main(String[] args) {
+
+       boolean[] used;  // For recording the possible birthdays
+              //   that have been seen so far.  A value
+             //   of true in used[i] means that a person
+            //   whose birthday is the i-th day of the
+           //   year has been found.
+
+      int count;       // The number of people who have been checked.
+
+        used = new boolean[365];  // Initially, all entries are false.
+
+     count = 0;
+
+      while (true) {
+         // Select a birthday at random, from 0 to 364.
+        // If the birthday has already been used, quit.
+       // Otherwise, record the birthday as used.
+
+      int birthday;  // The selected birthday.
+           birthday = (int)(Math.random()*365);
+      count++;
+
+      System.out.printf("Person %d has birthday number %d", count, birthday);
+      System.out.println();
+
+           if ( used[birthday] ) {  
+        // This day was found before; It's a duplicate.  We are done.
+            break;
+        }
+
+        used[birthday] = true;
+
+        } // end while
+
+          System.out.println();
+         System.out.println("A duplicate birthday was found after " 
+         + count + " tries.");
+      }
+
+     } // end class BirthdayProblem</Sourcecode_java>
+    <DateAdd_java>2015-04-14T13:42:26.343+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>49</JavaId>
+    <Content_java>Compute Average 2</Content_java>
+    <Sourcecode_java>Compute Average 2
+     
+     public class ComputeAverage2 {
+
+     public static void main(String[] args) {
+       String str;     // The user's input.
+       double number;  // The input converted into a number.
+       double total;   // The total of all numbers entered.
+       double avg;     // The average of the numbers.
+       int count;      // The number of numbers entered.
+           total = 0;
+           count = 0;
+      System.out.println("Enter your numbers, press return to end.");
+           while (true) {
+      System.out.print("? ");
+           str = TextIO.getln();
+         if (str.equals("")) {
+        break; // Exit the loop, since the input line was blank.
+        }
+        try {
+            number = Double.parseDouble(str);
+        // If an error occurs, the next 2 lines are skipped!
+            total = total + number;
+            count = count + 1;
+        }
+            catch (NumberFormatException e) {
+        System.out.println("Not a legal number!  Try again.");
+        }
+      }
+            avg = total/count;
+        System.out.printf("The average of %d numbers is %1.6g%n", count, avg);
+     }
+
+      }</Sourcecode_java>
+    <DateAdd_java>2015-04-14T13:41:34.86+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>48</JavaId>
+    <Content_java>Interest 2 With Scanner</Content_java>
+    <Sourcecode_java>Interest 2 With Scanner
+
+     import java.util.Scanner;  // Make the Scanner class available.
+
+         /**
+      * This class implements a simple program that will compute
+      * the amount of interest that is earned on an investment over
+      * a period of one year.  The initial amount of the investment
+      * and the interest rate are input by the user.  The value of
+      * the investment at the end of the year is output.  The
+      * rate must be input as a decimal, not a percentage (for
+      * example, 0.05 rather than 5).
+      * 
+      * This program uses the standard Scaner class for input.
+        */
+      public class Interest2WithScanner {
+
+      public static void main(String[] args) {
+
+         Scanner stdin = new Scanner( System.in );  // Create the Scanner.
+
+                double principal;  // The value of the investment.
+                double rate;       // The annual interest rate.
+                double interest;   // The interest earned during the year.
+
+        System.out.print("Enter the initial investment: ");
+                principal = stdin.nextDouble();
+
+        System.out.print("Enter the annual interest rate (as a decimal): ");
+                rate = stdin.nextDouble();
+
+        interest = principal * rate;       // Compute this year's interest.
+                principal = principal + interest;  // Add it to principal.
+
+        System.out.printf("The amount of interest is $%1.2f%n", interest);
+        System.out.printf("The value after one year is $%1.2f%n", principal);
+
+       } // end of main()
+
+      } // end of class Interest2With Scanner</Sourcecode_java>
+    <DateAdd_java>2015-04-14T13:40:11.42+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>47</JavaId>
+    <Content_java>Length Converter</Content_java>
+    <Sourcecode_java>Length Converter
+
+     public class LengthConverter {
+
+     public static void main(String[] args) {
+
+           double measurement;  // Numerical measurement, input by user.
+           String units;        // The unit of measure for the input, also
+                                        //    specified by the user.
+
+           double inches, feet, yards, miles;  // Measurement expressed in
+                                       //   each possible unit of
+                                      //   measure.
+
+              System.out.println("Enter measurements in inches, feet, yards, or miles.");
+              System.out.println("For example:  1 inch    17 feet    2.73 miles");
+              System.out.println("You can use abbreviations:   in   ft  yd   mi");
+              System.out.println("I will convert your input into the other units");
+              System.out.println("of measure.");
+              System.out.println();
+
+         while (true) {
+
+           /* Get the user's input, and convert units to lower case. */
+
+            System.out.print("Enter your measurement, or 0 to end:  ");
+                   measurement = TextIO.getDouble();
+            if (measurement == 0)
+                   break;  // Terminate the while loop.
+            units = TextIO.getlnWord();            
+            units = units.toLowerCase();  // convert units to lower case
+
+          /* Convert the input measurement to inches. */
+
+          if (units.equals("inch") || units.equals("inches") 
+                    || units.equals("in")) {
+            inches = measurement;
+         }
+             else if (units.equals("foot") || units.equals("feet") 
+                    || units.equals("ft")) {
+            inches = measurement * 12;
+         }
+            else if (units.equals("yard") || units.equals("yards") 
+                    || units.equals("yd")) {
+            inches = measurement * 36;
+        }
+            else if (units.equals("mile") || units.equals("miles") 
+                    || units.equals("mi")) {
+           inches = measurement * 12 * 5280;
+              }
+           else {
+          System.out.println("Sorry, but I don't understand \"" 
+            + units + "\".");
+           continue;  // back to start of while loop
+            }
+
+             /* Convert measurement in inches to feet, yards, and miles. */
+
+            feet = inches / 12;
+            yards = inches / 36;
+            miles = inches / (12*5280);
+
+             /* Output measurement in terms of each unit of measure. */
+ 
+            System.out.println();
+            System.out.println("That's equivalent to:");
+            System.out.printf("%12.5g", inches);
+            System.out.println(" inches");
+            System.out.printf("%12.5g", feet);
+            System.out.println(" feet");
+            System.out.printf("%12.5g", yards);
+            System.out.println(" yards");
+            System.out.printf("%12.5g", miles);
+            System.out.println(" miles");
+            System.out.println();
+
+        } // end while
+
+           System.out.println();
+           System.out.println("OK!  Bye for now.");
+
+        } // end main()
+
+          } // end class LengthConverter</Sourcecode_java>
+    <DateAdd_java>2015-04-14T13:36:03.843+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>46</JavaId>
+    <Content_java>Timed Computation</Content_java>
+    <Sourcecode_java>Timed Computation
+
+      public class TimedComputation {
+      
+      public static void main(String[] args) {
+   
+         long startTime; // Starting time of program, in milliseconds.
+         long endTime;   // Time when computations are done, in  
+      milliseconds.
+         double time;    // Time difference, in seconds.
+     
+      startTime = System.currentTimeMillis();
+    
+          double width, height, hypotenuse;  // sides of a triangle
+        width = 42.0;
+        height = 17.0;
+        hypotenuse = Math.sqrt( width*width + height*height );
+      System.out.print("A triangle with sides 42 and 17 has hypotenuse ");
+      System.out.println(hypotenuse);
+     
+      System.out.println("\nMathematically, sin(x)*sin(x) + "
+                + "cos(x)*cos(x) - 1 should be 0.");
+      System.out.println("Let's check this for x = 1:");
+      System.out.print("      sin(1)*sin(1) + cos(1)*cos(1) - 1 is ");
+      System.out.println( Math.sin(1)*Math.sin(1) 
+                + Math.cos(1)*Math.cos(1) - 1 );
+      System.out.println("(There can be round-off errors when" 
+                + " computing with real numbers!)");
+
+      System.out.print("\nHere is a random number:  ");
+      System.out.println( Math.random() );
+
+      System.out.print("\nThe value of Math.PI is ");
+      System.out.println( Math.PI );
+
+         endTime = System.currentTimeMillis();
+         time = (endTime - startTime) / 1000.0;
+
+      System.out.print("\nRun time in seconds was:  ");
+      System.out.println(time);
+   
+     } // end main()
+    
+     } // end class TimedComputation</Sourcecode_java>
+    <DateAdd_java>2015-04-14T13:32:32.64+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>45</JavaId>
+    <Content_java>Enum Demo</Content_java>
+    <Sourcecode_java>Enum Demo 
+     public class EnumDemo {
+ 
+      // Define two enum types -- remember that the definitions
+      // go OUTSIDE The main() routine!
+
+     enum Day { SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, 
+     FRIDAY, SATURDAY }
+
+     enum Month { JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, 
+     NOV, DEC }
+
+     public static void main(String[] args) {
+
+        Day tgif;     // Declare a variable of type Day.
+        Month libra;  // Declare a variable of type Month.
+     
+        tgif = Day.FRIDAY;    // Assign a value of type Day to tgif.
+        libra = Month.OCT;    // Assign a value of type Month to libra.
+     
+       System.out.print("My sign is libra, since I was born in ");
+       System.out.println(libra);   // Output value will be:  OCT
+       System.out.print("That's the ");
+       System.out.print( libra.ordinal() );
+       System.out.println("-th month of the year.");
+       System.out.println("   (Counting from 0, of course!)");
+
+       System.out.print("Isn't it nice to get to ");
+       System.out.println(tgif);   // Output value will be:  FRIDAY
+
+       System.out.println( tgif + " is the " + tgif.ordinal() 
+         + "-th day of the week.");
+      }
+
+     }</Sourcecode_java>
+    <DateAdd_java>2015-04-14T13:29:18.64+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>44</JavaId>
+    <Content_java>Print Square</Content_java>
+    <Sourcecode_java>Print Square 
+
+     public class PrintSquare {
+
+     public static void main(String[] args) {
+
+        int userInput;  // The number input by the user.
+        int square;     // The userInput, multiplied by itself.
+
+      System.out.print("Please type a number: ");
+        userInput = TextIO.getlnInt();
+        square = userInput * userInput;
+
+      System.out.println();
+      System.out.println("The number that you entered was " + userInput);
+      System.out.println("The square of that number is " + square);
+      System.out.println();
+
+      } // end of main()
+
+     } //end of class PrintSquare</Sourcecode_java>
+    <DateAdd_java>2015-04-14T13:27:15.593+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>43</JavaId>
+    <Content_java>Interest</Content_java>
+    <Sourcecode_java>Interest
+
+     public class Interest {
+   
+     public static void main(String[] args) {
+   
+       /* Declare the variables. */
+   
+       double principal;     // The value of the investment.
+       double rate;          // The annual interest rate.
+       double interest;      // Interest earned in one year.
+       
+      /* Do the computations. */
+       
+        principal = 17000;
+            rate = 0.027;
+        interest = principal * rate;   // Compute the interest.
+       
+        principal = principal + interest;
+         // Compute value of investment after one year, with interest.
+         // (Note: The new value replaces the old value of principal.)
+             
+       /* Output the results. */
+             
+       System.out.print("The interest earned is $");
+       System.out.println(interest);
+       System.out.print("The value of the investment after one year is $");
+       System.out.println(principal);
+                      
+      } // end of main()
+      
+     } // end of class Interest</Sourcecode_java>
+    <DateAdd_java>2015-04-14T13:25:41.217+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>42</JavaId>
+    <Content_java>Fetch URL</Content_java>
+    <Sourcecode_java>Fetch URL
+     
+     import java.net.URL;
+     import java.net.URLConnection;
+     import java.util.Scanner;
+     import java.io.BufferedReader;
+     import java.io.IOException;
+     import java.io.InputStream;
+     import java.io.InputStreamReader;
+     /*
+      *This short program demonstrates the URL and URLConnection classes by
+      * attempting to open a connection to a URL and read text from it.  The url 
+      * can be specified on the command line.  If no command line argument is
+      * provided, the user is prompted for input.  It can be a complete url, including 
+      * the "protocol" at the beginning ("http://", "ftp://", or "file://").   If 
+      * it does not start with one of these protocols, "http://" is added to the
+      * beginning of the input line.  If an error occurs while trying to fetch the data, 
+      * a message is output. Otherwise, the text from the URL is copied to the screen.
+      */
+
+      public class FetchURL {
+
+      public static void main(String[] args) {
+        String url;    // The url from the command line or from user input.
+        String urlLC;  // The url transformed to lower case.
+      if (args.length == 0) {
+        Scanner stdin = new Scanner(System.in);
+       System.out.print("Enter a url: ");
+            url = stdin.nextLine();
+       }
+        else {
+            url = args[0];
+       }
+             urlLC = url.toLowerCase();
+         if ( ! (urlLC.startsWith("http://") || urlLC.startsWith("ftp://") || 
+             urlLC.startsWith("file://"))) {
+           url = "http://" + url;
+        System.out.println("Using: " + url);
+      }
+         System.out.println();
+        try {
+           readTextFromURL(url);
+      }
+        catch (IOException e) {
+          System.out.println("\n*** Sorry, an error has occurred ***\n");
+          System.out.println(e);
+          System.out.println();
+      }  
+     }
+ 
+         /**
+          * This subroutine attempts to copy text from the specified URL onto the screen.  
+          * Any error must be handled by the caller of this subroutine.
+          * @param urlString contains the URL in text form
+          */
+      static void readTextFromURL( String urlString ) throws IOException {
+
+       /* Open a connection to the URL, and get an input stream
+            for reading data from the URL. */
+
+        URL url = new URL(urlString);
+        URLConnection connection = url.openConnection();
+            InputStream urlData = connection.getInputStream();
+
+          /* Check that the content is some type of text.  Note: If 
+            getContentType() method were called before getting the input 
+           stream, it is possible for contentType to be null only because 
+           no connection can be made.  The getInputStream() method will 
+            throw an error if no connection can be made. */
+
+        String contentType = connection.getContentType();
+        System.out.println("Stream opened with content type: " + contentType);
+        System.out.println();
+             if (contentType == null || contentType.startsWith("text") == false)
+                 throw new IOException("URL does not seem to refer to a text file.");
+        System.out.println("Fetching context from " + urlString + " ...");
+        System.out.println();
+
+        /* Copy lines of text from the input stream to the screen, until
+          end-of-file is encountered  (or an error occurs). */
+
+        BufferedReader in;  // For reading from the connection's input stream.
+        in = new BufferedReader( new InputStreamReader(urlData) );
+
+        while (true) {
+            String line = in.readLine();
+             if (line == null)
+         break;
+       System.out.println(line);
+       }
+       in.close();
+
+      } // end readTextFromURL()
+     
+     } // end class FetchURL</Sourcecode_java>
+    <DateAdd_java>2015-04-14T13:16:04.153+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>41</JavaId>
+    <Content_java>Count Divisors</Content_java>
+    <Sourcecode_java>Count Divisors 
+      public class CountDivisors {
+
+      public static void main(String[] args) {
+
+       int N;  // A positive integer entered by the user.
+                // Divisors of this number will be counted.
+
+      int testDivisor;  // A number between 1 and N that is a
+                           // possible divisor of N.
+
+      int divisorCount;  // Number of divisors of N that have been found.
+
+      int numberTested;  // Used to count how many possible divisors
+                          // of N have been tested.  When the number
+                         // reaches 1000000, a period is output and
+                        // the value of numberTested is reset to zero.
+
+      // Get a positive integer from the user. 
+
+        while (true) {
+       System.out.print("Enter a positive integer: ");
+       N = TextIO.getlnInt();
+         if (N &gt; 0)
+           break;
+        System.out.println("That number is not positive.  Please try 
+      again.");
+      }
+
+      // Count the divisors, printing a "." after every 1000000 tests.  
+
+       divisorCount = 0;
+       numberTested = 0;
+
+       for (testDivisor = 1; testDivisor &lt;= N; testDivisor++) {
+        if ( N % testDivisor == 0 )
+         divisorCount++;
+        numberTested++;
+        if (numberTested == 1000000) {
+          System.out.print('.');
+        numberTested = 0;
+        }
+       }
+ 
+     // Display the result.  
+
+       System.out.println();
+       System.out.println("The number of divisors of " + N
+        + " is " + divisorCount);
+
+      } // end main()
+
+     } // end class CountDivisors</Sourcecode_java>
+    <DateAdd_java>2015-04-14T13:13:48.577+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>40</JavaId>
+    <Content_java>Compute Average</Content_java>
+    <Sourcecode_java>Compute Average
+      public class ComputeAverage {
+      public static void main(String[] args) {
+
+         int inputNumber;   // One of the integers input by the user.
+         int sum;           // The sum of the positive integers.
+         int count;         // The number of positive integers.
+         double average;    // The average of the positive integers.
+
+      // Initialize the summation and counting variables.  
+
+         sum = 0;
+         count = 0;
+      
+      // Read and process the user's input.  
+
+      System.out.print("Enter your first positive integer: ");
+        inputNumber = TextIO.getlnInt();
+
+        while (inputNumber != 0) {
+          sum += inputNumber;   // Add inputNumber to running sum.
+          count++;              // Count the input by adding 1 to count.
+      System.out.print("Enter your next positive integer, or 0 to end: ");
+           inputNumber = TextIO.getlnInt();
+          }
+
+        // Display the result.  
+
+        if (count == 0) {
+        System.out.println("You didn't enter any data!");
+       }
+      else {
+          average = ((double)sum) / count;
+         System.out.println();
+         System.out.println("You entered " + count + " positive  
+       integers.");
+          System.out.printf("Their average is %1.3f.\n", average);
+      }
+
+      } // end main()
+
+     } // end class ComputeAverage</Sourcecode_java>
+    <DateAdd_java>2015-04-14T13:10:04.717+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>39</JavaId>
+    <Content_java>Date Client</Content_java>
+    <Sourcecode_java>Date Client
+
+     import java.net.*;
+     import java.util.Scanner;
+     import java.io.*;
+
+      public class DateClient {
+
+      public static final int LISTENING_PORT = 32007;
+
+      public static void main(String[] args) {
+
+       String hostName;         // Name of the server computer to connect to.
+      Socket connection;       // A socket for communicating with server.
+      BufferedReader incoming; // For reading data from the connection.
+
+     // Get computer name from command line. 
+
+        if (args.length &gt; 0)
+            hostName = args[0];
+        else {
+       Scanner stdin = new Scanner(System.in);
+          System.out.print("Enter computer name or IP address: ");
+       hostName = stdin.nextLine();
+        }
+
+      // Make the connection, then read and display a line of text.  
+
+        try {
+          connection = new Socket( hostName, LISTENING_PORT );
+             incoming = new BufferedReader( 
+                                new   
+       InputStreamReader(connection.getInputStream()) );
+           String lineFromServer = incoming.readLine();
+         if (lineFromServer == null) {
+         // A null from incoming.readLine() indicates that
+        // end-of-stream was encountered.
+         throw new IOException("Connection was opened, " + 
+         "but server did not send any data.");
+        }
+        System.out.println();
+        System.out.println(lineFromServer);
+        System.out.println();
+             incoming.close();
+        }
+       catch (Exception e) {
+        System.out.println("Error:  " + e);
+       }
+
+      }  // end main()
+
+
+     } //end class DateClient</Sourcecode_java>
+    <DateAdd_java>2015-04-14T13:05:55.733+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>38</JavaId>
+    <Content_java>DirectoryList</Content_java>
+    <Sourcecode_java>DirectoryList
+     
+     import java.io.File;
+     import java.util.Scanner;
+
+
+     // This program lists the files in a directory specified by
+     // the user.  The user is asked to type in a directory name.
+     // If the name entered by the user is not a directory, a
+     // message is printed and the program ends.
+
+     public class DirectoryList {
+
+     public static void main(String[] args) {
+
+       String directoryName;  // Directory name entered by the user.
+         File directory;        // File object referring to the directory.
+       String[] files;        // Array of file names in the directory.
+         Scanner scanner;       // For reading a line of input from the user.
+
+         scanner = new Scanner(System.in);  // scanner reads from     
+     standard input.
+
+       System.out.print("Enter a directory name: ");
+         directoryName = scanner.nextLine().trim();
+       directory = new File(directoryName);
+
+       if (directory.isDirectory() == false) {
+           if (directory.exists() == false)
+                System.out.println("There is no such directory!");
+             else
+                System.out.println("That file is not a directory.");
+        }
+      else {
+         files = directory.list();
+       System.out.println("Files in directory \"" + directory + "\":");
+         for (int i = 0; i &lt; files.length; i++)
+       System.out.println("   " + files[i]);
+         }
+
+       } // end main()
+
+     } // end class Direc</Sourcecode_java>
+    <DateAdd_java>2015-04-14T13:01:02.2+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>37</JavaId>
+    <Content_java>CreateProfile</Content_java>
+    <Sourcecode_java>CreateProfile 
+     public class CreateProfile {
+
+     public static void main(String[] args) {
+        String name;     // The user's name.
+        String email;    // The user's email address.
+        double salary;   // the user's yearly salary.
+        String favColor; // The user's favorite color.
+
+      TextIO.putln("Good Afternoon!  This program will create");
+      TextIO.putln("your profile file, if you will just answer");
+      TextIO.putln("a few simple questions.");
+      TextIO.putln();
+
+            // Gather responses from the user. 
+
+       TextIO.put("What is your name?           ");
+             name = TextIO.getln();
+       TextIO.put("What is your email address?  ");
+             email = TextIO.getln();
+       TextIO.put("What is your yearly income?  ");
+             salary = TextIO.getlnDouble();
+       TextIO.put("What is your favorite color? ");
+             favColor = TextIO.getln();
+
+        // Write the user's information to the file named profile.txt. 
+
+        TextIO.writeFile("profile.txt");  // subsequent output goes to file
+        TextIO.putln("Name:            " + name); 
+        TextIO.putln("Email:           " + email);
+        TextIO.putln("Favorite Color:  " + favColor);
+        TextIO.putf( "Yearly Income:   $%,1.2f%n", salary);
+
+        // Print a final message to standard output. 
+
+       TextIO.writeStandardOutput();
+       TextIO.putln("Thank you.  Your profile has been written to 
+       profile.txt.");
+
+      }
+
+     }</Sourcecode_java>
+    <DateAdd_java>2015-04-14T12:56:13.327+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>36</JavaId>
+    <Content_java>CopyTextFile</Content_java>
+    <Sourcecode_java>CopyTextFile
+     public class CopyTextFile {
+     
+     public static void main( String[] args ) {
+            if (args.length &lt; 2 ) {
+     System.out.println("Two command-line arguments are required!");
+     System.exit(1);
+      }
+       TextIO.readFile( args[0] );   // Open the original file for reading.
+       TextIO.writeFile( args[1] );  // Open the copy file for writing.
+             int lineCount;  // Number of lines copied
+       lineCount = 0;
+       while ( TextIO.eof() == false ) {
+      // Read one line from the original file and write it to the copy.
+             String line;
+        line = TextIO.getln()
+      TextIO.putln(line);
+      lineCount++;
+          }
+     System.out.printf( "%d lines copied from %s to %s%n",
+      lineCount, args[0], args[1] );
+          }
+      }</Sourcecode_java>
+    <DateAdd_java>2015-04-14T12:50:41.14+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>35</JavaId>
+    <Content_java>Divide Exceptions</Content_java>
+    <Sourcecode_java>Divide Exceptions 
+     public class DivideException {
+
+     public static void main(String[] args) {
+         division(100,4);		// Line 1
+         division(100,0);        // Line 2
+     System.out.println("Exit main().");
+     }
+
+     public static void division(int totalSum, int totalNumber) {
+     System.out.println("Computing Division.");
+        int average  = totalSum/totalNumber;
+      System.out.println("Average : "+ average);
+      }
+    }</Sourcecode_java>
+    <DateAdd_java>2015-04-14T11:56:49.047+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>34</JavaId>
+    <Content_java>HashMap to store the number of words</Content_java>
+    <Sourcecode_java>HashMap to store the number of words 
+     import java.util.HashMap;
+
+     public class HashMapExample {
+
+          static String[] names = { "heman", "bob", "hhh", "shawn",  
+     "scot","shan", "keeth" };
+     private static HashMap counter = new HashMap();
+     private static Integer cnt = null;
+     public static void main(String args[]) {
+        	for (int i = 0; i &lt; names.length; i++) {
+         		cnt = (Integer) (counter.get(new  
+     Character(names[i].charAt(0))));
+      		if (cnt == null) {
+      			counter.put(new Character(names[i].charAt(0)),new 
+     Integer("1"));
+       		} else {
+      			counter.put(new Character(names[i].charAt(0)),
+    					new Integer(cnt.intValue() + 1));
+      			}
+	    	}
+      System.out.println("\nnumber of words beginning with each letter is 
+      shown below ");
+        	System.out.println(counter.toString());
+        }
+      }</Sourcecode_java>
+    <DateAdd_java>2015-04-14T11:46:49.513+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>33</JavaId>
+    <Content_java>Collections framework</Content_java>
+    <Sourcecode_java>Collections framework
+     import java.util.*;
+
+     public class CollectionsDemo {
+
+          public static void main(String[] args) {
+        	List a1 = new ArrayList();
+        	a1.add("Beginner");
+        	a1.add("Java");
+        	a1.add("tutorial");
+       	System.out.println(" ArrayList Elements");
+       	System.out.print("\t" + a1);
+        	List l1 = new LinkedList();
+        	l1.add("Beginner");
+        	l1.add("Java");
+         	l1.add("tutorial");
+       	System.out.println();
+       	System.out.println(" LinkedList Elements");
+       	System.out.print("\t" + l1);
+        	Set s1 = new HashSet(); // or new TreeSet() will order the    
+     elements;
+        	s1.add("Beginner");
+         	s1.add("Java");
+        	s1.add("Java");
+        	s1.add("tutorial");
+       	System.out.println();
+       	System.out.println(" Set Elements");
+       	System.out.print("\t" + s1);
+        	Map m1 = new HashMap(); // or new TreeMap() will order 
+      based on keys
+        	m1.put("Windows", "98");
+        	m1.put("Win", "XP");
+         	m1.put("Beginner", "Java");
+        	m1.put("Tutorial", "Site");
+       	System.out.println();
+       	System.out.println(" Map Elements");
+       	System.out.print("\t" + m1);
+         }
+      }</Sourcecode_java>
+    <DateAdd_java>2015-04-14T11:42:42.233+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>32</JavaId>
+    <Content_java>Calculate grade</Content_java>
+    <Sourcecode_java>Calculate grade
+     import java.util.Scanner;
+ 
+     public class GPA {
+ 
+     public static void main(String[] args) {
+         
+        Scanner sc = new Scanner(System.in);
+       
+         System.out.print("Input your score : ");
+         
+        float score = sc.nextFloat();
+
+        if(score &lt; 0 || score &gt; 100){
+         System.out.println("Error input score 0 - 100");
+     }
+            else if(score &gt;= 80){
+        System.out.println("Score = "+score+" , You Grade : A");
+     }
+            else if(score &gt;= 75){
+       System.out.println("Score = "+score+" , You Grade : B+");
+    }
+            else if(score &gt;= 70){
+       System.out.println("Score = "+score+" , You Grade : B");
+    }
+           else if(score &gt;= 65){
+       System.out.println("Score = "+score+" , You Grade : C+");
+   }
+           else if(score &gt;= 60){
+       System.out.println("Score = "+score+" , You Grade : C");
+    }
+           else if(score &gt;= 55){
+       System.out.println("Score = "+score+" , You Grade : D+");
+    }
+           else if(score &gt;= 50){
+        System.out.println("Score = "+score+" , You Grade : D");
+    }
+          else{
+         System.out.println("Score = "+score+" , You Grade : F");
+     }
+         
+        System.out.println("---------------------------------------");
+        System.out.println("Powered by dekdev.com");
+      }
+    }</Sourcecode_java>
+    <DateAdd_java>2015-04-14T11:25:56.903+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>31</JavaId>
+    <Content_java>calculate the GCD and LCM of two given numbers</Content_java>
+    <Sourcecode_java>calculate the GCD and LCM of two given numbers
+
+import java.util.Scanner;
+public class GCD_LCM
+{
+    static int gcd(int x, int y)
+    {
+        int r=0, a, b;
+        a = (x &gt; y) ? x : y; // a is greater number
+        b = (x &lt; y) ? x : y; // b is smaller number
+ 
+        r = b;
+        while(a % b != 0)
+        {
+            r = a % b;
+            a = b;
+            b = r;
+        }
+        return r;
+    }
+ 
+    static int lcm(int x, int y)
+    {
+        int a;
+        a = (x &gt; y) ? x : y; // a is greater number
+        while(true)
+        {
+            if(a % x == 0 &amp;&amp; a % y == 0)
+                return a;
+            ++a;
+        }
+    }
+
+    public static void main(String args[])
+    {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the two numbers: ");
+        int x = input.nextInt();
+        int y = input.nextInt();
+
+        System.out.println("The GCD of two numbers is: " + gcd(x, y));
+        System.out.println("The LCM of two numbers is: " + lcm(x, y));
+        input.close();
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T15:40:44.827+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>30</JavaId>
+    <Content_java>Find the Unique Factorization of a Given Number</Content_java>
+    <Sourcecode_java>Find the Unique Factorization of a Given Number
+
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+ public class Unique_Prime_Factors
+{
+    static Set primeFactors(long number)
+    {
+        long copy = number, i;
+   Set primeFactor = new HashSet&lt;&gt;();
+       for (i = 2; i &lt;= copy; i++)
+       {
+            if (copy % i == 0)
+           {
+               primeFactor.add(i);
+                 copy /= i;
+               i--;
+            }
+        }
+        return primeFactor;
+    }
+
+    public static void main(String args[]) 
+     {
+         Scanner input = new Scanner(System.in);
+         long n;
+        System.out.println("Enter the number: ");
+         n = input.nextLong();
+         System.out.println("The Prime Factors of " + n + " is: "
+                             + primeFactors(n));
+     }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T15:39:26.403+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>29</JavaId>
+    <Content_java>Euclid GCD Algorithm</Content_java>
+    <Sourcecode_java>Euclid GCD Algorithm
+
+function gcd(a, b)
+    if b = 0
+       return a
+    else
+       return gcd(b, a mod b)
+
+import java.util.Scanner;
+
+/** Class EuclidGcd **/
+public class EuclidGcd 
+{
+    /** Function to calculate gcd **/
+    public long gcd(long p, long q)
+    {
+        if (p % q == 0)
+            return q;
+        return gcd(q, p % q);
+    }
+    /** Main function **/
+    public static void main (String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Euclid GCD Algorithm Test\n");
+        /** Make an object of EuclidGcd class **/
+        EuclidGcd eg = new EuclidGcd();
+
+        /** Accept two integers **/
+        System.out.println("Enter two integer numbers\n");
+        long n1 = scan.nextLong();
+        long n2 = scan.nextLong();
+        /** Call function gcd of class EuclidGcd **/
+        long gcd = eg.gcd(n1, n2);
+        System.out.println("\nGCD of "+ n1 +" and "+ n2 +" = "+ gcd);
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T15:37:38.53+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>28</JavaId>
+    <Content_java>Naor-Reingold Pseudo Random Function</Content_java>
+    <Sourcecode_java>Naor-Reingold Pseudo Random Function
+
+import java.util.Random;
+public class Naor_Reingold
+{
+    public static void main(String args[])
+    {
+        int p=7, l=3, g=2, n=4, x;
+        int []a = {1,2,2,1};
+        int []bin = new int[4];
+        Random random = new Random();
+        System.out.println("The Random numbers are: ");
+        for(int i=0; i&lt;10; i++)
+        {
+            x = random.nextInt(17);
+            for(int j=3; j&gt;=0; j--)
+            {
+                bin[j] = x%2;
+                x/=2;
+            }
+            int mul = 1;
+            for(int k=0; k&lt;4; k++)
+                mul *= Math.pow(a[k], bin[k]);
+            System.out.println(Math.pow(g, mul));
+        }
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T15:35:20.217+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>27</JavaId>
+    <Content_java>Fermat Primality Test Algorithm</Content_java>
+    <Sourcecode_java>Fermat Primality Test Algorithm
+
+import java.util.Scanner;
+import java.util.Random;
+
+/** Class SolovayStrassen **/
+public class SolovayStrassen
+{
+    /** Function to calculate jacobi (a/b) **/
+    public long Jacobi(long a, long b)
+    {
+        if (b &lt;= 0 || b % 2 == 0)
+            return 0;
+        long j = 1L;
+        if (a &lt; 0)
+        {
+            a = -a;
+            if (b % 4 == 3)
+                j = -j;
+        }
+        while (a != 0)
+        {
+            while (a % 2 == 0)
+            {
+                a /= 2;
+                if (b % 8 == 3 || b % 8 == 5)
+                    j = -j;
+            }
+ 
+            long temp = a;
+            a = b;
+            b = temp;
+
+            if (a % 4 == 3 &amp;&amp; b % 4 == 3)
+                j = -j;
+            a %= b;
+        }
+        if (b == 1)
+            return j;
+        return 0;
+    }
+    /** Function to check if prime or not **/
+    public boolean isPrime(long n, int iteration)
+    {
+        /** base case **/
+        if (n == 0 || n == 1)
+            return false;
+        /** base case - 2 is prime **/
+        if (n == 2)
+            return true;
+        /** an even number other than 2 is composite **/
+        if (n % 2 == 0)
+            return false;
+
+        Random rand = new Random();
+        for (int i = 0; i &lt; iteration; i++)
+        {
+            long r = Math.abs(rand.nextLong());         
+            long a = r % (n - 1) + 1;
+            long jacobian = (n + Jacobi(a, n)) % n;
+            long mod = modPow(a, (n - 1)/2, n);
+            if(jacobian == 0 || mod != jacobian)
+                return false;
+        }
+        return true;
+    }
+    /** Function to calculate (a ^ b) % c **/
+    public long modPow(long a, long b, long c)
+    {
+        long res = 1;
+        for (int i = 0; i &lt; b; i++)
+        {
+            res *= a;
+            res %= c; 
+        }
+        return res % c;
+    }
+    /** Main function **/
+    public static void main (String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("SolovayStrassen Primality Algorithm Test\n");
+        /** Make an object of SolovayStrassen class **/
+        SolovayStrassen ss = new SolovayStrassen();
+        /** Accept number **/
+        System.out.println("Enter number\n");
+        long num = scan.nextLong();
+        /** Accept number of iterations **/
+        System.out.println("\nEnter number of iterations");
+        int k = scan.nextInt();
+        /** check if prime **/
+        boolean prime = ss.isPrime(num, k);
+        if (prime)
+            System.out.println("\n"+ num +" is prime");
+        else
+            System.out.println("\n"+ num +" is composite");      
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T15:32:40.14+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>26</JavaId>
+    <Content_java>Regular Falsi Algorithm</Content_java>
+    <Sourcecode_java>Regular Falsi Algorithm
+
+public class RegularFalsi
+{
+    /** function to find root for **/
+    public double f(double x)
+    {
+        /** make your own function here but accordingly change (s, t)$ **/
+
+         return Math.cos(x) - x * x * x;
+
+        // return x * x * x - 3 * x + 4;
+        // return Math.cos(x) - 3 * x + 1;
+        // return 2 * x - Math.log(x)/Math.log(10) - 7;
+        // return x * x - Math.log(x) - 12;
+    }
+    /** function to find root **/
+    public double findRoot(double s, double t, double e, int m)
+    {
+        double r = 0.0,fr;
+        int n, side = 0;
+
+        /** starting values at endpoints of interval **/
+        double fs = f(s);
+        double ft = f(t);
+
+        for (n = 0; n &lt; m; n++)
+        {
+ 
+            r = (fs * t - ft * s) / (fs - ft);
+            if (Math.abs(t - s) &lt; e * Math.abs(t + s))
+                break;
+            fr = f(r);
+
+            if (fr * ft &gt; 0)
+            {
+                /** fr and ft have same sign, copy r to t **/
+                t = r; 
+                ft = fr;
+                if (side == -1) 
+                    fs /= 2;
+                side = -1;
+            }
+            else if (fs * fr &gt; 0)
+            {
+                /** fr and fs have same sign, copy r to s **/
+                s = r;
+                fs = fr;
+                if (side == +1)
+                    ft /= 2;
+                side = +1;
+            }
+            else
+            {
+                /** fr * f_ very small (looks like zero) **/
+                break;
+            }
+        }
+        return r;
+    }
+    /** Main function **/
+    public static void main(String[] args)
+    {
+        System.out.println("Regular Falsi Test ");
+
+        RegularFalsi rf = new RegularFalsi();
+        /** lower limit **/
+        double s = 0;
+        /** upper limit **/
+        double t = 1;
+        /** half of upper bound for relative error **/
+        double e = 5E-15;
+        /** number of iterations **/
+        int iterations = 100;
+
+        System.out.println("\nRoot : "+ rf.findRoot(s, t, e, iterations));
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T15:29:59.217+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>25</JavaId>
+    <Content_java>Use rand and srand Functions</Content_java>
+    <Sourcecode_java>Use rand and srand Functions
+
+import java.util.Random;
+import java.util.UUID;
+public class Rand_and_Srand
+{
+    public static void main(String args[])
+    {
+        System.out.println("The numbers using rand");
+        for(int i=0; i&lt;5; i++)
+        {
+            Random rand = new Random();
+            System.out.println(Math.abs(rand.nextInt()));
+        }
+
+        System.out.println("The numbers using srand");
+        for(int i=0; i&lt;5; i++)
+        {
+        System.out.println(Math.abs(UUID.randomUUID().getMostSignificantBits()
+));
+        }
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T15:27:53.7+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>24</JavaId>
+    <Content_java>Solovay Strassen Primality Test Algorithm</Content_java>
+    <Sourcecode_java>Solovay Strassen Primality Test Algorithm
+
+import java.util.Scanner;
+import java.util.Random;
+
+/** Class SolovayStrassen **/
+public class SolovayStrassen
+{
+    /** Function to calculate jacobi (a/b) **/
+    public long Jacobi(long a, long b
+    {
+        if (b &lt;= 0 || b % 2 == 0)
+            return 0;
+        long j = 1L;
+        if (a &lt; 0)
+        {
+            a = -a;
+            if (b % 4 == 3)
+                j = -j;
+        }
+        while (a != 0)
+        {
+            while (a % 2 == 0)
+            {
+                a /= 2;
+                if (b % 8 == 3 || b % 8 == 5)
+                    j = -j;
+            }
+ 
+            long temp = a;
+            a = b;
+            b = temp;
+
+            if (a % 4 == 3 &amp;&amp; b % 4 == 3
+                j = -j;
+            a %= b;
+        }
+        if (b == 1)
+            return j;
+        return 0;
+    }
+    /** Function to check if prime or not **/
+    public boolean isPrime(long n, int iteration)
+    {
+        /** base case **/
+        if (n == 0 || n == 1)
+            return false;
+        /** base case - 2 is prime **/
+        if (n == 2)
+            return true;
+        /** an even number other than 2 is composite **/
+        if (n % 2 == 0)
+            return false;
+ 
+        Random rand = new Random();
+        for (int i = 0; i &lt; iteration; i++)
+        {
+            long r = Math.abs(rand.nextLong());          
+            long a = r % (n - 1) + 1;
+            long jacobian = (n + Jacobi(a, n)) % n;
+            long mod = modPow(a, (n - 1)/2, n);
+            if(jacobian == 0 || mod != jacobian)
+                return false;$
+        }
+        return true;
+    }
+    /** Function to calculate (a ^ b) % c **/
+    public long modPow(long a, long b, long c)
+    {
+        long res = 1;
+        for (int i = 0; i &lt; b; i++)
+        {
+            res *= a;
+            res %= c;
+        }
+        return res % c;
+    }
+    /** Main function **/
+    public static void main (String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("SolovayStrassen Primality Algorithm Test\n");
+        /** Make an object of SolovayStrassen class **/
+        SolovayStrassen ss = new SolovayStrassen();
+        /** Accept number **/
+        System.out.println("Enter number\n");
+        long num = scan.nextLong();
+        /** Accept number of iterations **/
+        System.out.println("\nEnter number of iterations");
+        int k = scan.nextInt();
+        /** check if prime **/
+        boolean prime = ss.isPrime(num, k);
+        if (prime)
+            System.out.println("\n"+ num +" is prime");
+        else
+            System.out.println("\n"+ num +" is composite");     
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T15:26:47.483+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>23</JavaId>
+    <Content_java>Gauss Seidel Method</Content_java>
+    <Sourcecode_java>Gauss Seidel Method
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class Gauss_Seidel
+{
+    public static final int MAX_ITERATIONS = 100;
+    private double[][] M;
+    public Gauss_Seidel(double [][] matrix) { M = matrix; }
+
+    public void print()
+    {
+        int n = M.length;
+        for (int i = 0; i &lt; n; i++)
+        {
+            for (int j = 0; j &lt; n + 1; j++)
+                System.out.print(M[i][j] + " ");
+            System.out.println();
+        }
+    }
+ 
+    public boolean transformToDominant(int r, boolean[] V, int[] R)
+    {
+        int n = M.length;
+        if (r == M.length)
+        {
+            double[][] T = new double[n][n+1];
+            for (int i = 0; i &lt; R.length; i++)
+            {
+                for (int j = 0; j &lt; n + 1; j++)
+                    T[i][j] = M[R[i]][j];
+            }
+
+            M = T;
+
+            return true;
+        }
+
+        for (int i = 0; i &lt; n; i++)
+        {
+            if (V[i]) continue;
+
+            double sum = 0;
+
+            for (int j = 0; j &lt; n; j++)
+                sum += Math.abs(M[i][j]);
+ 
+            if (2 * Math.abs(M[i][r]) &gt; sum)
+            { // diagonally dominant?
+                V[i] = true;
+                R[r] = i;
+ 
+                if (transformToDominant(r + 1, V, R))
+                    return true;
+ 
+                V[i] = false;
+            }
+        }
+
+        return false;
+    }
+ 
+    public boolean makeDominant()
+    {
+        boolean[] visited = new boolean[M.length];
+        int[] rows = new int[M.length];
+ 
+        Arrays.fill(visited, false);
+
+        return transformToDominant(0, visited, rows);
+    }
+ 
+    public void solve()
+    {
+        int iterations = 0;
+        int n = M.length;
+        double epsilon = 1e-15;
+        double[] X = new double[n]; // Approximations
+        double[] P = new double[n]; // Prev
+        Arrays.fill(X, 0);
+ 
+        while (true) 
+        {
+            for (int i = 0; i &lt; n; i++) 
+            {
+                double sum = M[i][n]; // b_n
+ 
+                for (int j = 0; j &lt; n; j++)
+                    if (j != i)
+                        sum -= M[i][j] * X[j];
+ 
+        // Update x_i to use in the next row calculation
+                X[i] = 1/M[i][i] * sum;
+            }
+ 
+            System.out.print("X_" + iterations + " = {");
+            for (int i = 0; i &lt; n; i++)
+                System.out.print(X[i] + " ");
+            System.out.println("}");
+
+            iterations++;
+            if (iterations == 1)
+                continue;
+ 
+            boolean stop = true;
+            for (int i = 0; i &lt; n &amp;&amp; stop; i++)
+                if (Math.abs(X[i] - P[i]) &gt; epsilon)
+                    stop = false;
+ 
+            if (stop || iterations == MAX_ITERATIONS) break;
+            P = (double[])X.clone();
+        }
+    }
+ 
+    public static void main(String[] args) throws IOException
+    {
+        int n;
+        double[][] M;
+ 
+BufferedReader reader = new BufferedReader(new$ InputStreamReader(System.in));
+        PrintWriter writer = new PrintWriter(System.out, true);
+
+        System.out.println("Enter the number of variables in the$ equation:");
+        n = Integer.parseInt(reader.readLine());
+        M = new double[n][n+1];
+        System.out.println("Enter the augmented matrix:");
+ 
+        for (int i = 0; i &lt; n; i++)
+        {
+            StringTokenizer strtk = new StringTokenizer(reader.readLine());
+ 
+            while (strtk.hasMoreTokens())
+                for (int j = 0; j &lt; n + 1 &amp;&amp; strtk.hasMoreTokens(); j++)
+                    M[i][j] = Integer.parseInt(strtk.nextToken());
+        }
+ 
+ 
+        Gauss_Seidel gausSeidel = new Gauss_Seidel(M);
+ 
+        if (!gausSeidel.makeDominant())
+        {
+            writer.println("The system isn't diagonally dominant: " +
+                     "The method cannot guarantee convergence.");
+        }
+ 
+        writer.println();
+        gausSeidel.print();
+        gausSeidel.solve();
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T14:42:57.92+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>22</JavaId>
+    <Content_java>Strassen Algorithm</Content_java>
+    <Sourcecode_java>Strassen Algorithm
+
+import java.util.Scanner;
+/** Class Strassen **/
+public class Strassen
+{
+    /** Function to multiply matrices **/
+    public int[][] multiply(int[][] A, int[][] B)
+    {
+        int n = A.length;
+        int[][] R = new int[n][n];
+        /** base case **/
+        if (n == 1)
+            R[0][0] = A[0][0] * B[0][0];
+        else
+        {
+            int[][] A11 = new int[n/2][n/2];
+            int[][] A12 = new int[n/2][n/2];
+            int[][] A21 = new int[n/2][n/2];
+            int[][] A22 = new int[n/2][n/2];
+            int[][] B11 = new int[n/2][n/2];
+            int[][] B12 = new int[n/2][n/2];
+            int[][] B21 = new int[n/2][n/2];
+            int[][] B22 = new int[n/2][n/2];
+
+            /** Dividing matrix A into 4 halves **/
+            split(A, A11, 0 , 0);
+            split(A, A12, 0 , n/2);
+            split(A, A21, n/2, 0);
+            split(A, A22, n/2, n/2);
+            /** Dividing matrix B into 4 halves **/
+            split(B, B11, 0 , 0);
+            split(B, B12, 0 , n/2);
+            split(B, B21, n/2, 0);
+            split(B, B22, n/2, n/2);
+
+            /**
+              M1 = (A11 + A22)(B11 + B22)
+              M2 = (A21 + A22) B11
+              M3 = A11 (B12 - B22)
+              M4 = A22 (B21 - B11)
+              M5 = (A11 + A12) B22
+              M6 = (A21 - A11) (B11 + B12)
+              M7 = (A12 - A22) (B21 + B22)
+           **/
+
+            int [][] M1 = multiply(add(A11, A22), add(B11, B22));
+            int [][] M2 = multiply(add(A21, A22), B11);
+            int [][] M3 = multiply(A11, sub(B12, B22));
+            int [][] M4 = multiply(A22, sub(B21, B11));
+            int [][] M5 = multiply(add(A11, A12), B22);
+            int [][] M6 = multiply(sub(A21, A11), add(B11, B12));
+            int [][] M7 = multiply(sub(A12, A22), add(B21, B22));
+
+            /**
+              C11 = M1 + M4 - M5 + M7
+              C12 = M3 + M5
+              C21 = M2 + M4
+              C22 = M1 - M2 + M3 + M6
+            **/
+            int [][] C11 = add(sub(add(M1, M4), M5), M7);
+            int [][] C12 = add(M3, M5);
+            int [][] C21 = add(M2, M4);
+            int [][] C22 = add(sub(add(M1, M3), M2), M6);
+
+            /** join 4 halves into one result matrix **/
+            join(C11, R, 0 , 0);
+            join(C12, R, 0 , n/2);
+            join(C21, R, n/2, 0);
+            join(C22, R, n/2, n/2);
+        }
+        /** return result **/
+        return R;
+    }
+    /** Funtion to sub two matrices **/
+    public int[][] sub(int[][] A, int[][] B)
+    {
+        int n = A.length;
+        int[][] C = new int[n][n];
+        for (int i = 0; i &lt; n; i++)
+            for (int j = 0; j &lt; n; j++)
+                C[i][j] = A[i][j] - B[i][j];
+        return C;
+    }
+    /** Funtion to add two matrices **/
+    public int[][] add(int[][] A, int[][] B)
+    {
+        int n = A.length;
+        int[][] C = new int[n][n];
+        for (int i = 0; i &lt; n; i++)
+            for (int j = 0; j &lt; n; j++)
+                C[i][j] = A[i][j] + B[i][j];
+        return C;
+    }
+    /** Funtion to split parent matrix into child matrices **/
+    public void split(int[][] P, int[][] C, int iB, int jB)
+    {
+        for(int i1 = 0, i2 = iB; i1 &lt; C.length; i1++, i2++)
+            for(int j1 = 0, j2 = jB; j1 &lt; C.length; j1++, j2++)
+                C[i1][j1] = P[i2][j2];
+    }
+    /** Funtion to join child matrices intp parent matrix **/
+    public void join(int[][] C, int[][] P, int iB, int jB)
+    {
+        for(int i1 = 0, i2 = iB; i1 &lt; C.length; i1++, i2++)
+            for(int j1 = 0, j2 = jB; j1 &lt; C.length; j1++, j2++)
+                P[i2][j2] = C[i1][j1];
+    }
+    /** Main function **/
+    public static void main (String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Strassen Multiplication Algorithm Test\n");
+        /** Make an object of Strassen class **/
+        Strassen s = new Strassen();
+ 
+        System.out.println("Enter order n :");
+        int N = scan.nextInt();
+        /** Accept two 2d matrices **/
+        System.out.println("Enter N order matrix 1\n");
+        int[][] A = new int[N][N];
+        for (int i = 0; i &lt; N; i++)
+            for (int j = 0; j &lt; N; j++)
+                A[i][j] = scan.nextInt();
+ 
+        System.out.println("Enter N order matrix 2\n");
+        int[][] B = new int[N][N];
+        for (int i = 0; i &lt; N; i++)
+            for (int j = 0; j &lt; N; j++)
+                B[i][j] = scan.nextInt();
+ 
+        int[][] C = s.multiply(A, B);
+ 
+        System.out.println("\nProduct of matrices A and  B : ");
+        for (int i = 0; i &lt; N; i++)
+        {
+            for (int j = 0; j &lt; N; j++)
+                System.out.print(C[i][j] +" ");
+            System.out.println();
+        }
+ 
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T14:36:46.233+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>21</JavaId>
+    <Content_java>Matrix Multiplication</Content_java>
+    <Sourcecode_java>Matrix Multiplication
+
+package com.sanfoundry.numerical;
+import java.util.Scanner;
+
+public class MatixMultiplication
+{
+    public static void main(String args[])
+    {
+        int n;
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the base of squared matrices");
+        n = input.nextInt();
+        int[][] a = new int[n][n];
+        int[][] b = new int[n][n];
+        int[][] c = new int[n][n];
+        System.out.println("Enter the elements of 1st martix row wise \n");
+        for (int i = 0; i &lt; n; i++)
+        {
+            for (int j = 0; j &lt; n; j++)
+            {
+                a[i][j] = input.nextInt();
+            }
+        }
+  System.out.println("Enter the elements of 2nd martix row wise \n");
+        for (int i = 0; i &lt; n; i++)
+        {
+            for (int j = 0; j &lt; n; j++)
+            {
+                b[i][j] = input.nextInt();
+            }
+        }
+        System.out.println("Multiplying the matrices...");
+        for (int i = 0; i &lt; n; i++)
+        {
+            for (int j = 0; j &lt; n; j++)
+            {
+                for (int k = 0; k &lt; n; k++)
+                {
+                    c[i][j] = c[i][j] + a[i][k] * b[k][j];
+                }
+            }
+        }
+        System.out.println("The product is:");
+        for (int i = 0; i &lt; n; i++)
+        {
+            for (int j = 0; j &lt; n; j++)
+            {
+                System.out.print(c[i][j] + " ");
+            }
+            System.out.println();
+        }
+        input.close();
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T14:33:06.03+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>20</JavaId>
+    <Content_java>Find Path Between Two Nodes in a Graph</Content_java>
+    <Sourcecode_java>Find Path Between Two Nodes in a Graph
+
+import java.util.*;
+class Node 
+{
+    public int label; // this node's label (parent node in path tree)
+    public int weight; // weight of edge to this node (distance to start)
+ 
+    public Node(int v, int w)
+    { 
+        label = v;
+        weight = w;
+    }
+}
+
+public class ShortestPath 
+{
+    public static Scanner in; // for standard input
+    public static int n, m; // n = #vertices, m = #edges
+    public static LinkedList[] graph; // adjacency list representation
+    public static int start, end; // start and end points for shortest path
+ 
+    public static void main(String[] args) 
+    {
+        in = new Scanner(System.in);
+ 
+        // Input the graph:
+        System.out
+                .println("Enter the number of components and wires in a circuit:");
+        n = in.nextInt();
+        m = in.nextInt();
+ 
+        // Initialize adjacency list structure to empty lists:
+        graph = new LinkedList[n];
+        for (int i = 0; i &lt; n; i++)
+            graph[i] = new LinkedList();
+ 
+        // Add each edge twice, once for each endpoint:
+System.out.println("Mention the wire between components and its length:");
+        for (int i = 0; i &lt; m; i++)
+        {
+            int v1 = in.nextInt();
+            int v2 = in.nextInt();
+            int w = in.nextInt();
+            graph[v1].add(new Node(v2, w));
+            graph[v2].add(new Node(v1, w));
+        }
+ 
+        // Input starting and ending vertices:
+System.out.println("Enter the start and end for which length is to be
+minimized: ");
+        start = in.nextInt();
+        end = in.nextInt();
+ 
+        // FOR DEBUGGING ONLY:
+        displayGraph();
+ 
+        // Print shortest path from start to end:
+        shortest();
+    }
+ 
+    public static void shortest()
+    {
+        boolean[] done = new boolean[n];
+        Node[] table = new Node[n];
+        for (int i = 0; i &lt; n; i++)
+            table[i] = new Node(-1, Integer.MAX_VALUE);
+ 
+        table[start].weight = 0;
+ 
+        for (int count = 0; count &lt; n; count++)
+        {
+            int min = Integer.MAX_VALUE;
+            int minNode = -1;
+            for (int i = 0; i &lt; n; i++)
+                if (!done[i] &amp;&amp; table[i].weight &lt; min)
+                {
+                    min = table[i].weight;
+                    minNode = i;
+                }
+ 
+            done[minNode] = true;
+ 
+            ListIterator iter = graph[minNode].listIterator();
+            while (iter.hasNext())
+            {
+                Node nd = (Node) iter.next();
+                int v = nd.label;
+                int w = nd.weight;
+
+                if (!done[v] &amp;&amp; table[minNode].weight + w &lt; table[v].weight)
+                {
+                    table[v].weight = table[minNode].weight + w;
+                    table[v].label = minNode;
+                }
+            }
+        }
+        for (int i = 0; i &lt; n; i++)
+        {
+            if (table[i].weight &lt; Integer.MAX_VALUE)
+            {
+                System.out.print("Wire from " + i + " to " + start
+                        + " with length " + table[i].weight + ": ");
+                int next = table[i].label;
+                while (next &gt;= 0)
+                {
+                    System.out.print(next + " ");
+                    next = table[next].label;
+                }
+                System.out.println();
+            } else
+                System.out.println("No wire from " + i + " to " + start);
+        }
+    }
+ 
+    public static void displayGraph()
+    {
+        for (int i = 0; i &lt; n; i++)
+        {
+            System.out.print(i + ": ");
+            ListIterator nbrs = graph[i].listIterator(0);
+            while (nbrs.hasNext())
+            {
+                Node nd = (Node) nbrs.next();
+                System.out.print(nd.label + "(" + nd.weight + ") ");
+            }
+            System.out.println();
+        }
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T14:31:03.687+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>19</JavaId>
+    <Content_java>Generate Randomized Sequence of Given Range of Numbers</Content_java>
+    <Sourcecode_java>Generate Randomized Sequence of Given Range of Numbers
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Randomized_Sequence_Random_Numbers
+{
+    public static void main(String args[])
+    {
+        Random rand = new Random();
+        Scanner sc = new Scanner(System.in);
+   System.out.println("Enter the starting and ending of the sequence: ");
+        int start = sc.nextInt();
+        int end = sc.nextInt();
+ 
+        for(int i=0; i&lt;15; i++)
+        {
+            System.out.print(rand.nextInt(end-start+1)+start + ", ");
+        }
+        System.out.print("...");
+        sc.close();
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T12:34:01.95+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>18</JavaId>
+    <Content_java>Generate Random Hexadecimal Byte</Content_java>
+    <Sourcecode_java>Generate Random Hexadecimal Byte
+
+import java.util.Random;
+public class Generate_Random_Hex_Bytes 
+{
+    public static void main(String args[])
+    {
+        Random random = new Random();
+        int val = random.nextInt();
+        String Hex = new String();
+        Hex = Integer.toHexString(val);
+        System.out.println("Random Hex Byte: " + Hex);
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T12:32:52.14+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>17</JavaId>
+    <Content_java>Use rand and srand Functions</Content_java>
+    <Sourcecode_java>Use rand and srand Functions
+
+import java.util.Random;
+import java.util.UUID;
+
+public class Rand_and_Srand
+{
+    public static void main(String args[])
+    {
+        System.out.println("The numbers using rand");
+        for(int i=0; i&lt;5; i++)
+        {
+            Random rand = new Random();
+            System.out.println(Math.abs(rand.nextInt()));
+        }
+ 
+        System.out.println("The numbers using srand");
+        for(int i=0; i&lt;5; i++)
+        {
+        System.out.println(Math.abs(UUID.randomUUID().getMostSignificantBits(
+)));
+        }
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T12:31:41.06+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>16</JavaId>
+    <Content_java>Borwein Algorithm</Content_java>
+    <Sourcecode_java>Borwein Algorithm
+
+import java.util.Scanner;
+/** Class Borwein **/
+public class Borwein
+{
+    /** compute 1/pi **/
+    public double getOneByPi(int k)
+    {
+        double ak = 6.0 - 4 * Math.sqrt(2);
+        double yk = Math.sqrt(2) - 1.0;
+
+        double ak1;
+        double yk1;
+        for (int i = 0; i &lt; k; i++)
+        {
+
+        yk1 = (1 - Math.pow((1 - yk * yk * yk * yk),(0.25)))/(1 +$ Math.pow((1 - yk * yk * yk * yk),(0.25)));
+
+        ak1 = ak * Math.pow((1 + yk1), 4) - Math.pow(2, 2 * i + 3) *$ yk1 * (1 + yk1 + yk1 * yk1);
+            yk = yk1;
+            ak = ak1;
+        }
+        return ak;
+    }
+
+    /** Main function **/
+    public static void main (String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Borwein 1/Pi Algorithm Test\n");
+
+        /** Make an object of Borwein class **/
+        Borwein b = new Borwein();
+
+        System.out.println("Enter number of iterations ");
+        int k = scan.nextInt();
+ 
+        System.out.println("\nValue of 1/pi : "+ b.getOneByPi(k));
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T12:26:34.547+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>15</JavaId>
+    <Content_java>Shunting Yard Algorithm</Content_java>
+    <Sourcecode_java>Shunting Yard Algorithm
+
+import java.util.Scanner;
+
+/** Class ShuntingYard **/
+public class ShuntingYard
+{
+    /** enum **/
+    private enum Precedence
+    {
+        lparen(0), rparen(1), plus(2), minus(3), divide(4), times(5),$ mod(6), eos(7), operand(8);
+
+        private int index;
+        Precedence(int index)
+        {
+            this.index = index;
+        }
+        public int getIndex()
+        {
+            return index;
+        }  
+    }
+
+    /** In stack precedence **/
+    private static final int[] isp = {0, 19, 12, 12, 13, 13, 13, 0};
+
+    /** incoming character precedence **/
+    private static final int[] icp = {20, 19, 12, 12, 13, 13, 13, 0};
+
+    /** operators **/$
+  private static final char[] operators = {'{', '}', '+', '-', '/', '*', '%', ' '};
+
+    /** precedence stack **/
+    private Precedence[] stack;
+
+    /** stack top pointer **/
+    private int top;$
+ $
+    /** pop element from stack **/
+    private Precedence pop()
+    {
+        return stack[top--];
+    }
+
+    /** push element onto stack **/
+    private void push(Precedence ele)
+    {
+        stack[++top] = ele;
+    }
+
+    /** get precedence token for symbol **/
+    public Precedence getToken(char symbol)
+    {
+        switch (symbol)
+        {
+        case '('  : return Precedence.lparen;
+        case ')'  : return Precedence.rparen;
+        case '+'  : return Precedence.plus;
+        case '-'  : return Precedence.minus;
+        case '/'  : return Precedence.divide;
+        case '*'  : return Precedence.times;
+        case '%'  : return Precedence.mod;
+        case ' '  : return Precedence.eos;
+        default   : return Precedence.operand;
+        }
+    }
+
+    /** Function to convert infix to postfix **/
+    public String postfix(String infix)
+    {
+        String postfix = "";
+        top = 0;
+        stack = new Precedence[infix.length()];
+        stack[0] = Precedence.eos;
+        Precedence token;
+        for (int i = 0; i &lt; infix.length(); i++)
+        {
+            token = getToken(infix.charAt(i));
+        /** if token is operand append to postfix **/
+            if (token == Precedence.operand)
+                postfix = postfix + infix.charAt(i);
+        /** if token is right parenthesis pop till matching left parenthesis **/
+            else if (token == Precedence.rparen)
+            {
+                while (stack[top] != Precedence.lparen)
+                    postfix = postfix + operators[pop().getIndex()];
+
+                /** discard left parenthesis **/
+                pop();
+            }
+  /** else pop stack elements whose precedence is greater than$ that of token **/
+            else
+            {
+      while (isp[stack[top].getIndex()] &gt;= icp[token.getIndex()])
+                    postfix = postfix + operators[pop().getIndex()];
+                push(token);
+            }
+        }
+
+        /** pop any remaining elements in stack **/
+        while ((token = pop()) != Precedence.eos)
+            postfix = postfix + operators[token.getIndex()];
+ 
+        return postfix;
+    }
+
+    /** Main function **/
+    public static void main (String[] args) 
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Shunting Yard Algorithm Test\n");
+
+        /** Make an object of ShuntingYard class **/
+        ShuntingYard sy = new ShuntingYard();
+ 
+        /** Accept infix expression **/
+        System.out.println("Enter infix expression");
+        String infix = scan.next();
+ 
+        String postfix = sy.postfix(infix);
+        System.out.println("\nPostfix expression : "+ postfix);
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T12:23:48.123+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>14</JavaId>
+    <Content_java>Repeated Squaring Algorithm</Content_java>
+    <Sourcecode_java>Repeated Squaring Algorithm
+
+import java.util.Scanner;
+
+/** Class RepeatedSquaring **/
+public class RepeatedSquaring
+{
+    /** Function for repeated squaring **/
+    public double expBySquaring(double x, int n)
+    {
+        if (n &lt; 0)
+            return expBySquaring(1 / x, -n);
+        else if (n == 0)
+            return 1;
+        else if (n == 1)
+            return x;
+        else if (n % 2 == 0)
+            return expBySquaring(x * x, n / 2);
+        else 
+            return x * expBySquaring(x * x, (n - 1)/2);
+    }
+    /** Main function **/
+    public static void main (String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Repeated Squaring Algorithm Test\n");
+        /** Make an object of RepeatedSquaring class **/
+        RepeatedSquaring rs = new RepeatedSquaring();
+
+        /** Accept n , k **/
+        System.out.println("\nEnter n and k of (N ^ K)");
+        double n = scan.nextDouble();
+        int k = scan.nextInt();
+        double result = rs.expBySquaring(n, k);
+
+        System.out.println("\nResult : "+ result);      
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T12:19:43.89+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>13</JavaId>
+    <Content_java>Gaussian Elimination Algorithm</Content_java>
+    <Sourcecode_java>Gaussian Elimination Algorithm
+
+import java.util.Scanner;
+
+/** Class GaussianElimination **/
+public class GaussianElimination
+{
+    public void solve(double[][] A, double[] B)
+    {
+        int N = B.length;
+        for (int k = 0; k &lt; N; k++)
+        {
+            /** find pivot row **/
+            int max = k;
+            for (int i = k + 1; i &lt; N; i++)
+                if (Math.abs(A[i][k]) &gt; Math.abs(A[max][k]))
+                    max = i;
+ 
+            /** swap row in A matrix **/   
+            double[] temp = A[k];
+            A[k] = A[max];
+            A[max] = temp;
+
+            /** swap corresponding values in constants matrix **/
+            double t = B[k];
+            B[k] = B[max];
+            B[max] = t;
+
+            /** pivot within A and B **/
+            for (int i = k + 1; i &lt; N; i++)
+            {
+                double factor = A[i][k] / A[k][k];
+                B[i] -= factor * B[k];
+                for (int j = k; j &lt; N; j++)
+                    A[i][j] -= factor * A[k][j];
+            }
+        }
+
+        /** Print row echelon form **/
+        printRowEchelonForm(A, B);
+
+        /** back substitution **/
+        double[] solution = new double[N];
+        for (int i = N - 1; i &gt;= 0; i--)
+        {
+            double sum = 0.0;
+            for (int j = i + 1; j &lt; N; j++) 
+                sum += A[i][j] * solution[j];
+            solution[i] = (B[i] - sum) / A[i][i];
+        }
+
+        /** Print solution **/
+        printSolution(solution);
+    }
+
+    /** function to print in row    echleon form **/
+    public void printRowEchelonForm(double[][] A, double[] B)
+    {
+        int N = B.length;
+        System.out.println("\nRow Echelon form : ");
+        for (int i = 0; i &lt; N; i++)
+           {
+               for (int j = 0; j &lt; N; j++)
+                   System.out.printf("%.3f ", A[i][j]);
+               System.out.printf("| %.3f\n", B[i]);
+           }
+           System.out.println();
+    }
+
+    /** function to print solution **/
+    public void printSolution(double[] sol)
+    {$
+        int N = sol.length;
+        System.out.println("\nSolution : ");
+        for (int i = 0; i &lt; N; i++)
+            System.out.printf("%.3f ", sol[i]);
+        System.out.println(); 
+    } 
+    /** Main function **/
+    public static void main (String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Gaussian Elimination Algorithm Test\n");
+        /** Make an object of GaussianElimination class **/
+        GaussianElimination ge = new GaussianElimination();
+ 
+        System.out.println("\nEnter number of variables");
+        int N = scan.nextInt();
+ 
+        double[] B = new double[N];
+        double[][] A = new double[N][N];
+ 
+        System.out.println("\nEnter "+ N +" equations coefficients ");
+        for (int i = 0; i &lt; N; i++)
+            for (int j = 0; j &lt; N; j++)
+                A[i][j] = scan.nextDouble();
+ 
+        System.out.println("\nEnter "+ N +" solutions");
+        for (int i = 0; i &lt; N; i++)
+            B[i] = scan.nextDouble();
+
+        ge.solve(A,B);
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T12:17:18.797+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>12</JavaId>
+    <Content_java>Sieve Of Atkin</Content_java>
+    <Sourcecode_java>Sieve Of Atkin
+
+import java.util.Scanner;
+
+/** Class SieveOfAtkin **/
+public class  SieveOfAtkin
+{
+    /** Function to calculate all primes less than n **/
+    private boolean[] calcPrimes(int limit)
+    {
+        /** initialize the sieve **/
+        boolean[] prime = new boolean[limit + 1];
+        prime[2] = true;
+        prime[3] = true;
+        int root = (int) Math.ceil(Math.sqrt(limit));
+ 
+        /** put in candidate primes:
+           integers which have an odd number of
+           representations by certain quadratic forms **/
+        for (int x = 1; x &lt; root; x++)
+        {
+            for (int y = 1; y &lt; root; y++)
+            {
+                int n = 4 * x * x + y * y;
+                if (n &lt;= limit &amp;&amp; (n % 12 == 1 || n % 12 == 5))
+                    prime[n] = !prime[n];
+                n = 3 * x * x + y * y;
+                if (n &lt;= limit &amp;&amp; n % 12 == 7)
+                    prime[n] = !prime[n];
+                n = 3 * x * x - y * y;
+                if ((x &gt; y) &amp;&amp; (n &lt;= limit) &amp;&amp; (n % 12 == 11))
+                    prime[n] = !prime[n];
+            }
+        }
+  /** eliminate composites by sieving, omit multiples of its square **/
+        for (int i = 5; i &lt;= root; i++)
+            if (prime[i])
+                for (int j = i * i; j &lt; limit; j += i * i)
+                    prime[j] = false;
+
+        return prime;
+    }
+    /** Function to get all primes **/
+    public void getPrimes(int N)
+    {
+        boolean[] primes = calcPrimes(N);
+        display(primes);
+    }
+    /** Function to display all primes **/
+    public void display(boolean[] primes)
+    {
+        System.out.print("\nPrimes = ");
+        for (int i = 2; i &lt; primes.length; i++)
+            if (primes[i])
+                System.out.print(i +" ");
+        System.out.println();
+    }
+    /** Main function **/
+    public static void main (String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Sieve Of Atkin Prime Algorithm Test\n");
+        /** Make an object of SieveOfAtkin class **/
+         SieveOfAtkin soa = new  SieveOfAtkin();
+        /** Accept n **/
+   System.out.println("Enter number to find all primes less than the number\n");
+        int n = scan.nextInt();
+        soa.getPrimes(n);
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T12:02:08.577+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>11</JavaId>
+    <Content_java>Sieve Of Eratosthenes</Content_java>
+    <Sourcecode_java>Sieve Of Eratosthenes
+
+import java.util.Scanner;
+
+/** Class SieveOfEratosthenes **/
+public class SieveOfEratosthenes
+{
+    /** Function to calculate all primes less than n **/
+    private int[] calcPrimes(int N)
+    {
+        int[] arr = new int[N + 1];
+        for (int i = 2; i &lt;= Math.sqrt(N); i++)
+        {
+            if (arr[i] == 0)
+            {
+                for (int j = i * i; j &lt;= N; j += i)
+                {
+                    arr[j] = 1;
+                }
+            }
+        }
+        return arr;
+    }
+    /** Function to get all primes **/
+    public void getPrimes(int N)
+    {
+        int[] primes = calcPrimes(N);
+        display(primes);
+    }
+    /** Function to display all primes **/
+    public void display(int[] primes)
+    {
+        System.out.print("\nPrimes = ");
+        for (int i = 2; i &lt; primes.length; i++)
+            if (primes[i] == 0)
+                System.out.print(i +" ");
+        System.out.println();
+    }
+    /** Main function **/
+    public static void main (String[] args) 
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Sieve Of Eratosthenes Prime Algorithm$ Test\n");
+        /** Make an object of SieveOfEratosthenes class **/
+        SieveOfEratosthenes soe = new SieveOfEratosthenes();
+        /** Accept n **/
+  System.out.println("Enter number to find all primes less than the$ number\n");
+        int n = scan.nextInt();
+        soe.getPrimes(n);
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T12:00:12.28+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>10</JavaId>
+    <Content_java>Addition Operation Using Bitwise Operators</Content_java>
+    <Sourcecode_java>Addition Operation Using Bitwise Operators
+
+import java.util.Scanner;
+
+public class Bitwise_Addition 
+{
+    static int add(int x, int y)
+    {
+        int carry;
+        while(y!=0)
+        {
+            carry = x &amp; y;
+            x = x ^ y;
+            y = carry &lt;&lt; 1;
+        }
+        return x;
+    }
+
+    public static void main(String args[])
+    {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the numbers to be added:");
+        int x = input.nextInt();
+        int y = input.nextInt();
+        System.out.println("The Summation is: "+add(x, y));
+        input.close();
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T11:56:42.373+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>9</JavaId>
+    <Content_java>Solve the 0-1 Knapsack Problem</Content_java>
+    <Sourcecode_java>Solve the 0-1 Knapsack Problem
+
+import java.util.Scanner;
+public class Zero_One_Knapsack
+{
+    public void solve(int[] wt, int[] val, int W, int N)
+    {
+        int NEGATIVE_INFINITY = Integer.MIN_VALUE;
+        int[][] m = new int[N + 1][W + 1];
+        int[][] sol = new int[N + 1][W + 1];
+        for (int i = 1; i &lt;= N; i++)
+        {
+            for (int j = 0; j &lt;= W; j++)
+            {
+                int m1 = m[i - 1][j];
+                int m2 = NEGATIVE_INFINITY; 
+                if (j &gt;= wt[i])
+                    m2 = m[i - 1][j - wt[i]] + val[i];
+                m[i][j] = Math.max(m1, m2);
+                sol[i][j] = m2 &gt; m1 ? 1 : 0;
+            }
+        }
+        int[] selected = new int[N + 1];
+        for (int n = N, w = W; n &gt; 0; n--)
+        {
+            if (sol[n][w] != 0)
+            {
+                selected[n] = 1;
+                w = w - wt[n];
+            }
+            else
+                selected[n] = 0;
+        }
+        System.out.print("\nItems with weight ");
+        for (int i = 1; i &lt; N + 1; i++)
+            if (selected[i] == 1)
+                System.out.print(val[i] +" ");
+        System.out.println("are selected by knapsack algorithm.");
+    }
+    public static void main (String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        Zero_One_Knapsack ks = new Zero_One_Knapsack();
+ 
+        System.out.println("Enter number of elements ");
+        int n = scan.nextInt();
+ 
+        int[] wt = new int[n + 1];
+        int[] val = new int[n + 1];
+ 
+        System.out.println("Enter weight for "+ n +" elements");
+        for (int i = 1; i &lt;= n; i++)
+            wt[i] = scan.nextInt();
+        System.out.println("Enter value for "+ n +" elements");
+        for (int i = 1; i &lt;= n; i++)
+            val[i] = scan.nextInt();
+ 
+        System.out.println("Enter knapsack weight ");
+        int W = scan.nextInt();
+ 
+        ks.solve(wt, val, W, n);
+        scan.close();
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T11:53:55.45+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>8</JavaId>
+    <Content_java>Knapsack Algorithm</Content_java>
+    <Sourcecode_java>Knapsack Algorithm
+
+import java.util.Scanner;
+
+/** Class Knapsack **/
+public class Knapsack
+{
+    public void solve(int[] wt, int[] val, int W, int N)
+    {
+        int NEGATIVE_INFINITY = Integer.MIN_VALUE;
+        int[][] m = new int[N + 1][W + 1];
+        int[][] sol = new int[N + 1][W + 1];
+
+        for (int i = 1; i &lt;= N; i++)
+        {
+            for (int j = 0; j &lt;= W; j++)
+            {
+                int m1 = m[i - 1][j];
+                int m2 = NEGATIVE_INFINITY;
+                if (j &gt;= wt[i])
+                    m2 = m[i - 1][j - wt[i]] + val[i];
+                /** select max of m1, m2 **/
+                m[i][j] = Math.max(m1, m2);
+                sol[i][j] = m2 &gt; m1 ? 1 : 0;
+            }
+        } 
+        /** make list of what all items to finally select **/
+        int[] selected = new int[N + 1];
+        for (int n = N, w = W; n &gt; 0; n--)
+        {
+            if (sol[n][w] != 0)
+            {
+                selected[n] = 1;
+                w = w - wt[n];
+            }
+            else
+                selected[n] = 0;
+        }
+        /** Print finally selected items **/
+        System.out.println("\nItems selected : ");
+        for (int i = 1; i &lt; N + 1; i++)
+            if (selected[i] == 1)
+                System.out.print(i +" ");
+        System.out.println();
+    }
+    /** Main function **/
+    public static void main (String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Knapsack Algorithm Test\n");
+        /** Make an object of Knapsack class **/
+        Knapsack ks = new Knapsack();
+ 
+        System.out.println("Enter number of elements ");
+        int n = scan.nextInt();
+ 
+        int[] wt = new int[n + 1];
+        int[] val = new int[n + 1];
+ 
+        System.out.println("\nEnter weight for "+ n +" elements");
+        for (int i = 1; i &lt;= n; i++)
+            wt[i] = scan.nextInt();
+        System.out.println("\nEnter value for "+ n +" elements");
+        for (int i = 1; i &lt;= n; i++)
+            val[i] = scan.nextInt();
+
+        System.out.println("\nEnter knapsack weight ");
+        int W = scan.nextInt();
+ 
+        ks.solve(wt, val, W, n);
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T11:52:08.92+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>7</JavaId>
+    <Content_java>2D FFT Inplace Given a Complex 2D Array</Content_java>
+    <Sourcecode_java>2D FFT Inplace Given a Complex 2D Array
+
+import java.util.Scanner;
+
+public class TwoD_FFT 
+{
+    static void twoDfft(double[][] inputData, double[][] realOut,
+            double[][] imagOut, double[][] amplitudeOut)
+    {
+        int height = inputData.length;
+        int width = inputData[0].length;
+ 
+        // Two outer loops iterate on output data.
+        for (int yWave = 0; yWave &lt; height; yWave++)
+        {
+            for (int xWave = 0; xWave &lt; width; xWave++)
+            {
+                // Two inner loops iterate on input data.
+                for (int ySpace = 0; ySpace &lt; height; ySpace++)
+                {
+                    for (int xSpace = 0; xSpace &lt; width; xSpace++)
+                    {
+                        // Compute real, imag, and ampltude.
+                realOut[yWave][xWave] += (inputData[ySpace]
+[xSpace] * Math
+                                .cos(2* Math.PI* ((1.0 * xWave * xSpace / width) + (1.0$* yWave * ySpace / height)))) / Math.sqrt(width * height);
+                imagOut[yWave][xWave] -= (inputData[ySpace]
+[xSpace] * Math.sin(2* Math.PI* ((1.0 * xWave * xSpace / width) + (1.0
+     * yWave * ySpace / height)))) / Math.sqrt(width * height);
+
+                        amplitudeOut[yWave][xWave] = Math
+                                .sqrt(realOut[yWave][xWave]
+                                        * realOut[yWave][xWave]
+                                        + imagOut[yWave][xWave]
+                                        * imagOut[yWave][xWave]);
+                    }
+                    System.out.println(realOut[yWave][xWave] + " + "
+                            + imagOut[yWave][xWave] + " i");
+                }
+            }
+        }
+    }
+ 
+    public static void main(String args[])
+    {
+        System.out.println("Enter the size: ");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        double[][] input = new double[n][n];
+        double[][] real = new double[n][n];
+        double[][] img = new double[n][n];
+        double[][] amplitutude = new double[n][n];
+        System.out.println("Enter the 2D elements ");
+        for (int i = 0; i &lt; n; i++)
+            for (int j = 0; j &lt; n; j++)
+                input[i][j] = sc.nextDouble();
+
+        twoDfft(input, real, img, amplitutude);
+
+        sc.close();
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T11:49:51.297+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>6</JavaId>
+    <Content_java>Cubic convergence 1/pi Algorithm</Content_java>
+    <Sourcecode_java>Cubic convergence 1/pi Algorithm
+
+import java.util.Scanner;
+
+/** Class CubicConvergencePi **/
+public class CubicConvergencePi
+{
+    /** compute 1/pi **/
+    public double getOneByPi(int k)
+    {
+        double ak = 1.0/3.0;
+        double sk = (Math.sqrt(3) - 1)/2;
+        double ak1, sk1, rk1;
+        for (int i = 0; i &lt; k; i++)
+        {
+            rk1 = 3.0 / (1 + 2 * Math.pow((1 - sk * sk * sk), (1.0/3.0)));
+            sk1 = (rk1 - 1)/2.0;
+            ak1 = rk1 * rk1 * ak - Math.pow(3, i) * (rk1 * rk1 - 1);
+            ak = ak1;
+            sk = sk1;
+        }
+        return ak;
+    }
+
+    /** Main function **/
+    public static void main (String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+    System.out.println("Cubic Convergence 1/Pi Algorithm Test\n");
+        /** Make an object of CubicConvergence class **/
+        CubicConvergencePi  cc = new CubicConvergencePi ();
+
+        System.out.println("Enter number of iterations");
+        int k = scan.nextInt();
+
+        System.out.println("\nValue of 1/pi : "+ cc.getOneByPi(k));
+    }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-09T11:42:07.67+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>5</JavaId>
+    <Content_java>Borwein Algorithm</Content_java>
+    <Sourcecode_java>Borwein Algorithm$
+$
+import java.util.Scanner;$
+/** Class Borwein **/$
+public class Borwein$
+{$
+    /** compute 1/pi **/$
+    public double getOneByPi(int k)$
+    {$
+        double ak = 6.0 - 4 * Math.sqrt(2);$
+        double yk = Math.sqrt(2) - 1.0;$
+ $
+        double ak1 ;$
+        double yk1 ;$
+        for (int i = 0; i &lt; k; i++)$
+        {$
+yk1 = (1 - Math.pow((1 - yk * yk * yk * yk),(0.25)))/(1 +$ Math.pow((1 - yk * yk * yk * yk),(0.25)));$
+ak1 = ak * Math.pow((1 + yk1), 4) - Math.pow(2, 2 * i + 3) $
+* yk1 * (1 + yk1 + yk1 * yk1);$
+            yk = yk1;$
+            ak = ak1;$
+        }$
+        return ak;$
+    }$
+    /** Main function **/$
+    public static void main (String[] args) $
+    {$
+        Scanner scan = new Scanner(System.in);$
+        System.out.println("Borwein 1/Pi Algorithm Test\n");$
+        /** Make an object of Borwein class **/$
+        Borwein b = new Borwein();$
+ $
+        System.out.println("Enter number of iterations ");$
+        int k = scan.nextInt();$
+ $
+        System.out.println("\nValue of 1/pi : "+ b.getOneByPi(k));$
+    }$
+}$</Sourcecode_java>
+    <DateAdd_java>2015-04-09T11:40:13.797+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>4</JavaId>
+    <Content_java>AudioClip: stop()</Content_java>
+    <Sourcecode_java>AudioClip: stop()
+
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.net.URL;
+
+public class MainClass {
+  public static void main(String[] args) {
+    try {
+      URL url = new URL("file:youraudiofile.wav" );
+      AudioClip ac = Applet.newAudioClip(url);
+      ac.play();
+
+      System.out.println("Press any key to exit.");
+      System.in.read();
+      ac.stop();
+    } catch (Exception e) {
+      System.out.println(e);
+    }
+  }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-08T16:21:04.56+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>3</JavaId>
+    <Content_java>AudioClip: play()</Content_java>
+    <Sourcecode_java>AudioClip: play() 
+ 
+import java.applet.Applet; 
+import java.applet.AudioClip; 
+import java.net.URL; 
+ 
+public class MainClass { 
+  public static void main(String[] args) { 
+    try { 
+      URL url = new URL("file:youraudiofile.wav" ); 
+      AudioClip ac = Applet.newAudioClip(url); 
+      ac.play(); 
+ 
+      System.out.println("Press any key to exit."); 
+      System.in.read(); 
+      ac.stop(); 
+    } catch (Exception e) { 
+      System.out.println(e);
+    }
+  }
+}</Sourcecode_java>
+    <DateAdd_java>2015-04-08T16:18:36.053+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>2</JavaId>
+    <Content_java>Nth Root Algorithm</Content_java>
+    <Sourcecode_java>Nth Root Algorithm
+ 
+     import java.util.Scanner; 
+    /** Class NthRoot **/ 
+     public class NthRoot 
+     { 
+      public double nthroot(int n, double x) 
+      { 
+     return nthroot(n, x, .0001); 
+     } 
+    public double nthroot(int n, double x, double p)  
+      { 
+       if(x &lt; 0)  
+    { 
+      System.err.println("Negative!"); 
+      return -1; 
+     } 
+     if(x == 0)  
+      return 0; 
+         double x1 = x; 
+        double x2 = x / n;  
+      while (Math.abs(x1 - x2) &gt; p) 
+      { 
+            x1 = x2; 
+            x2 = ((n - 1.0) * x2 + x / Math.pow(x2, n - 1.0)) / n; 
+       } 
+       return x2; 
+       } 
+        /** Main **/ 
+      public static void main(String[] args) 
+      { 
+      Scanner scan = new Scanner(System.in); 
+          System.out.println("Nth Root Algorithm Test\n"); 
+             System.out.println("Enter n and x"); 
+        int n = scan.nextInt(); 
+        double x = scan.nextInt(); 
+        NthRoot nr = new NthRoot(); 
+        double root = nr.nthroot(n, x); 
+        System.out.println("\nRoot = "+ root); 
+         }     
+     }</Sourcecode_java>
+    <DateAdd_java>2015-04-08T16:17:27.223+07:00</DateAdd_java>
+  </JavaCode>
+  <JavaCode>
+    <JavaId>1</JavaId>
+    <Content_java>Horner Algorithm</Content_java>
+    <Sourcecode_java>Horner Algorithm
+
+import java.util.Scanner;
+
+       public class Horner
+         {
+        private int sum;
+         /** constructor **/
+        public Horner(int[] cof, int x)
+          {
+          sum = 0;
+           calcSum(cof, x, cof.length - 1);
+           display();
+        }
+
+      /** Calculate sum **/
+      private void calcSum(int[] cof, int x, int N)
+        {
+         sum = cof[N] * x;
+         for (int i = N - 1; i &gt;= 1; i--)
+         sum = (sum + cof[i]) * x;
+         sum += cof[0];
+        }
+
+          public void display()
+                            {
+                                System.out.println("Evaluated sum = "+ sum);
+                            }
+                              /** main method **/
+                            public static void main(String[] args)
+                            {
+                                Scanner scan = new Scanner(System.in);
+                                System.out.println("Horner Algorithm Test\n");
+                                System.out.println("Enter highest power");
+                                   int n = scan.nextInt();
+                                   int[] arr = new int[n + 1];
+                      System.out.println("\nEnter "+ (n + 1) +" coefficients in$ increasing order");
+                                   for (int i = 0; i &lt;= n; i++)
+                                   arr[i] = scan.nextInt();
+                      System.out.println("\nEnter x");
+                                   int x = scan.nextInt();
+                               Horner h = new Horner(arr, x);
+                            }
+                          }</Sourcecode_java>
+    <DateAdd_java>2015-04-08T16:15:27.907+07:00</DateAdd_java>
+  </JavaCode>
+</NewDataSet>
